@@ -6,18 +6,10 @@ using static Util;
 
 public class Monster : BaseObject
 {
-    [SerializeField] private float stateChangeSec = 3f;
-    [SerializeField] private bool CurFilpX 
-    { 
-        get { return spriteRenderer.flipX; }
-
-        set
-        {
-            spriteRenderer.flipX = !CurFilpX;
-            // 대가리 돌리기 자동화 해야함
-        }
-    }
-
+    [SerializeField] private int Front { get { return CurFilpX ? 1 : -1; } }
+    [SerializeField] private bool CurFilpX { get { return spriteRenderer.flipX; } set { spriteRenderer.flipX = !CurFilpX; } }
+    [Header("몬스터 스텟")][SerializeField] private StatInfo stat;
+    [Header("몬스터 행동시간 텀")][SerializeField] private float stateChangeSec = 3f;
     private SpriteRenderer spriteRenderer;
 
     protected override void Init()
@@ -27,6 +19,7 @@ public class Monster : BaseObject
         spriteRenderer = FindChild<SpriteRenderer>(this.gameObject);
 
         StartCoroutine(StateRandom());
+        StartCoroutine(FilpRotation());
     }
 
     private IEnumerator StateRandom() // 랜덤 행동 코루틴
@@ -40,7 +33,16 @@ public class Monster : BaseObject
 
             int rand = Random.Range(0, animList.Count);
             State = animList[rand];
+            StartCoroutine(FilpRotation());
         }
+    }
+
+    private IEnumerator FilpRotation()
+    {
+        float rand = Random.Range(1f, 2f);
+        yield return new WaitForSeconds(rand);
+
+        CurFilpX = !CurFilpX;
     }
 
     protected override void UpdateIdle()
@@ -50,6 +52,7 @@ public class Monster : BaseObject
 
     protected override void UpdateMove()
     {
-        
+        float clampX = Mathf.Clamp(transform.position.x + (Front * Time.deltaTime * 2f) , -21.5f, 23.5f);
+        transform.position = new Vector3(clampX, transform.position.y, 0);
     }
 }
