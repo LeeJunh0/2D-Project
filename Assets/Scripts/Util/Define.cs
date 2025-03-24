@@ -15,4 +15,12 @@ public static class Define
         Move,
         Doing,
     }
+
+    public enum Event_Type
+    {
+        Click,
+        Down,
+        Up
+    }
+
 }
