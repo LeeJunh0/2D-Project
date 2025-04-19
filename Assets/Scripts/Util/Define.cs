@@ -19,8 +19,13 @@ public static class Define
     public enum Event_Type
     {
         Click,
+        Enter,
+        Exit,
         Down,
-        Up
+        Up,
+        BeginDrag,
+        Drag,
+        EndDrag
     }
 
 }

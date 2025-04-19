@@ -6,10 +6,15 @@ using static Util;
 
 public class Monster : BaseObject
 {
+    [Header("¸ó½ºÅÍ ½ºÅÝ")]
+    [SerializeField] private StatInfo stat;
+
+    [Header("¸ó½ºÅÍ Çàµ¿½Ã°£ ÅÒ")]
+    [SerializeField] private float stateChangeSec = 3f;
+
     [SerializeField] private int Front { get { return CurFilpX ? 1 : -1; } }
     [SerializeField] private bool CurFilpX { get { return spriteRenderer.flipX; } set { spriteRenderer.flipX = !CurFilpX; } }
-    [Header("¸ó½ºÅÍ ½ºÅÝ")][SerializeField] private StatInfo stat;
-    [Header("¸ó½ºÅÍ Çàµ¿½Ã°£ ÅÒ")][SerializeField] private float stateChangeSec = 3f;
+    
     private SpriteRenderer spriteRenderer;
 
     protected override void Init()

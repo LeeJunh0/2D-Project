@@ -6,8 +6,11 @@ using static Util;
 
 public abstract class BaseObject : MonoBehaviour
 {
-    [Header("현재 상태")][SerializeField] private Object_State curState;
-    [Header("오브젝트 타입")][SerializeField] protected WorldObject_Type type = WorldObject_Type.None;
+    [Header("현재 상태")]
+    [SerializeField] private Object_State curState;
+
+    [Header("오브젝트 타입")]
+    [SerializeField] protected WorldObject_Type type = WorldObject_Type.None;
 
     private Animator anim;
     
