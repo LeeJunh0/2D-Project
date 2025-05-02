@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Util;
 
-public class UIArrow : UIBase
+public class UIArrow : MonoBehaviour
 {
     [Header("카메라옵션")]
     [SerializeField] private int dir;
     [SerializeField] private int speed;
     [SerializeField] private bool isClick;
 
-    public override void Init()
+    private void Awake()
     {
         AddEvent(gameObject, (evt) => { isClick = true; }, Define.Event_Type.Down);
         AddEvent(gameObject, (evt) => { isClick = false; }, Define.Event_Type.Up);

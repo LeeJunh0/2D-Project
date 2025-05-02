@@ -4,61 +4,61 @@
       "name": "Mushroom",
       "level": "1",
       "coinDefault": "1",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Mushroom",
       "level": "2",
       "coinDefault": "2",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Mushroom",
       "level": "3",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Mushroom",
       "level": "4",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Mushroom",
       "level": "5",
       "coinDefault": "5",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Mushroom",
       "level": "6",
       "coinDefault": "6",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Mushroom",
       "level": "7",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Mushroom",
       "level": "8",
       "coinDefault": "8",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Mushroom",
       "level": "9",
       "coinDefault": "9",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Mushroom",
       "level": "10",
       "coinDefault": "12",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Chicken": [
@@ -66,61 +66,61 @@
       "name": "Chicken",
       "level": "1",
       "coinDefault": "1",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chicken",
       "level": "2",
       "coinDefault": "2",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chicken",
       "level": "3",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chicken",
       "level": "4",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chicken",
       "level": "5",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chicken",
       "level": "6",
       "coinDefault": "8",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chicken",
       "level": "7",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chicken",
       "level": "8",
       "coinDefault": "11",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chicken",
       "level": "9",
       "coinDefault": "13",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chicken",
       "level": "10",
       "coinDefault": "14",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Chamel": [
@@ -128,61 +128,61 @@
       "name": "Chamel",
       "level": "1",
       "coinDefault": "2",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chamel",
       "level": "2",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chamel",
       "level": "3",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chamel",
       "level": "4",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Chamel",
       "level": "5",
       "coinDefault": "6",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chamel",
       "level": "6",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chamel",
       "level": "7",
       "coinDefault": "8",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chamel",
       "level": "8",
       "coinDefault": "9",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chamel",
       "level": "9",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Chamel",
       "level": "10",
       "coinDefault": "14",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Bunny": [
@@ -190,61 +190,61 @@
       "name": "Bunny",
       "level": "1",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Bunny",
       "level": "2",
       "coinDefault": "5",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "Bunny",
       "level": "3",
       "coinDefault": "5",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Bunny",
       "level": "4",
       "coinDefault": "5",
-      "coinCoefficient": "130"
+      "coinCoefficient": "1.3"
     },
     {
       "name": "Bunny",
       "level": "5",
       "coinDefault": "5",
-      "coinCoefficient": "140"
+      "coinCoefficient": "1.4"
     },
     {
       "name": "Bunny",
       "level": "6",
       "coinDefault": "5",
-      "coinCoefficient": "150"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Bunny",
       "level": "7",
       "coinDefault": "5",
-      "coinCoefficient": "160"
+      "coinCoefficient": "1.6"
     },
     {
       "name": "Bunny",
       "level": "8",
       "coinDefault": "5",
-      "coinCoefficient": "170"
+      "coinCoefficient": "1.7"
     },
     {
       "name": "Bunny",
       "level": "9",
       "coinDefault": "5",
-      "coinCoefficient": "180"
+      "coinCoefficient": "1.8"
     },
     {
       "name": "Bunny",
       "level": "10",
       "coinDefault": "10",
-      "coinCoefficient": "200"
+      "coinCoefficient": "2"
     }
   ],
   "GGonRock": [
@@ -252,61 +252,61 @@
       "name": "GGonRock",
       "level": "1",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "GGonRock",
       "level": "2",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "GGonRock",
       "level": "3",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "GGonRock",
       "level": "4",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "GGonRock",
       "level": "5",
       "coinDefault": "5",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "GGonRock",
       "level": "6",
       "coinDefault": "5",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "GGonRock",
       "level": "7",
       "coinDefault": "6",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "GGonRock",
       "level": "8",
       "coinDefault": "6",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "GGonRock",
       "level": "9",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "GGonRock",
       "level": "10",
       "coinDefault": "10",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.3"
     }
   ],
   "MRock": [
@@ -314,61 +314,61 @@
       "name": "MRock",
       "level": "1",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "MRock",
       "level": "2",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "MRock",
       "level": "3",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "MRock",
       "level": "4",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "MRock",
       "level": "5",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "MRock",
       "level": "6",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "MRock",
       "level": "7",
       "coinDefault": "8",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "MRock",
       "level": "8",
       "coinDefault": "8",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "MRock",
       "level": "9",
       "coinDefault": "9",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "MRock",
       "level": "10",
       "coinDefault": "12",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Snail": [
@@ -376,61 +376,61 @@
       "name": "Snail",
       "level": "1",
       "coinDefault": "1",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Snail",
       "level": "2",
       "coinDefault": "1",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Snail",
       "level": "3",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Snail",
       "level": "4",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Snail",
       "level": "5",
       "coinDefault": "5",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Snail",
       "level": "6",
       "coinDefault": "5",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Snail",
       "level": "7",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Snail",
       "level": "8",
       "coinDefault": "7",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Snail",
       "level": "9",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Snail",
       "level": "10",
       "coinDefault": "15",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Trunk": [
@@ -438,61 +438,61 @@
       "name": "Trunk",
       "level": "1",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Trunk",
       "level": "2",
       "coinDefault": "7",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Trunk",
       "level": "3",
       "coinDefault": "8",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Trunk",
       "level": "4",
       "coinDefault": "9",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Trunk",
       "level": "5",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Trunk",
       "level": "6",
       "coinDefault": "12",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Trunk",
       "level": "7",
       "coinDefault": "13",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Trunk",
       "level": "8",
       "coinDefault": "14",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Trunk",
       "level": "9",
       "coinDefault": "15",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.2"
     },
     {
       "name": "Trunk",
       "level": "10",
       "coinDefault": "17",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Slime": [
@@ -500,61 +500,61 @@
       "name": "Slime",
       "level": "1",
       "coinDefault": "2",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Slime",
       "level": "2",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Slime",
       "level": "3",
       "coinDefault": "6",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Slime",
       "level": "4",
       "coinDefault": "8",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Slime",
       "level": "5",
       "coinDefault": "10",
-      "coinCoefficient": "150"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Slime",
       "level": "6",
       "coinDefault": "12",
-      "coinCoefficient": "150"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Slime",
       "level": "7",
       "coinDefault": "14",
-      "coinCoefficient": "150"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Slime",
       "level": "8",
       "coinDefault": "16",
-      "coinCoefficient": "150"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Slime",
       "level": "9",
       "coinDefault": "18",
-      "coinCoefficient": "150"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Slime",
       "level": "10",
       "coinDefault": "20",
-      "coinCoefficient": "200"
+      "coinCoefficient": "2"
     }
   ],
   "AngryPig": [
@@ -562,61 +562,61 @@
       "name": "AngryPig",
       "level": "1",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "AngryPig",
       "level": "2",
       "coinDefault": "6",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "AngryPig",
       "level": "3",
       "coinDefault": "7",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "AngryPig",
       "level": "4",
       "coinDefault": "8",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "AngryPig",
       "level": "5",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "AngryPig",
       "level": "6",
       "coinDefault": "11",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "AngryPig",
       "level": "7",
       "coinDefault": "13",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "AngryPig",
       "level": "8",
       "coinDefault": "15",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "AngryPig",
       "level": "9",
       "coinDefault": "17",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "AngryPig",
       "level": "10",
       "coinDefault": "20",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Rino": [
@@ -624,61 +624,61 @@
       "name": "Rino",
       "level": "1",
       "coinDefault": "1",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Rino",
       "level": "2",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Rino",
       "level": "3",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Rino",
       "level": "4",
       "coinDefault": "7",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Rino",
       "level": "5",
       "coinDefault": "10",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "Rino",
       "level": "6",
       "coinDefault": "13",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "Rino",
       "level": "7",
       "coinDefault": "16",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "Rino",
       "level": "8",
       "coinDefault": "19",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "Rino",
       "level": "9",
       "coinDefault": "22",
-      "coinCoefficient": "110"
+      "coinCoefficient": "1.1"
     },
     {
       "name": "Rino",
       "level": "10",
       "coinDefault": "25",
-      "coinCoefficient": "120"
+      "coinCoefficient": "1.2"
     }
   ],
   "Radish": [
@@ -686,61 +686,61 @@
       "name": "Radish",
       "level": "1",
       "coinDefault": "10",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Radish",
       "level": "2",
       "coinDefault": "9",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Radish",
       "level": "3",
       "coinDefault": "8",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Radish",
       "level": "4",
       "coinDefault": "7",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1"
     },
     {
       "name": "Radish",
       "level": "5",
       "coinDefault": "6",
-      "coinCoefficient": "100"
+      "coinCoefficient": "1.5"
     },
     {
       "name": "Radish",
       "level": "6",
       "coinDefault": "5",
-      "coinCoefficient": "100"
+      "coinCoefficient": "2"
     },
     {
       "name": "Radish",
       "level": "7",
       "coinDefault": "4",
-      "coinCoefficient": "100"
+      "coinCoefficient": "2"
     },
     {
       "name": "Radish",
       "level": "8",
       "coinDefault": "3",
-      "coinCoefficient": "100"
+      "coinCoefficient": "2"
     },
     {
       "name": "Radish",
       "level": "9",
       "coinDefault": "2",
-      "coinCoefficient": "100"
+      "coinCoefficient": "2"
     },
     {
       "name": "Radish",
       "level": "10",
       "coinDefault": "1",
-      "coinCoefficient": "2000"
+      "coinCoefficient": "20"
     }
   ]
 }
