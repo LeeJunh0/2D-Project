@@ -9,12 +9,19 @@ public class MainManager : MonoBehaviour
 
     private static MainManager Instance { get { Init(); return instance; } }
 
+    // Not MonoBehaviour
     private DataManager dataManager = new DataManager();
     private ResourceManager resourceManager = new ResourceManager();
     private UIManager uIManager = new UIManager();
+
     public static DataManager Data { get { return Instance.dataManager; } }
     public static ResourceManager Resource {  get { return Instance.resourceManager; } }
     public static UIManager UI { get { return Instance.uIManager; } }
+
+    // MonoBehaviour
+    [SerializeField] private PlayerDataManager playerDataManager;
+
+    public static PlayerDataManager PlayerData { get { return Instance.playerDataManager; } }
 
     static private void Init()
     {

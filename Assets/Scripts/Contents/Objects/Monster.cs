@@ -7,7 +7,9 @@ using static Util;
 public class Monster : BaseObject
 {
     [Header("몬스터 스텟")]
-    [SerializeField] private StatInfo stat;
+    [SerializeField] private string monsterName;
+    [SerializeField] private MonsterStat stat;
+    [SerializeField] private float createTime;
 
     [Header("몬스터 행동시간 텀")]
     [SerializeField] private float stateChangeSec = 3f;
@@ -16,14 +18,18 @@ public class Monster : BaseObject
     [SerializeField] private bool CurFilpX { get { return spriteRenderer.flipX; } set { spriteRenderer.flipX = !CurFilpX; } }
     
     private SpriteRenderer spriteRenderer;
+    private RevenueObject revenue;
 
     protected override void Init()
     {
         type = WorldObject_Type.Monster; 
-        State = Object_State.Idle;
-        spriteRenderer = FindChild<SpriteRenderer>(this.gameObject);
+        State = Object_State.Idle; 
 
+        spriteRenderer = FindChild<SpriteRenderer>(this.gameObject);
+        revenue = FindChild<RevenueObject>(this.gameObject);
+ 
         StartCoroutine(StateRandom());
+        StartCoroutine(GoldCreate());
         StartCoroutine(FilpRotation());
     }
 
@@ -39,6 +45,20 @@ public class Monster : BaseObject
             int rand = Random.Range(0, animList.Count);
             State = animList[rand];
             StartCoroutine(FilpRotation());
+        }
+    }
+
+    private IEnumerator GoldCreate()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(createTime);
+
+            MainManager.PlayerData.Gold += 10;
+            MainManager.PlayerData.TextUpdate();
+
+            // UI 초기화 및 생성
+            revenue.CreateRevenue(10);
         }
     }
 
