@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9176815864189799699}
   - component: {fileID: 4276462238344487829}
+  - component: {fileID: 8221997420104865863}
   m_Layer: 0
   m_Name: Rino
   m_TagString: Untagged
@@ -78,6 +79,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5147285, y: 0.8979817}
   m_EdgeRadius: 0
+--- !u!114 &8221997420104865863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206444274180910074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7af4f366037954d86c00a82c02f0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curState: 0
+  type: 1
+  monsterName: Rino
+  createTime: 2
+  stateChangeSec: 3
 --- !u!1 &2909179504016515093
 GameObject:
   m_ObjectHideFlags: 0

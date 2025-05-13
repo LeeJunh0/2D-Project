@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Pipeline;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -13,15 +15,18 @@ public class MainManager : MonoBehaviour
     private DataManager dataManager = new DataManager();
     private ResourceManager resourceManager = new ResourceManager();
     private UIManager uIManager = new UIManager();
+    private AddressableManager addressableManager = new AddressableManager();
 
-    public static DataManager Data { get { return Instance.dataManager; } }
-    public static ResourceManager Resource {  get { return Instance.resourceManager; } }
-    public static UIManager UI { get { return Instance.uIManager; } }
+    public static DataManager Data { get => Instance.dataManager; }
+    public static ResourceManager Resource { get => Instance.resourceManager; }
+    public static UIManager UI { get => Instance.uIManager; }
+    public static AddressableManager Addressable { get => Instance.addressableManager; }
 
     // MonoBehaviour
     [SerializeField] private PlayerDataManager playerDataManager;
-
-    public static PlayerDataManager PlayerData { get { return Instance.playerDataManager; } }
+    [SerializeField] private CameraManager cameraManager;
+    public static PlayerDataManager PlayerData { get => Instance.playerDataManager; }
+    public static CameraManager Cam { get => Instance.cameraManager; }
 
     static private void Init()
     {
@@ -41,5 +46,11 @@ public class MainManager : MonoBehaviour
         Init();
 
         Data.Init();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            SceneManager.LoadScene("Game");
     }
 }

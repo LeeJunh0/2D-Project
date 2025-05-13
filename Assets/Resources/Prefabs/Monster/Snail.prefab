@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5682270009781225178}
   - component: {fileID: 5080119217832370727}
+  - component: {fileID: -758962683968384308}
   m_Layer: 0
   m_Name: Snail
   m_TagString: Untagged
@@ -184,3 +185,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0331291, y: 0.7199304}
   m_EdgeRadius: 0
+--- !u!114 &-758962683968384308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065240248317780582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7af4f366037954d86c00a82c02f0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curState: 0
+  type: 1
+  monsterName: Snail
+  createTime: 2
+  stateChangeSec: 3

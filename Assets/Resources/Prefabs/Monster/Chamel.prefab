@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4672967641594380793}
   - component: {fileID: 2733137540658990235}
+  - component: {fileID: -753615548651477197}
   m_Layer: 0
   m_Name: Chamel
   m_TagString: Untagged
@@ -31,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5984007837896478402}
+  - {fileID: 3520270652845487604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2733137540658990235
@@ -78,6 +80,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-753615548651477197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083410921320230909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7af4f366037954d86c00a82c02f0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curState: 0
+  type: 1
+  monsterName: Chamel
+  createTime: 2
+  stateChangeSec: 3
 --- !u!1 &4912645659850442566
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,3 +203,65 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &4410351699314513442
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4672967641594380793}
+    m_Modifications:
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576284222105090869, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_Name
+      value: RevenueObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+--- !u!4 &3520270652845487604 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+  m_PrefabInstance: {fileID: 4410351699314513442}
+  m_PrefabAsset: {fileID: 0}
