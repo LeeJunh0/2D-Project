@@ -3,20 +3,28 @@ using System.Collections.Generic;
 
 public static class Define
 {
-    public enum WorldObject_Type
+    public enum EWorldObject_Type
     {
         None,
         Monster,
     }
 
-    public enum Object_State
+    public enum EObject_State
     {
         Idle,
         Move,
         Doing,
     }
 
-    public enum Event_Type
+    public enum EUI_MenuType
+    {
+        Upgrade = 0,
+        Inventory,
+        Option,
+        None
+    }
+
+    public enum EEvent_Type
     {
         Click,
         Enter,
@@ -28,4 +36,11 @@ public static class Define
         EndDrag
     }
 
+    public enum EWindowPos
+    {
+        Left,
+        Right,
+        Top,
+        Bottom
+    }
 }

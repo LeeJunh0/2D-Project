@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Define;
-using static Util;
 
 public class Monster : BaseObject
 {
@@ -22,11 +21,11 @@ public class Monster : BaseObject
 
     protected override void Init()
     {
-        type = WorldObject_Type.Monster; 
-        State = Object_State.Idle; 
+        type = EWorldObject_Type.Monster; 
+        State = EObject_State.Idle; 
 
-        spriteRenderer = FindChild<SpriteRenderer>(this.gameObject);
-        revenue = FindChild<RevenueObject>(this.gameObject);
+        spriteRenderer = gameObject.FindChild<SpriteRenderer>();
+        revenue = gameObject.FindChild<RevenueObject>();
  
         StartCoroutine(StateRandom());
         StartCoroutine(GoldCreate());
@@ -37,7 +36,7 @@ public class Monster : BaseObject
     {
         while(true)
         {
-            List<Object_State> animList = new List<Object_State>() { Object_State.Idle, Object_State.Move, Object_State.Doing };
+            List<EObject_State> animList = new List<EObject_State>() { EObject_State.Idle, EObject_State.Move, EObject_State.Doing };
             animList.Remove(State);
 
             yield return new WaitForSeconds(stateChangeSec);
@@ -54,11 +53,13 @@ public class Monster : BaseObject
         {
             yield return new WaitForSeconds(createTime);
 
-            MainManager.PlayerData.Gold += 10;
+            // 몬스터 수익
+            double gold = stat.CoinDefault * stat.CoinCoefficient;
+            MainManager.PlayerData.Gold += gold;
             MainManager.PlayerData.TextUpdate();
 
             // UI 초기화 및 생성
-            revenue.CreateRevenue(10);
+            revenue.CreateRevenue(gold);
         }
     }
 

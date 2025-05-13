@@ -16,7 +16,7 @@ public class RevenueObject : MonoBehaviour
         goldText.text = ExChanger.GoldToText(gold);
         OnRevenueText();
     }
-
+0
     private void InitUI()
     {
         group.alpha = 1;

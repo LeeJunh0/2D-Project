@@ -20,7 +20,6 @@ public class PlayerDataManager : MonoBehaviour
     {
         LoadData();
         SaveData();
-        TextUpdate();
     }
 
     private void LoadData()
@@ -42,6 +41,9 @@ public class PlayerDataManager : MonoBehaviour
 
     public void TextUpdate()
     {
+        if (goldText == null)
+            goldText = GameObject.Find("CoinText").GetOrAddComponent<TextMeshProUGUI>();
+
         goldText.text = ExChanger.GoldToText(playerInfo.gold);
     }
 }

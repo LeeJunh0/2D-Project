@@ -2,35 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Define;
-using static Util;
 
 public abstract class BaseObject : MonoBehaviour
 {
     [Header("현재 상태")]
-    [SerializeField] private Object_State curState;
+    [SerializeField] private EObject_State curState;
 
     [Header("오브젝트 타입")]
-    [SerializeField] protected WorldObject_Type type = WorldObject_Type.None;
+    [SerializeField] protected EWorldObject_Type type = EWorldObject_Type.None;
 
     private Animator anim;
     
-    public virtual Object_State State
+    public virtual EObject_State State
     {
         get { return curState; }
         set
         {
-            anim = FindChild<Animator>(this.gameObject);
+            anim = gameObject.FindChild<Animator>();
             curState = value;
 
             switch (curState)
             {
-                case Object_State.Idle:
+                case EObject_State.Idle:
                     anim.CrossFade("Idle", 0.1f);
                     break;
-                case Object_State.Move:
+                case EObject_State.Move:
                     anim.CrossFade("Move", 0.1f);
                     break;
-                case Object_State.Doing:
+                case EObject_State.Doing:
                     anim.CrossFade("Doing", 0.1f);
                     break;
             }
@@ -52,13 +51,13 @@ public abstract class BaseObject : MonoBehaviour
     {
         switch (State)
         {
-            case Object_State.Idle:
+            case EObject_State.Idle:
                 UpdateIdle();
                 break;
-            case Object_State.Move:
+            case EObject_State.Move:
                 UpdateMove();
                 break;
-            case Object_State.Doing:
+            case EObject_State.Doing:
                 UpdateDoing();
                 break;
         }

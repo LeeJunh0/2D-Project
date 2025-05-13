@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5994170024470458639}
   - component: {fileID: 9052402645644432961}
+  - component: {fileID: -1481917587662712057}
   m_Layer: 0
   m_Name: Radish
   m_TagString: Untagged
@@ -78,6 +79,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9326511, y: 0.9632642}
   m_EdgeRadius: 0
+--- !u!114 &-1481917587662712057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577508745623112767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7af4f366037954d86c00a82c02f0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curState: 0
+  type: 1
+  monsterName: Radish
+  createTime: 2
+  stateChangeSec: 3
 --- !u!1 &3926703597714368663
 GameObject:
   m_ObjectHideFlags: 0

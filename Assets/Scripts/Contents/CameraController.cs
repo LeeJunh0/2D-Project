@@ -8,4 +8,6 @@ public class CameraController : MonoBehaviour
     {
         GL.Clear(true, true, Color.black);
     }
+
+
 }

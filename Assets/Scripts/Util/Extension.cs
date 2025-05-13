@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-static public class Util 
+static public class Extension
 {
-    static public T GetOrAddComponent<T>(GameObject go) where T : Component
+    static public T GetOrAddComponent<T>(this GameObject go) where T : Component
     {
         if(go.GetComponent<T>() == null)
             return go.AddComponent<T>();
@@ -14,7 +14,7 @@ static public class Util
         return go.GetComponent<T>();
     }
 
-    static public T FindChild<T>(GameObject go) where T : Component
+    static public T FindChild<T>(this GameObject go) where T : Component
     {
         T child = go.GetComponentInChildren<T>();
         if (child == null)
@@ -23,34 +23,34 @@ static public class Util
         return child;
     }
 
-    public static void AddEvent(GameObject go, Action<PointerEventData> action, Define.Event_Type type = Define.Event_Type.Click)
+    public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.Click)
     {
         UIEventHandler evt = GetOrAddComponent<UIEventHandler>(go);
 
         switch (type)
         {
-            case Define.Event_Type.Click:
+            case Define.EEvent_Type.Click:
                 evt.onClick += action;
                 break;
-            case Define.Event_Type.Enter:
+            case Define.EEvent_Type.Enter:
                 evt.onEnter += action;
                 break;
-            case Define.Event_Type.Exit:
+            case Define.EEvent_Type.Exit:
                 evt.onExit += action;
                 break;
-            case Define.Event_Type.Down:
+            case Define.EEvent_Type.Down:
                 evt.onDown += action;
                 break;
-            case Define.Event_Type.Up:
+            case Define.EEvent_Type.Up:
                 evt.onUp += action;
                 break;
-            case Define.Event_Type.BeginDrag:
+            case Define.EEvent_Type.BeginDrag:
                 evt.onBeginDrag += action;
                 break;
-            case Define.Event_Type.Drag:
+            case Define.EEvent_Type.Drag:
                 evt.onDrag += action;
                 break;
-            case Define.Event_Type.EndDrag:
+            case Define.EEvent_Type.EndDrag:
                 evt.onEndDrag += action;
                 break;
         }
