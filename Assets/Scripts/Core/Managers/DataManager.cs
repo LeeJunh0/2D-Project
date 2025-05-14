@@ -20,9 +20,14 @@ public class DataManager
         MonsterDataDict = PasingMonsterUIJsonData(JsonLoad("2D_Project_MonsterData"));
     }
 
-    public string JsonLoad(string path)
+    public string LocalJsonLoad(string path)
     {
         TextAsset json = Resources.Load<TextAsset>("JsonDatas/" + path);
+        return json.text;
+    }
+    public string JsonLoad(string path)
+    {
+        TextAsset json = MainManager.Addressable.Load<TextAsset>(path);
         return json.text;
     }
 

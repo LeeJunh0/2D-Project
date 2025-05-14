@@ -25,7 +25,7 @@ static public class Extension
 
     public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.Click)
     {
-        UIEventHandler evt = GetOrAddComponent<UIEventHandler>(go);
+        UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);
 
         switch (type)
         {
