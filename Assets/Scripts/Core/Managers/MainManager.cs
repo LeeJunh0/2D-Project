@@ -23,8 +23,11 @@ public class MainManager : MonoBehaviour
     public static AddressableManager Addressable { get => Instance.addressableManager; }
 
     // MonoBehaviour
+    [SerializeField] private LoadingManager loadingManager;
     [SerializeField] private PlayerDataManager playerDataManager;
     [SerializeField] private CameraManager cameraManager;
+
+    public static LoadingManager Loading { get => Instance.loadingManager; }
     public static PlayerDataManager PlayerData { get => Instance.playerDataManager; }
     public static CameraManager Cam { get => Instance.cameraManager; }
 
