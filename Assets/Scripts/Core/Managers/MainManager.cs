@@ -48,12 +48,14 @@ public class MainManager : MonoBehaviour
     {
         Init();
 
-        Data.Init();
-    }
+        Addressable.LoadAsyncAll<Object>("Game", (key, cur, total) =>
+        {
+            Debug.Log($"{key} {cur}/{total}");
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SceneManager.LoadScene("Game");
+            if(total == cur)
+            {
+                Data.Init();
+            }
+        });       
     }
 }

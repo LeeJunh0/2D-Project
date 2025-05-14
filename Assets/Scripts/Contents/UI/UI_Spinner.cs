@@ -18,7 +18,6 @@ public class UI_Spinner : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         while(true)
         {
-            Debug.Log(rect.rotation.z + 360f);
             sequence.Prepend(rect.DORotate(new Vector3(0, 0, rect.rotation.z + 360f), 1.5f, RotateMode.FastBeyond360));
             yield return new WaitForSeconds(2f);
         }      

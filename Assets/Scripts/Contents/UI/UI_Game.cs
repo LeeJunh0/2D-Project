@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static Define;
 
-public class UIGame : MonoBehaviour
+public class UI_Game : MonoBehaviour
 {
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
