@@ -1,18 +1,24 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Test : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform pos;
+
+    private void Awake()
     {
-        
+        gameObject.AddEvent((evt) =>
+        {
+
+        });
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CreateMonster()
     {
-        
+        GameObject go = MainManager.Resource.Instantiate("AngryPig");
+        go.transform.position = new Vector3(pos.position.x, go.transform.position.y, pos.position.z);
     }
 }

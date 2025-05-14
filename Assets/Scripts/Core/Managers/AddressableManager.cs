@@ -44,7 +44,7 @@ public class AddressableManager
         };
     }
 
-    private void LoadAsyncAll<T> (string key, Action<string, int, int> action) where T : Object
+    public void LoadAsyncAll<T> (string key, Action<string, int, int> action) where T : Object
     {
         AsyncOperationHandle<IList<IResourceLocation>> handle = Addressables.LoadResourceLocationsAsync(key, typeof(T));
 

@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 35de7e3f37382514c904b625d5df1630
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 52f4d95ca5fe95445883b206f45c0fd7
+    m_Address: AngryPig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 82bd423c4f6a44b41ae1f2769023f7ce, type: 2}
   m_SchemaSet:
