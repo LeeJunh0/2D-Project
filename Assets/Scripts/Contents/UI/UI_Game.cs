@@ -28,6 +28,11 @@ public class UI_Game : MonoBehaviour
         optionButton.AddEvent(OnOption);
     }
 
+    private void OnEnable()
+    {
+        MainManager.PlayerData.TextUpdate();
+    }
+
     private void OnMenuBackGround()
     {
         menuBackGround.SetActive(true);

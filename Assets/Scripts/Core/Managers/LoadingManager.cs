@@ -20,38 +20,38 @@ public class LoadingManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SceneLoading(string sceneName)
-    {
-        blackScreen.DOFade(1, 1f).OnStart(() =>
-        {
-            blackScreen.blocksRaycasts = true; 
-        }).OnComplete(() =>
-        {
-            AssetLoading(sceneName);
-        });
-    }
+    //public void SceneLoading(string sceneName)
+    //{
+    //    blackScreen.DOFade(1, 1f).OnStart(() =>
+    //    {
+    //        blackScreen.blocksRaycasts = true; 
+    //    }).OnComplete(() =>
+    //    {
+    //        AssetLoading(sceneName);
+    //    });
+    //}
 
-    private void AssetLoading(string sceneName)
-    {
-        loadingUI.SetActive(true);
-        MainManager.Addressable.LoadAsyncAll<Object>(sceneName, (key, cur, total) =>
-        {
-            Debug.Log($"{key} {cur}/{total}");
+    //private void AssetLoading(string sceneName)
+    //{
+    //    loadingUI.SetActive(true);
+    //    MainManager.Addressable.LoadAsyncAll<Object>(sceneName, (key, cur, total) =>
+    //    {
+    //        Debug.Log($"{key} {cur}/{total}");
 
-            if(total == cur)
-                StartCoroutine(SceneLoad(sceneName));
-        });
-    }
+    //        if(total == cur)
+    //            StartCoroutine(SceneLoad(sceneName));
+    //    });
+    //}
 
-    private IEnumerator SceneLoad(string sceneName)
-    {
-        AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
-        while(op.isDone == false)
-        {
-            yield return null;
-        }
+    //private IEnumerator SceneLoad(string sceneName)
+    //{
+    //    AsyncOperation op = SceneManager.LoadSceneAsync(sceneName);
+    //    while(op.isDone == false)
+    //    {
+    //        yield return null;
+    //    }
         
-        loadingUI.SetActive(false);
-        blackScreen.DOFade(0, 1f).OnStart(() => { blackScreen.blocksRaycasts = false; });
-    }
+    //    loadingUI.SetActive(false);
+    //    blackScreen.DOFade(0, 1f).OnStart(() => { blackScreen.blocksRaycasts = false; });
+    //}
 }

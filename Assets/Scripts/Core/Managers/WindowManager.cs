@@ -32,8 +32,7 @@ public class WindowManager : MonoBehaviour
 
     private void Awake()
     {
-        //UpdateWindowPos();
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
