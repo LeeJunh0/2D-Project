@@ -12,29 +12,43 @@ public class PlayerDataManager : MonoBehaviour
     [SerializeField] private PlayerInfo playerInfo;
 
     [SerializeField] private TextMeshProUGUI goldText;
-    private string path = Path.Combine(Application.dataPath, "Resources", "JsonDatas", "PlayerData.json");
 
     public double Gold { get { return playerInfo.gold; }  set { playerInfo.gold = value; } }
 
     private void Awake()
     {
         LoadData();
-        SaveData();
     }
 
     private void LoadData()
     {
-        playerInfo = JsonConvert.DeserializeObject<PlayerInfo>(MainManager.Data.JsonLoad("PlayerData"));
-
-        if (playerInfo == null) 
+        string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
+        if(File.Exists(path) == false)
         {
-            playerInfo = new PlayerInfo();
-            playerInfo.gold = 0;
+            Debug.Log("Not Find Data");
+            CreateNewData();
+            Debug.Log("New Data Create Complete");
         }
+
+        string jsonData = File.ReadAllText(path);
+        playerInfo = JsonConvert.DeserializeObject<PlayerInfo>(jsonData);
+        Debug.Log("PlayerData Load Complete");
+    }
+
+    private void CreateNewData()
+    {
+        playerInfo = new PlayerInfo();
+        playerInfo.gold = 0;
+
+        string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
+        StreamWriter streamWriter = new StreamWriter(path);
+        streamWriter.Close();
+        SaveData();
     }
 
     private void SaveData()
     {
+        string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         string jsonData = JsonConvert.SerializeObject(playerInfo, Formatting.Indented);
         File.WriteAllText(path, jsonData);
     }

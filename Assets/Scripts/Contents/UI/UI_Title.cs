@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UI_Title : MonoBehaviour
 {
+    [SerializeField] private GameObject game;
+
     [Header("타이틀 메뉴버튼들")]
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject exitButton;
@@ -21,6 +24,16 @@ public class UI_Title : MonoBehaviour
 
     private void GameStart(PointerEventData eventData)
     {
-        MainManager.Loading.SceneLoading("Game");
+        MainManager.Addressable.LoadAsyncAll<Object>("Game", (key, cur, total) =>
+        {
+            if (cur == total)
+            {
+                gameObject.SetActive(false);
+                Camera.main.transform.DOMove(new Vector3(0f, 4.42f, -10f), 3f).OnComplete(() =>
+                {
+                    game.SetActive(true);
+                });
+            }
+        });
     }
 }

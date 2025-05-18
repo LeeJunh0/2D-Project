@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using System.IO;
 
 public interface ILoader<Key, Value>
 {
@@ -16,15 +17,10 @@ public class DataManager
 
     public void Init()
     {
-        MonsterLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_MonsterLevelData"));
+        MonsterLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_MonsterlevelData"));
         MonsterDataDict = PasingMonsterUIJsonData(JsonLoad("2D_Project_MonsterData"));
     }
 
-    public string LocalJsonLoad(string path)
-    {
-        TextAsset json = Resources.Load<TextAsset>("JsonDatas/" + path);
-        return json.text;
-    }
     public string JsonLoad(string path)
     {
         TextAsset json = MainManager.Addressable.Load<TextAsset>(path);

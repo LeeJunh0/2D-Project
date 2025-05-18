@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -8,6 +10,4 @@ public class CameraController : MonoBehaviour
     {
         GL.Clear(true, true, Color.black);
     }
-
-
 }
