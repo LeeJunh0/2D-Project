@@ -29,9 +29,11 @@ public class UI_Title : MonoBehaviour
             if (cur == total)
             {
                 gameObject.SetActive(false);
-                Camera.main.transform.DOMove(new Vector3(0f, 4.42f, -10f), 3f).OnComplete(() =>
+                MainManager.PlayerData.LoadData();
+
+                Camera.main.transform.DOMove(new Vector3(0f, 3.1f, -10f), 3f).OnComplete(() =>
                 {
-                    game.SetActive(true);
+                    game.SetActive(true);               
                 });
             }
         });

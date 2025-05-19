@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class MonsterStat
 {
-    private string name;
-    private int level;
-    private float coinDefault;
-    private float coinCoefficient;
+    public string name;
+    public int level;
+    public float coinDefault;
+    public float coinCoefficient;
 
     public int Level 
     { 

@@ -23,27 +23,12 @@ public class UI_Game : MonoBehaviour
 
     private void Awake()
     {
-        upgradeButton.AddEvent(OnUpgrade);
-        inventoryButton.AddEvent(OnInventory);
-        optionButton.AddEvent(OnOption);
+
     }
 
     private void OnEnable()
     {
         MainManager.PlayerData.TextUpdate();
-    }
-
-    private void OnMenuBackGround()
-    {
-        menuBackGround.SetActive(true);
-        MainManager.Cam.SetCameraDeptqh("TabCamera");
-    }
-
-    private void OffMenuBackGround()
-    {
-        menuBackGround.SetActive(false);
-        MainManager.Cam.SetCameraDeptqh("MainCamera");
-        curMenu = EUI_MenuType.None;
     }
 
     private void SetMenu(EUI_MenuType type)
@@ -55,44 +40,5 @@ public class UI_Game : MonoBehaviour
             else
                 menus[i].SetActive(false);
         }
-    }
-
-    private void OnUpgrade(PointerEventData eventData)
-    {
-        if(curMenu == EUI_MenuType.Upgrade)
-        {
-            OffMenuBackGround();
-            return;
-        }
-
-        OnMenuBackGround();
-        curMenu = EUI_MenuType.Upgrade;
-        SetMenu(curMenu);
-    }
-
-    private void OnInventory(PointerEventData eventData)
-    {
-        if(curMenu == EUI_MenuType.Inventory)
-        {
-            OffMenuBackGround();
-            return;
-        }
-
-        OnMenuBackGround();
-        curMenu = EUI_MenuType.Inventory;
-        SetMenu(curMenu);
-    }
-
-    private void OnOption(PointerEventData eventData)
-    {
-        if (curMenu == EUI_MenuType.Option)
-        {
-            OffMenuBackGround();
-            return;
-        }
-
-        OnMenuBackGround();
-        curMenu = EUI_MenuType.Option;
-        SetMenu(curMenu);
     }
 }

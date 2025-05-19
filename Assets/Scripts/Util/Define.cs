@@ -38,8 +38,6 @@ public static class Define
 
     public enum EWindowPos
     {
-        Left,
-        Right,
         Top,
         Bottom
     }
