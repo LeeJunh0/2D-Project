@@ -7,7 +7,13 @@ using UnityEngine.EventSystems;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 static public class Extension
-{ 
+{
+    static public void CameraMove(this Camera camera, float dir, float speed)
+    {
+        float X = Mathf.Clamp(Camera.main.transform.position.x + dir * Time.deltaTime * speed, -4.6f, 6.6f);
+        Camera.main.transform.position = new Vector3(X, Camera.main.transform.position.y, Camera.main.transform.position.z);
+    }
+
     static public T GetOrAddComponent<T>(this GameObject go) where T : Component
     {
         if(go.GetComponent<T>() == null)

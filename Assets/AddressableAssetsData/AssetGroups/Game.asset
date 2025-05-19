@@ -35,6 +35,72 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5f4c582344c5714f878337784464790
+    m_Address: Trunk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18fe25642e3e41d4abde778d6c19db65
+    m_Address: Snail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e2f9a193cc34d14e91e5ef893e5aeb2
+    m_Address: Radish
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b77b2714635a91a42941afe1da167695
+    m_Address: Rino
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08e3b75560f862d4c8194b7e62f9ba1d
+    m_Address: Slime
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90f86c991d004d94c9ca373a117ec652
+    m_Address: Bunny
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9a2460b36b273a49b39f3cb23eb6710
+    m_Address: Mushroom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f194e88cd97438c498acddba9fe92dc5
+    m_Address: Chamel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93fe9821707911747890a7fd18d6b8f1
+    m_Address: Chicken
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc5bdfba60fea1e4ba2b728226e949a2
+    m_Address: GGonRock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 826cc9d59a5e18f448d4921764bd2e19
+    m_Address: MRock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 82bd423c4f6a44b41ae1f2769023f7ce, type: 2}
   m_SchemaSet:

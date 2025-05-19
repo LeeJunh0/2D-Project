@@ -17,21 +17,27 @@ public class WindowManager : MonoBehaviour
     private readonly uint windowPopup = 0x80000000;     
     private readonly int windowDisabled = 0x08000000;  
     private readonly int windowVisble = 0x10000000;
-    private const uint showWindow = 0x0040;
     private readonly IntPtr level = new IntPtr(-1);
+    private readonly uint showWindow = 0x0040;
 
-    [SerializeField] int gameSizeX = 600;
+
+    [SerializeField] int gameSizeX;
     [SerializeField] int gameSizeY;
 
     private int screenX;
     private int screenY;
     private Resolution curSize;
 
-    private EWindowPos type = EWindowPos.Right;
+    private EWindowPos type = EWindowPos.Bottom;
     public EWindowPos Type { get => type; set { type = value; UpdateWindowPos(); } }
 
     private void Awake()
     {
+        #if UNITY_EDITOR
+        #else
+        Type = EWindowPos.Bottom;
+        #endif
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -42,28 +48,28 @@ public class WindowManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Type = EWindowPos.Left;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            Type = EWindowPos.Top;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            Type = EWindowPos.Right;
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            Type = EWindowPos.Bottom;
     }
 
     private void UpdateScreenSize()
     {
         curSize = Screen.currentResolution;
-        gameSizeX = 600;
-        gameSizeY = curSize.height;
+        gameSizeX = curSize.width;
+        gameSizeY = 400;
 
         switch (type)
         {
-            case EWindowPos.Left:
+            case EWindowPos.Top:
                 screenX = 0;
                 screenY = 0;
                 break;
-            case EWindowPos.Right:
-                screenX = curSize.width - gameSizeX;
-                screenY = 0;
+            case EWindowPos.Bottom:
+                screenX = 0;
+                screenY = curSize.height - 400;
                 break;
         }
     }

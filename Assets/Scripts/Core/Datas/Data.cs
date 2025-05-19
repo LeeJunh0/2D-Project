@@ -6,7 +6,28 @@ using UnityEngine;
 public class PlayerInfo
 {
     public double gold;
-    public List<MonsterStat> monsters;
+    public Dictionary<string, MonsterStat> monsters;
+    public Dictionary<string, SerializableVector3> posDict;
+}
+
+[System.Serializable]
+public struct SerializableVector3
+{
+    public float x;
+    public float y;
+    public float z;
+
+    public SerializableVector3(Vector3 vector)
+    {
+        x = vector.x;
+        y = vector.y;
+        z = vector.z;
+    }
+
+    public Vector3 ToVector3()
+    {
+        return new Vector3(x, y, z);
+    }
 }
 
 [System.Serializable]

@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private List<Camera> cameras;
-
-    public void SetCameraDeptqh(string name)
+    private void Update()
     {
-        if (cameras.Count == 0)
-            return;
+        if (Input.GetKey(KeyCode.A))
+            Camera.main.CameraMove(-1, 3f);
 
-        foreach(Camera cam in cameras)
-        {
-            if (name == cam.name)
-                cam.depth = 1;
-            else
-                cam.depth = 0;
-        }
+        if (Input.GetKey(KeyCode.D))
+            Camera.main.CameraMove(1, 3f);
     }
 }

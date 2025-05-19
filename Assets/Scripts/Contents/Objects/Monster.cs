@@ -15,9 +15,11 @@ public class Monster : BaseObject
 
     [SerializeField] private int Front { get { return CurFilpX ? 1 : -1; } }
     [SerializeField] private bool CurFilpX { get { return spriteRenderer.flipX; } set { spriteRenderer.flipX = !CurFilpX; } }
-    
+
     private SpriteRenderer spriteRenderer;
     private RevenueObject revenue;
+
+    public MonsterStat Stat { get => stat; }
 
     protected override void Init()
     {
