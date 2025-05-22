@@ -18,15 +18,16 @@ public static class Define
 
     public enum EUI_MenuType
     {
-        Upgrade = 0,
-        Inventory,
+        Status = 0,
+        Building,
         Option,
         None
     }
 
     public enum EEvent_Type
     {
-        Click,
+        LeftClick,
+        RightClick,
         Enter,
         Exit,
         Down,

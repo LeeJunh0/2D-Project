@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,20 +11,54 @@ public class UI_Game : MonoBehaviour
 {
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
-    [Header("하단 BackGround")]
-    [SerializeField] private GameObject menuBackGround;
+    [Header("좌측 BackGround")]
+    [SerializeField] private RectTransform menuBackGround;
+    [SerializeField] private bool isOpen = false;
 
-    [Header("하단 세부UI")]
+    [Header("좌측 세부UI")]
     [SerializeField] private List<GameObject> menus;
 
     [Header("하단 버튼들")]
-    [SerializeField] private GameObject upgradeButton;
-    [SerializeField] private GameObject inventoryButton;
+    [SerializeField] private GameObject statusButton;
+    [SerializeField] private GameObject buildingButton;
     [SerializeField] private GameObject optionButton;
+
+    public EUI_MenuType MenuType
+    {
+        get { return curMenu; }
+        set
+        {
+            curMenu = value;
+
+            for(int i = 0; i < menus.Count; i++)
+            {
+                if (i == (int)curMenu)
+                    menus[i].SetActive(true);
+                else
+                    menus[i].SetActive(false);
+            }
+        }
+    }
+
+    public bool IsOpen
+    {
+        get { return isOpen; }
+        set 
+        {
+            isOpen = value;
+
+            if (value == true)
+                menuBackGround.DOMoveX(0f, 0.5f);
+            else
+                menuBackGround.DOMoveX(-385f, 0.5f);
+        }        
+    }
 
     private void Awake()
     {
-
+        statusButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Status); });
+        buildingButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Building); });
+        optionButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Option); });
     }
 
     private void OnEnable()
@@ -33,12 +68,14 @@ public class UI_Game : MonoBehaviour
 
     private void SetMenu(EUI_MenuType type)
     {
-        for (int i = 0; i < menus.Count; i++)
+        if (type == curMenu)
         {
-            if((int)type == i)
-                menus[i].SetActive(true);
-            else
-                menus[i].SetActive(false);
+            IsOpen = false;
+            curMenu = EUI_MenuType.None;
+            return;
         }
+
+        MenuType = type;
+        IsOpen = true;
     }
 }
