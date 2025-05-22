@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UI_EventHandler : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Action<PointerEventData> onClick = null;
+    public Action<PointerEventData> onLeftClick = null;
+    public Action<PointerEventData> onRightClick = null;
     public Action<PointerEventData> onEnter = null;
     public Action<PointerEventData> onExit = null;
     public Action<PointerEventData> onDown = null;
@@ -17,10 +18,10 @@ public class UI_EventHandler : MonoBehaviour, IPointerClickHandler, IPointerEnte
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (onClick == null)
+        if (onLeftClick == null)
             return;
 
-        onClick.Invoke(eventData);
+        onLeftClick.Invoke(eventData);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

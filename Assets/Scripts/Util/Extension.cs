@@ -31,14 +31,14 @@ static public class Extension
         return child;
     }
 
-    public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.Click)
+    public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
     {
         UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);
 
         switch (type)
         {
-            case Define.EEvent_Type.Click:
-                evt.onClick += action;
+            case Define.EEvent_Type.LeftClick:
+                evt.onLeftClick += action;
                 break;
             case Define.EEvent_Type.Enter:
                 evt.onEnter += action;
