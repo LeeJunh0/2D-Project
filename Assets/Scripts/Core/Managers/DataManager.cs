@@ -18,7 +18,7 @@ public class DataManager
     public void Init()
     {
         MonsterLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_MonsterlevelData"));
-        MonsterDataDict = PasingMonsterUIJsonData(JsonLoad("2D_Project_MonsterData"));
+        MonsterDataDict = LoadData<string, MonsterInfo, MonsterSet>("2D_Project_MonsterData");
     }
 
     public string JsonLoad(string path)
@@ -41,5 +41,17 @@ public class DataManager
             dict.Add(data.objectName, data);
 
         return dict;
+    }
+
+    private T LoadJson<T> (string path)
+    {
+        TextAsset json = MainManager.Addressable.Load<TextAsset>(path);
+        return JsonConvert.DeserializeObject<T>(json.text);
+    }
+
+    private Dictionary<Tkey,TValue> LoadData<Tkey,TValue, TLoader>(string path) where TLoader : ILoader<Tkey, TValue>
+    {
+        TLoader data = LoadJson<TLoader>(path);
+        return data.MakeDict();
     }
 }

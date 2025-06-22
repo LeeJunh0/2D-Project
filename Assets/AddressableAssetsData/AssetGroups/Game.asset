@@ -81,12 +81,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: da7273bb71961834f89570e7addcb04b
-    m_Address: Silver SDF
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Game
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f194e88cd97438c498acddba9fe92dc5
     m_Address: Chamel
     m_ReadOnly: 0
