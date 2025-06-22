@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -33,6 +34,7 @@ public struct SerializableVector3
 [System.Serializable]
 public class StatInfo
 {
+    public string name;
     public int level;
     public float coinDefault;
     public float coinCoefficient;
@@ -49,7 +51,17 @@ public class MonsterInfo
 }
 
 [System.Serializable]
-public class MonsterSet
+public class MonsterSet : ILoader<string, MonsterInfo>
 {
-    public List<MonsterInfo> MonsterData;
+    public List<MonsterInfo> MonsterData { get; set; }
+
+    public Dictionary<string, MonsterInfo> MakeDict()
+    {
+        Dictionary<string, MonsterInfo> dict = new Dictionary<string, MonsterInfo>();
+
+        foreach(MonsterInfo monsterInfo in MonsterData)        
+            dict.Add(monsterInfo.name, monsterInfo);
+
+        return dict;
+    }
 }
