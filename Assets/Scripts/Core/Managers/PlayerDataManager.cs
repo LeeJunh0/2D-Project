@@ -5,17 +5,21 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
-public class PlayerDataManager : MonoBehaviour
+public class PlayerDataManager : Singleton<PlayerDataManager>
 {
-    [Header("�÷��̾� ���� ������")]
+    [Header("플레이어 저장 데이터")]
     [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private List<Monster> monsterList;
-
-
+    [SerializeField] private List<BaseBuilding> buildList;
     [SerializeField] private TextMeshProUGUI goldText;
 
-    public double Gold { get { return playerInfo.gold; }  set { playerInfo.gold = value; } }
+    [SerializeField] private Transform parent;
+    [SerializeField] private GameObject homePrefab;
+
+    public double Gold { get { return playerInfo.gold; } set { playerInfo.gold = value; } }
+    public bool IsLoadCompleted { get; set; }
 
     private void Update()
     {
@@ -29,11 +33,10 @@ public class PlayerDataManager : MonoBehaviour
     public void LoadData()
     {
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
-        if(File.Exists(path) == false)
+        if (File.Exists(path) == false)
         {
             Debug.Log("Not Find Data");
             CreateNewData();
-            Debug.Log("New Data Create Complete");
         }
 
         string jsonData = File.ReadAllText(path);
@@ -41,20 +44,30 @@ public class PlayerDataManager : MonoBehaviour
         Debug.Log("PlayerData Load Complete");
 
         monsterList = new List<Monster>();
+        buildList = new List<BaseBuilding>();
+
         LoadMonsters();
+        LoadBuilding();
     }
 
     private void CreateNewData()
     {
         playerInfo = new PlayerInfo();
+
+        playerInfo.isFirst = true;
         playerInfo.gold = 0;
-        playerInfo.monsters = new Dictionary<string, MonsterStat>();
-        playerInfo.posDict = new Dictionary<string, SerializableVector3>();
+        playerInfo.monsters = new Dictionary<string, List<MonsterStat>>();
+        playerInfo.mobPosDict = new Dictionary<string, List<SerializableVector3>>();
+
+        GameObject home = Instantiate(homePrefab, parent);
+        SerializableVector3 housePos = new SerializableVector3(home.transform.position);
+        buildList.Add(home.GetComponent<BaseBuilding>());
 
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         StreamWriter streamWriter = new StreamWriter(path);
         streamWriter.Close();
         SaveData();
+        Debug.Log("New Data Create Complete");
     }
 
     private void SaveData()
@@ -64,7 +77,6 @@ public class PlayerDataManager : MonoBehaviour
         string jsonData = JsonConvert.SerializeObject(playerInfo, Formatting.Indented);
         File.WriteAllText(path, jsonData);
         Debug.Log("Save Complete");
-        Debug.Log(jsonData);
     }
 
     public void TextUpdate()
@@ -75,24 +87,29 @@ public class PlayerDataManager : MonoBehaviour
         goldText.text = ExChanger.GoldToText(playerInfo.gold);
     }
 
-    public void LoadMonsters()
+    // 저장된 몬스터 불러오기
+    private void LoadMonsters()
     {
-        foreach (KeyValuePair<string, MonsterStat> info in playerInfo.monsters) 
+        foreach (KeyValuePair<string, List<MonsterStat>> info in playerInfo.monsters)
         {
-            GameObject go = MainManager.Resource.Instantiate(info.Key);
-            go.transform.position = playerInfo.posDict[info.Key].ToVector3();
+            for (int i = 0; i < info.Value.Count; i++)
+            {
+                GameObject go = MainManager.Resource.Instantiate(info.Key);
+                go.transform.position = playerInfo.mobPosDict[info.Key][i].ToVector3();
 
-            Monster monster = go.GetComponent<Monster>();
-            monster.Stat.name = monster.name;
-            monster.Stat.Level = info.Value.level;
+                Monster monster = go.GetComponent<Monster>();
+                monster.Stat.name = monster.name;
+                monster.Stat.Level = info.Value[i].level;
 
-            monsterList.Add(monster);
+                monsterList.Add(monster);
+            }
         }
 
-        Debug.Log("Monster Load Complete");
+        Debug.Log("<color=#00FF22>몬스터 데이터 불러오기 완료</color>");
     }
 
-    public void CreateMonster(string name)
+    // 이름으로 몬스터 만들기
+    private void CreateMonster(string name)
     {
         GameObject go = MainManager.Resource.Instantiate(name);
         Monster monster = go.GetComponent<Monster>();
@@ -102,13 +119,48 @@ public class PlayerDataManager : MonoBehaviour
         monsterList.Add(monster);
     }
 
-    public void SaveMonsters()
+    // 몬스터들 저장하기
+    private void SaveMonsters()
     {
-        for(int i = 0; i < monsterList.Count; i++)
+        playerInfo.monsters.Clear();
+        playerInfo.mobPosDict.Clear();
+
+        for (int i = 0; i < monsterList.Count; i++)
         {
             SerializableVector3 sbVec = new SerializableVector3(monsterList[i].transform.position);
-            playerInfo.monsters.Add(monsterList[i].Stat.Name, monsterList[i].Stat);
-            playerInfo.posDict.Add(monsterList[i].Stat.Name, sbVec);
+            playerInfo.monsters[monsterList[i].Stat.name][i] = monsterList[i].Stat;
+            playerInfo.mobPosDict[monsterList[i].Stat.Name][i] = sbVec;
+        }
+    }
+
+    // 저장된 건물 불러오기
+    private void LoadBuilding()
+    {
+        foreach (var info in playerInfo.buildingPosDict)
+        {
+            for (int i = 0; i < info.Value.Count; i++)
+            {
+                GameObject go = MainManager.Resource.Instantiate(info.Key, parent);
+                go.transform.position = info.Value[i].ToVector3();
+
+                BaseBuilding build = go.GetComponent<BaseBuilding>();
+                buildList.Add(build);
+            }
+        }
+
+        Debug.Log("<color=#00FF22>건물 데이터 불러오기 완료</color>");
+    }
+
+    private void SaveBuilding()
+    {
+        playerInfo.builds.Clear();
+        playerInfo.buildingPosDict.Clear();
+
+        for (int i = 0; i < buildList.Count; i++)
+        {
+            SerializableVector3 sbVec = new SerializableVector3(buildList[i].transform.position);
+            playerInfo.builds[buildList[i].Info.name][i] = buildList[i].Info;
+            playerInfo.buildingPosDict[buildList[i].Info.name][i] = sbVec;
         }
     }
 }

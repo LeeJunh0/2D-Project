@@ -63,7 +63,7 @@ public class UI_Game : MonoBehaviour
 
     private void OnEnable()
     {
-        MainManager.PlayerData.TextUpdate();
+        PlayerDataManager.Instance.TextUpdate();
     }
 
     private void SetMenu(EUI_MenuType type)

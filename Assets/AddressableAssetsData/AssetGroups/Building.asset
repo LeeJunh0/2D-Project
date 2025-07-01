@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Building
+  m_EditorClassIdentifier: 
+  m_GroupName: Building
+  m_GUID: cbd7c070bc2bb0046bac32f091c59ec1
+  m_SerializeEntries:
+  - m_GUID: 021ff26291472044fa19805583c35074
+    m_Address: Grass 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02acf084978bb1a49b9fb84c089726bb
+    m_Address: Flower 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06ff50ad48f66d549ae21195b2be24a9
+    m_Address: Flower 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0abf6fbb66eb3444f85cd2804c3786bb
+    m_Address: Barrel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f04e05402b24e74f8942450dd9f8102
+    m_Address: Grass 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34f0d249ac268b641b37005a37aaa98c
+    m_Address: House
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d4cb88023f77734cb3f63260ca152ae
+    m_Address: Wooden Shed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94337446412a54f40a1f01e146516542
+    m_Address: Grass 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95b63c989b70f03469a2a2f316a090e4
+    m_Address: Flower 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ea2fd22dc4d3394a859ba2d78eaf986
+    m_Address: Grass 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aeeb7edba801b874d9215d0f0a9596db
+    m_Address: Flower 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e08afb00de90e774badc18caa7e25a5c
+    m_Address: Flower 5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 82bd423c4f6a44b41ae1f2769023f7ce, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: dac9c13ccf02fa84da9f655531ead683, type: 2}
+    - {fileID: 11400000, guid: bccbed12414e1754487d977a03b8ea8c, type: 2}

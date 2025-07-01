@@ -6,9 +6,12 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerInfo
 {
+    public bool isFirst;
     public double gold;
-    public Dictionary<string, MonsterStat> monsters;
-    public Dictionary<string, SerializableVector3> posDict;
+    public Dictionary<string, List<MonsterStat>> monsters;
+    public Dictionary<string, List<SerializableVector3>> mobPosDict;
+    public Dictionary<string, List<BuildInfo>> builds;
+    public Dictionary<string, List<SerializableVector3>> buildingPosDict;
 }
 
 [System.Serializable]
@@ -48,6 +51,40 @@ public class MonsterInfo
     public string objectName;
     public string name;
     public string description;
+}
+
+[System.Serializable]
+public class MonsterStat
+{
+    public string name;
+    public int level;
+    public float coinDefault;
+    public float coinCoefficient;
+
+    public int Level
+    {
+        get { return level; }
+        set
+        {
+            level = value;
+            coinDefault = MainManager.Data.MonsterLevelDict[name][level].coinDefault;
+            coinCoefficient = MainManager.Data.MonsterLevelDict[name][level].coinCoefficient;
+        }
+    }
+
+    public string Name { get { return name; } set { name = value; } }
+    public float CoinDefault { get => coinDefault; }
+    public float CoinCoefficient { get => coinCoefficient; }
+}
+
+[System.Serializable]
+public class BuildInfo
+{
+    public string name;
+    public string description;
+    public int level;
+    public int price;
+
 }
 
 [System.Serializable]

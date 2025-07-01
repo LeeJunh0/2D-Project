@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuildingManager : MonoBehaviour
+public class BuildingManager : Singleton<BuildingManager>
 {
     [SerializeField] private Preview preview;
     [SerializeField] private BaseBuilding curBuild;  

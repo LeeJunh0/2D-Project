@@ -8,6 +8,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 static public class Extension
 {
+    //public static void SuccessLog(string message)
+
+
     static public void CameraMove(this Camera camera, float dir, float speed)
     {
         float X = Mathf.Clamp(Camera.main.transform.position.x + dir * Time.deltaTime * speed, -4.6f, 6.6f);
@@ -16,7 +19,7 @@ static public class Extension
 
     static public T GetOrAddComponent<T>(this GameObject go) where T : Component
     {
-        if(go.GetComponent<T>() == null)
+        if (go.GetComponent<T>() == null)
             return go.AddComponent<T>();
 
         return go.GetComponent<T>();
@@ -31,7 +34,7 @@ static public class Extension
         return child;
     }
 
-    public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
+    static public void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
     {
         UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);
 

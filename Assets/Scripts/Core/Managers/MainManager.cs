@@ -21,17 +21,6 @@ public class MainManager : MonoBehaviour
     public static UIManager UI { get => Instance.uIManager; }
     public static AddressableManager Addressable { get => Instance.addressableManager; }
 
-    // MonoBehaviour
-    [SerializeField] private LoadingManager loadingManager;
-    [SerializeField] private PlayerDataManager playerDataManager;
-    [SerializeField] private CameraManager cameraManager;
-    [SerializeField] private BuildingManager buildingManager;
-
-    public static LoadingManager Loading { get => Instance.loadingManager; }
-    public static PlayerDataManager PlayerData { get => Instance.playerDataManager; }
-    public static CameraManager Cam { get => Instance.cameraManager; }
-    public static BuildingManager Building { get => Instance.buildingManager; }
-
     static private void Init()
     {
         GameObject go = GameObject.Find("MainManager");

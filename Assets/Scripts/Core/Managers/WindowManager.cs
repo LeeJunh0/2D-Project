@@ -14,8 +14,6 @@ public class WindowManager : MonoBehaviour
     [DllImport("user32.dll")] private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
     private readonly int style = -16;
-    private readonly uint windowPopup = 0x80000000;     
-    private readonly int windowDisabled = 0x08000000;  
     private readonly int windowVisble = 0x10000000;
     private readonly IntPtr level = new IntPtr(-1);
     private readonly uint showWindow = 0x0040;

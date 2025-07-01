@@ -28,16 +28,22 @@ public class Monster : BaseObject
 
         spriteRenderer = gameObject.FindChild<SpriteRenderer>();
         revenue = gameObject.FindChild<RevenueObject>();
- 
+
+        StartCoroutine(FilpRotation());
         StartCoroutine(StateRandom());
         StartCoroutine(GoldCreate());
-        StartCoroutine(FilpRotation());
     }
 
     private IEnumerator StateRandom() // 랜덤 행동 코루틴
     {
         while(true)
         {
+            if (PlayerDataManager.Instance.IsLoadCompleted == false)
+            {
+                yield return null;
+                continue;
+            }
+
             List<EObject_State> animList = new List<EObject_State>() { EObject_State.Idle, EObject_State.Move, EObject_State.Doing };
             animList.Remove(State);
 
@@ -45,7 +51,6 @@ public class Monster : BaseObject
 
             int rand = Random.Range(0, animList.Count);
             State = animList[rand];
-            StartCoroutine(FilpRotation());
         }
     }
 
@@ -53,12 +58,18 @@ public class Monster : BaseObject
     {
         while(true)
         {
+            if(PlayerDataManager.Instance.IsLoadCompleted == false)
+            {
+                yield return null;
+                continue;
+            }
+
             yield return new WaitForSeconds(createTime);
 
             // 몬스터 수익
             double gold = stat.CoinDefault * stat.CoinCoefficient;
-            MainManager.PlayerData.Gold += gold;
-            MainManager.PlayerData.TextUpdate();
+            PlayerDataManager.Instance.Gold += gold;
+            PlayerDataManager.Instance.TextUpdate();
 
             // UI 초기화 및 생성
             revenue.CreateRevenue(gold);

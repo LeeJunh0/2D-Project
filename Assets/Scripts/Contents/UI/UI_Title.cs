@@ -18,8 +18,14 @@ public class UI_Title : MonoBehaviour
 
     private void Awake()
     {
+        DataInit();
         startButton.AddEvent(GameStart);
         exitButton.AddEvent((evt) => { exitUI.SetActive(!exitUI.activeSelf); });
+    }
+
+    private void DataInit()
+    {
+        PlayerDataManager.Instance.LoadData();
     }
 
     private void GameStart(PointerEventData eventData)
@@ -29,10 +35,9 @@ public class UI_Title : MonoBehaviour
             if (cur == total)
             {
                 gameObject.SetActive(false);
-                MainManager.PlayerData.LoadData();
-
                 Camera.main.transform.DOMove(new Vector3(0f, 3.1f, -10f), 3f).OnComplete(() =>
                 {
+                    PlayerDataManager.Instance.IsLoadCompleted = true;
                     game.SetActive(true);               
                 });
             }

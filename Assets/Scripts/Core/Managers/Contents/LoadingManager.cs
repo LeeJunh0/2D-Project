@@ -15,11 +15,6 @@ public class LoadingManager : MonoBehaviour
     [SerializeField] private List<Image> images;
     [SerializeField] private List<string> tips;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     //public void SceneLoading(string sceneName)
     //{
     //    blackScreen.DOFade(1, 1f).OnStart(() =>
