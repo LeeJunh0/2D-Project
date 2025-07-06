@@ -53,17 +53,19 @@ public class MonsterInfo
     public string description;
 }
 
+// 정적 능력치
 [System.Serializable]
-public class MonsterStat
+public class MonsterStaticStat
 {
     public string name;
     public int level;
+    
     public float coinDefault;
     public float coinCoefficient;
 
     public int Level
     {
-        get { return level; }
+        get => level;
         set
         {
             level = value;
@@ -71,10 +73,42 @@ public class MonsterStat
             coinCoefficient = MainManager.Data.MonsterLevelDict[name][level].coinCoefficient;
         }
     }
+}
 
-    public string Name { get { return name; } set { name = value; } }
-    public float CoinDefault { get => coinDefault; }
-    public float CoinCoefficient { get => coinCoefficient; }
+// 동적 능력치
+[System.Serializable]
+public class MonsterStat
+{
+    public MonsterStaticStat info;
+    public Define.EMonster_Rarity rarity = Define.EMonster_Rarity.Normal;
+
+    public Define.EMonster_Rarity Rarity
+    {
+        get => rarity;
+        set
+        {
+            rarity = value;
+            switch (rarity)
+            {
+                case Define.EMonster_Rarity.Normal:
+                    info.coinDefault *= 1;
+                    info.coinCoefficient *= 1;
+                    break;
+                case Define.EMonster_Rarity.Rare:
+                    info.coinDefault *= 1.15f;
+                    info.coinCoefficient *= 1.15f;
+                    break;
+                case Define.EMonster_Rarity.Unique:
+                    info.coinDefault *= 1.3f;
+                    info.coinCoefficient *= 1.3f;
+                    break;
+                case Define.EMonster_Rarity.Legend:
+                    info.coinDefault *= 2f;
+                    info.coinCoefficient *= 2f;
+                    break;
+            }
+        }
+    }
 }
 
 [System.Serializable]
@@ -84,7 +118,6 @@ public class BuildInfo
     public string description;
     public int level;
     public int price;
-
 }
 
 [System.Serializable]

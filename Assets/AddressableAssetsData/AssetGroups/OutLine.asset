@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: OutLine
+  m_EditorClassIdentifier: 
+  m_GroupName: OutLine
+  m_GUID: c2488c7b81c4ac4428e926eacf97553d
+  m_SerializeEntries:
+  - m_GUID: 3f7e019edf77d7244a8f45c4d8b185b2
+    m_Address: UniqueOutLine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1fc2b3e6f8bf3d4ea2409da376ba4fb
+    m_Address: RareOutLine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eaa3cfe0a7ca29748824233cfe740b48
+    m_Address: LegendOutLine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3a30ce20f5542b4aa58b9a39f84e650
+    m_Address: NormalOutLine
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 82bd423c4f6a44b41ae1f2769023f7ce, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a3ade1122c16f7c458517e9f4328258a, type: 2}
+    - {fileID: 11400000, guid: 7a32f32936c16f148ad94cc9d4d2df17, type: 2}

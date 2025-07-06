@@ -6,18 +6,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-static public class Extension
+public static class Extension
 {
-    //public static void SuccessLog(string message)
+    public static void SuccessLog(string message) { Debug.Log($"<color=#00FF22>{message}</color>"); }
+    public static void ErrorLog(string message) { Debug.Log($"<color=red>{message}</color>"); }
+    public static void LoadingLog(string message) { Debug.Log($"<color=cyan>{message}</color>"); }
 
-
-    static public void CameraMove(this Camera camera, float dir, float speed)
+    public static void CameraMove(this Camera camera, float dir, float speed)
     {
         float X = Mathf.Clamp(Camera.main.transform.position.x + dir * Time.deltaTime * speed, -4.6f, 6.6f);
         Camera.main.transform.position = new Vector3(X, Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
 
-    static public T GetOrAddComponent<T>(this GameObject go) where T : Component
+    public static T GetOrAddComponent<T>(this GameObject go) where T : Component
     {
         if (go.GetComponent<T>() == null)
             return go.AddComponent<T>();
@@ -25,7 +26,7 @@ static public class Extension
         return go.GetComponent<T>();
     }
 
-    static public T FindChild<T>(this GameObject go) where T : Component
+    public static T FindChild<T>(this GameObject go) where T : Component
     {
         T child = go.GetComponentInChildren<T>();
         if (child == null)
@@ -34,7 +35,7 @@ static public class Extension
         return child;
     }
 
-    static public void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
+    public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
     {
         UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);
 

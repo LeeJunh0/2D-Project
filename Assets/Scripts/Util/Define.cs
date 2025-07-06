@@ -16,6 +16,14 @@ public static class Define
         Doing,
     }
 
+    public enum EMonster_Rarity
+    {
+        Normal,
+        Rare,
+        Unique,
+        Legend
+    }
+
     public enum EUI_MenuType
     {
         Status = 0,

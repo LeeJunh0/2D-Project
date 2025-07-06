@@ -1,4 +1,5 @@
 using DG.Tweening;
+using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,24 +9,18 @@ public class UI_Title : MonoBehaviour
 {
     [SerializeField] private GameObject game;
 
-    [Header("Å¸ÀÌÆ² ¸Þ´º¹öÆ°µé")]
+    [Header("íƒ€ì´í‹€ ë©”ë‰´ë²„íŠ¼ë“¤")]
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject exitButton;
 
-    [Header("Å¸ÀÌÆ² °¢ ¸Þ´ºUI")]
+    [Header("íƒ€ì´í‹€ ê° ë©”ë‰´UI")]
     [SerializeField] private GameObject optionUI;
     [SerializeField] private GameObject exitUI;
 
     private void Awake()
     {
-        DataInit();
         startButton.AddEvent(GameStart);
         exitButton.AddEvent((evt) => { exitUI.SetActive(!exitUI.activeSelf); });
-    }
-
-    private void DataInit()
-    {
-        PlayerDataManager.Instance.LoadData();
     }
 
     private void GameStart(PointerEventData eventData)
@@ -34,7 +29,9 @@ public class UI_Title : MonoBehaviour
         {
             if (cur == total)
             {
+                PlayerDataManager.Instance.LoadData();
                 gameObject.SetActive(false);
+
                 Camera.main.transform.DOMove(new Vector3(0f, 3.1f, -10f), 3f).OnComplete(() =>
                 {
                     PlayerDataManager.Instance.IsLoadCompleted = true;

@@ -223,10 +223,12 @@ MonoBehaviour:
   type: 1
   monsterName: AngryPig
   stat:
-    name: 
-    level: 0
-    coinDefault: 0
-    coinCoefficient: 0
+    info:
+      name: 
+      level: 0
+      coinDefault: 0
+      coinCoefficient: 0
+    rarity: 0
   createTime: 2
   stateChangeSec: 3
 --- !u!1001 &7678980940582987044

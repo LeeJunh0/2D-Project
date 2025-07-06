@@ -40,8 +40,7 @@ public class MainManager : MonoBehaviour
 
         Addressable.LoadAsyncAll<Object>("Game", (key, cur, total) =>
         {
-            Debug.Log($"{key} {cur}/{total}");
-
+            Extension.LoadingLog($"{key} {cur}/{total}");
             if(total == cur)
             {
                 Data.Init();

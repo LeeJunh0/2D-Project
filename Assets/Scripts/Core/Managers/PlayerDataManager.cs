@@ -26,7 +26,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         if (Input.GetKeyDown(KeyCode.Space))
             SaveData();
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))          
             CreateMonster("AngryPig");
     }
 
@@ -35,13 +35,13 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         if (File.Exists(path) == false)
         {
-            Debug.Log("Not Find Data");
+            Extension.ErrorLog("Not Find Data");
             CreateNewData();
         }
 
         string jsonData = File.ReadAllText(path);
         playerInfo = JsonConvert.DeserializeObject<PlayerInfo>(jsonData);
-        Debug.Log("PlayerData Load Complete");
+        Extension.SuccessLog("PlayerData Load Complete");
 
         monsterList = new List<Monster>();
         buildList = new List<BaseBuilding>();
@@ -52,22 +52,27 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     private void CreateNewData()
     {
+        // 새로만들 플레이어정보
         playerInfo = new PlayerInfo();
-
         playerInfo.isFirst = true;
         playerInfo.gold = 0;
         playerInfo.monsters = new Dictionary<string, List<MonsterStat>>();
         playerInfo.mobPosDict = new Dictionary<string, List<SerializableVector3>>();
+        playerInfo.builds = new Dictionary<string, List<BuildInfo>>();
+        playerInfo.buildingPosDict = new Dictionary<string, List<SerializableVector3>>();
 
+        // 처음 있어야 할 건물
         GameObject home = Instantiate(homePrefab, parent);
         SerializableVector3 housePos = new SerializableVector3(home.transform.position);
-        buildList.Add(home.GetComponent<BaseBuilding>());
+        buildList.Add(home.FindChild<BaseBuilding>());
+        playerInfo.builds.Add("House", new List<BuildInfo>() { buildList[0].Info });
+        playerInfo.buildingPosDict.Add("House", new List<SerializableVector3>() { housePos });
 
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         StreamWriter streamWriter = new StreamWriter(path);
         streamWriter.Close();
         SaveData();
-        Debug.Log("New Data Create Complete");
+        Extension.SuccessLog("New Data Create Complete");
     }
 
     private void SaveData()
@@ -76,7 +81,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         string jsonData = JsonConvert.SerializeObject(playerInfo, Formatting.Indented);
         File.WriteAllText(path, jsonData);
-        Debug.Log("Save Complete");
+        Extension.SuccessLog("Save Complete");
     }
 
     public void TextUpdate()
@@ -98,14 +103,14 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
                 go.transform.position = playerInfo.mobPosDict[info.Key][i].ToVector3();
 
                 Monster monster = go.GetComponent<Monster>();
-                monster.Stat.name = monster.name;
-                monster.Stat.Level = info.Value[i].level;
+                monster.Stat.info.name = monster.name;
+                monster.Stat.info.Level = info.Value[i].info.level;
 
                 monsterList.Add(monster);
             }
         }
 
-        Debug.Log("<color=#00FF22>몬스터 데이터 불러오기 완료</color>");
+        Extension.SuccessLog("몬스터 데이터 불러오기 완료");
     }
 
     // 이름으로 몬스터 만들기
@@ -113,8 +118,9 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     {
         GameObject go = MainManager.Resource.Instantiate(name);
         Monster monster = go.GetComponent<Monster>();
-        monster.Stat.name = name;
-        monster.Stat.Level = 1;
+        monster.Stat.info.name = name;
+        monster.Stat.info.Level = 1;
+        monster.Stat.Rarity = MonsterGacha.RarityRandom();
 
         monsterList.Add(monster);
     }
@@ -128,8 +134,16 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         for (int i = 0; i < monsterList.Count; i++)
         {
             SerializableVector3 sbVec = new SerializableVector3(monsterList[i].transform.position);
-            playerInfo.monsters[monsterList[i].Stat.name][i] = monsterList[i].Stat;
-            playerInfo.mobPosDict[monsterList[i].Stat.Name][i] = sbVec;
+            if(playerInfo.monsters.ContainsKey(monsterList[i].Stat.info.name) == true)
+            {
+                playerInfo.monsters[monsterList[i].Stat.info.name].Add(monsterList[i].Stat);
+                playerInfo.mobPosDict[monsterList[i].Stat.info.name].Add(sbVec);
+            }
+            else
+            {
+                playerInfo.monsters.Add(monsterList[i].Stat.info.name, new List<MonsterStat>() { monsterList[i].Stat });
+                playerInfo.mobPosDict.Add(monsterList[i].Stat.info.name, new List<SerializableVector3>() { sbVec });
+            }
         }
     }
 
@@ -148,7 +162,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             }
         }
 
-        Debug.Log("<color=#00FF22>건물 데이터 불러오기 완료</color>");
+        Extension.SuccessLog("건물 데이터 불러오기 완료");
     }
 
     private void SaveBuilding()
@@ -158,9 +172,17 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
         for (int i = 0; i < buildList.Count; i++)
         {
-            SerializableVector3 sbVec = new SerializableVector3(buildList[i].transform.position);
-            playerInfo.builds[buildList[i].Info.name][i] = buildList[i].Info;
-            playerInfo.buildingPosDict[buildList[i].Info.name][i] = sbVec;
+            SerializableVector3 sbVec = new SerializableVector3(buildList[i].transform.position);            
+            if (playerInfo.builds.ContainsKey(buildList[i].Info.name) == true)
+            {
+                playerInfo.builds[buildList[i].Info.name].Add(buildList[i].Info);
+                playerInfo.buildingPosDict[buildList[i].Info.name].Add(sbVec);
+            }
+            else
+            {
+                playerInfo.builds.Add(buildList[i].Info.name, new List<BuildInfo>() { buildList[i].Info });
+                playerInfo.buildingPosDict.Add(buildList[i].Info.name, new List<SerializableVector3>() { sbVec });
+            }
         }
     }
 }

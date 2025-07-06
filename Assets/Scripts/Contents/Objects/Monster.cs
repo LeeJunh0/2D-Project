@@ -5,12 +5,12 @@ using static Define;
 
 public class Monster : BaseObject
 {
-    [Header("¸ó½ºÅÍ ½ºÅİ")]
+    [Header("ëª¬ìŠ¤í„° ìŠ¤í…Ÿ")]
     [SerializeField] private string monsterName;
     [SerializeField] private MonsterStat stat;
     [SerializeField] private float createTime;
 
-    [Header("¸ó½ºÅÍ Çàµ¿½Ã°£ ÅÒ")]
+    [Header("ëª¬ìŠ¤í„° í–‰ë™ì‹œê°„ í…€")]
     [SerializeField] private float stateChangeSec = 3f;
 
     [SerializeField] private int Front { get { return CurFilpX ? 1 : -1; } }
@@ -23,18 +23,38 @@ public class Monster : BaseObject
 
     protected override void Init()
     {
-        type = EWorldObject_Type.Monster; 
-        State = EObject_State.Idle; 
-
         spriteRenderer = gameObject.FindChild<SpriteRenderer>();
         revenue = gameObject.FindChild<RevenueObject>();
+
+        type = EWorldObject_Type.Monster; 
+        State = EObject_State.Idle;
+        RarityOutLine();    
 
         StartCoroutine(FilpRotation());
         StartCoroutine(StateRandom());
         StartCoroutine(GoldCreate());
     }
 
-    private IEnumerator StateRandom() // ·£´ı Çàµ¿ ÄÚ·çÆ¾
+    public void RarityOutLine()
+    {
+        switch (stat.Rarity)
+        {
+            case EMonster_Rarity.Normal:
+                spriteRenderer.material = MainManager.Addressable.Load<Material>("NormalOutLine");
+                break;
+            case EMonster_Rarity.Rare:
+                spriteRenderer.material = MainManager.Addressable.Load<Material>("RareOutLine");
+                break;
+            case EMonster_Rarity.Unique:
+                spriteRenderer.material = MainManager.Addressable.Load<Material>("UniqueOutLine");
+                break;
+            case EMonster_Rarity.Legend:
+                spriteRenderer.material = MainManager.Addressable.Load<Material>("LegendOutLine");
+                break;
+        }
+    }
+
+    private IEnumerator StateRandom() // ëœë¤ í–‰ë™ ì½”ë£¨í‹´
     {
         while(true)
         {
@@ -66,22 +86,25 @@ public class Monster : BaseObject
 
             yield return new WaitForSeconds(createTime);
 
-            // ¸ó½ºÅÍ ¼öÀÍ
-            double gold = stat.CoinDefault * stat.CoinCoefficient;
+            // ëª¬ìŠ¤í„° ìˆ˜ìµ
+            double gold = Stat.info.coinDefault * Stat.info.coinCoefficient;
             PlayerDataManager.Instance.Gold += gold;
             PlayerDataManager.Instance.TextUpdate();
 
-            // UI ÃÊ±âÈ­ ¹× »ı¼º
+            // UI ì´ˆê¸°í™” ë° ìƒì„±
             revenue.CreateRevenue(gold);
         }
     }
 
     private IEnumerator FilpRotation()
     {
-        float rand = Random.Range(1f, 2f);
-        yield return new WaitForSeconds(rand);
+        while(true)
+        {
+            float rand = Random.Range(1f, 2f);
+            yield return new WaitForSeconds(rand);
 
-        CurFilpX = !CurFilpX;
+            CurFilpX = !CurFilpX;
+        }
     }
 
     protected override void UpdateIdle()
