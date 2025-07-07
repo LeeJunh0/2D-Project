@@ -18,6 +18,7 @@ public static class Define
 
     public enum EMonster_Rarity
     {
+        None,
         Normal,
         Rare,
         Unique,

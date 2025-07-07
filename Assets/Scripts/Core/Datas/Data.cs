@@ -90,6 +90,9 @@ public class MonsterStat
             rarity = value;
             switch (rarity)
             {
+                case Define.EMonster_Rarity.None:
+                    Rarity = Define.EMonster_Rarity.Normal;
+                    break;
                 case Define.EMonster_Rarity.Normal:
                     info.coinDefault *= 1;
                     info.coinCoefficient *= 1;

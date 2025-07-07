@@ -1,24 +1,20 @@
 using DG.Tweening;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using static Define;
 
 public class UI_Game : MonoBehaviour
 {
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
-    [Header("ÁÂÃø BackGround")]
+    [Header("ì¢Œì¸¡ BackGround")]
     [SerializeField] private RectTransform menuBackGround;
     [SerializeField] private bool isOpen = false;
 
-    [Header("ÁÂÃø ¼¼ºÎUI")]
+    [Header("ì¢Œì¸¡ ì„¸ë¶€UI")]
     [SerializeField] private List<GameObject> menus;
 
-    [Header("ÇÏ´Ü ¹öÆ°µé")]
+    [Header("í•˜ë‹¨ ë²„íŠ¼ë“¤")]
     [SerializeField] private GameObject statusButton;
     [SerializeField] private GameObject buildingButton;
     [SerializeField] private GameObject optionButton;

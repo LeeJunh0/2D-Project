@@ -24,13 +24,12 @@ public static class MonsterGacha
         foreach(float weight in weightTable.Values)
             total += weight;
 
-        float pivot = UnityEngine.Random.Range(0, total + 1);
+        float pivot = UnityEngine.Random.Range(0, total);
         float totalPercent = 0;
 
         foreach(var weight in weightTable)
         {
             totalPercent += weight.Value;
-
             if (pivot <= totalPercent)
             {
                 Extension.SuccessLog($"{weight.Key}");
@@ -38,18 +37,16 @@ public static class MonsterGacha
             }
         }
 
-        return Define.EMonster_Rarity.Normal;
+        return Define.EMonster_Rarity.None;
     }
 
-    // 검증용
+    #if UNITY_EDITOR
     public static void Test()
     {
         Dictionary<Define.EMonster_Rarity, float> weightTable = new Dictionary<Define.EMonster_Rarity, float>()
         {
-            { Define.EMonster_Rarity.Legend, 0.1f },
-            { Define.EMonster_Rarity.Unique, 0.9f },
-            { Define.EMonster_Rarity.Rare, 2f },
-            { Define.EMonster_Rarity.Normal, 7f }
+            { Define.EMonster_Rarity.Legend, 1f },
+            { Define.EMonster_Rarity.Unique, 99f }
         };
 
         float total = 0f;
@@ -60,25 +57,38 @@ public static class MonsterGacha
         for (int i = 0; i < 10000; i++)
         {
             float pivot = UnityEngine.Random.Range(0, total);
-            float totalPercent = 0;
-            
+            //float curPersent = 0f;
+            bool isCheck = false;
             foreach (var weight in weightTable)
             {
-                totalPercent += weight.Value;
+                //curPersent += weight.Value;
 
-                if (pivot <= totalPercent)
+                if (pivot <= weight.Value)
                 {
                     if (counts.ContainsKey(weight.Key) == true)
                         counts[weight.Key] += 1;
                     else
                         counts.Add(weight.Key, 1);
 
+                    isCheck = true;
                     break;
                 }
             }
-        }    
 
+            if (isCheck == true)
+                Extension.SuccessLog($"성공 {i} 번째 : pivot {pivot}");
+            else
+                Extension.ErrorLog($"실패 {i} 번째 : pivot {pivot}");
+        }
+
+        int sum = 0;
         foreach (var weight in counts)
-            Extension.SuccessLog($"{weight.Key} : {Math.Round((float)weight.Value / 10000, 2)}");
+        {
+            sum += weight.Value;
+            Extension.SuccessLog($"{weight.Key} : {weight.Value} / {Math.Round((float)weight.Value / 10000, 2)}");
+        }
+
+        Extension.SuccessLog($"검증한 횟수 : {sum}");
     }
+    #endif
 }

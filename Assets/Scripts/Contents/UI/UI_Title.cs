@@ -31,7 +31,6 @@ public class UI_Title : MonoBehaviour
             {
                 PlayerDataManager.Instance.LoadData();
                 gameObject.SetActive(false);
-
                 Camera.main.transform.DOMove(new Vector3(0f, 3.1f, -10f), 3f).OnComplete(() =>
                 {
                     PlayerDataManager.Instance.IsLoadCompleted = true;
