@@ -67,4 +67,12 @@ public static class Extension
                 break;
         }
     }
+
+    public static Sprite Texture2DToSprite(string name)
+    {
+        Texture2D texture = MainManager.Addressable.Load<Texture2D>(name);
+        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+
+        return sprite;
+    }
 }

@@ -74,7 +74,7 @@ public class Monster : BaseObject
         }
     }
 
-    private IEnumerator GoldCreate()
+    private IEnumerator GoldCreate() //TODO 골드 생성시간 개별화
     {
         while(true)
         {

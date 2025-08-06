@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using Object = UnityEngine.Object;
 
 public class ResourceManager
@@ -11,7 +12,7 @@ public class ResourceManager
         GameObject prefab = MainManager.Addressable.Load<GameObject>(name);
         if(prefab == null)
         {
-            Debug.LogError($"{name}¿¡¼ÂÀº ·ÎµåµÇÁö ¾ÊÀº ¿¡¼ÂÀÔ´Ï´Ù.");
+            Debug.LogError($"{name}ì—ì…‹ì€ ë¡œë“œë˜ì§€ ì•Šì€ ì—ì…‹ì…ë‹ˆë‹¤.");
             return null;
         }
 
@@ -19,5 +20,15 @@ public class ResourceManager
         go.name = prefab.name;
 
         return go;
+    }
+
+    public Sprite LoadAtlas(string fullName)
+    {
+        string key = fullName.Substring(0, fullName.IndexOf('['));
+        string name = fullName.Substring(fullName.IndexOf('[') + 1, fullName.Length - key.Length - 2);
+
+        SpriteAtlas atlas = MainManager.Addressable.Load<SpriteAtlas>(key);
+        Sprite sprite = atlas.GetSprite(name);
+        return sprite;
     }
 }

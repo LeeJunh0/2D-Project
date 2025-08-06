@@ -14,11 +14,13 @@ public class DataManager
 {
     public Dictionary<string, List<StatInfo>> MonsterLevelDict { get; private set; } = new Dictionary<string, List<StatInfo>>();
     public Dictionary<string, MonsterInfo> MonsterDataDict { get; private set; } = new Dictionary<string, MonsterInfo>();
+    public Dictionary<string, BuildInfo> BuildDataDict { get; private set; } = new Dictionary<string, BuildInfo>();
 
     public void Init()
     {
         MonsterLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_MonsterlevelData"));
         MonsterDataDict = LoadData<string, MonsterInfo, MonsterSet>("2D_Project_MonsterData");
+        BuildDataDict = LoadData<string, BuildInfo, BuildSet>("2D_Project_BuildData");
     }
 
     public string JsonLoad(string path)
@@ -32,24 +34,13 @@ public class DataManager
         return JsonConvert.DeserializeObject<Dictionary<string, List<T>>>(json);
     }
 
-    private Dictionary<string, MonsterInfo> PasingMonsterUIJsonData(string json)
-    {
-        MonsterSet list = JsonUtility.FromJson<MonsterSet>(json);
-        Dictionary<string, MonsterInfo> dict = new Dictionary<string, MonsterInfo>();
-
-        foreach (MonsterInfo data in list.MonsterData)
-            dict.Add(data.objectName, data);
-
-        return dict;
-    }
-
-    private T LoadJson<T> (string path)
+    private T LoadJson<T>(string path)
     {
         TextAsset json = MainManager.Addressable.Load<TextAsset>(path);
         return JsonConvert.DeserializeObject<T>(json.text);
     }
 
-    private Dictionary<Tkey,TValue> LoadData<Tkey,TValue, TLoader>(string path) where TLoader : ILoader<Tkey, TValue>
+    private Dictionary<Tkey, TValue> LoadData<Tkey, TValue, TLoader>(string path) where TLoader : ILoader<Tkey, TValue>
     {
         TLoader data = LoadJson<TLoader>(path);
         return data.MakeDict();

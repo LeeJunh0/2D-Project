@@ -26,7 +26,7 @@ public class UI_Game : MonoBehaviour
         {
             curMenu = value;
 
-            for(int i = 0; i < menus.Count; i++)
+            for (int i = 0; i < menus.Count; i++)
             {
                 if (i == (int)curMenu)
                     menus[i].SetActive(true);
@@ -39,7 +39,7 @@ public class UI_Game : MonoBehaviour
     public bool IsOpen
     {
         get { return isOpen; }
-        set 
+        set
         {
             isOpen = value;
 
@@ -47,13 +47,17 @@ public class UI_Game : MonoBehaviour
                 menuBackGround.DOMoveX(0f, 0.5f);
             else
                 menuBackGround.DOMoveX(-385f, 0.5f);
-        }        
+        }
     }
 
     private void Awake()
     {
         statusButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Status); });
-        buildingButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Building); });
+        buildingButton.AddEvent((evt) =>
+        {
+            SetMenu(EUI_MenuType.Building);
+            BuildingManager.Instance.Init();
+        });
         optionButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Option); });
     }
 

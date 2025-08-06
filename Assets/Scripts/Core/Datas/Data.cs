@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [System.Serializable]
@@ -121,6 +122,21 @@ public class BuildInfo
     public string description;
     public int level;
     public int price;
+    public string buildIcon;
+}
+
+[System.Serializable]
+public class BuildSet : ILoader<string,  BuildInfo>
+{
+    public List<BuildInfo> BuildData { get; set; }
+    public Dictionary<string, BuildInfo> MakeDict()
+    {
+        Dictionary<string,BuildInfo> dict = new Dictionary<string, BuildInfo>();
+        foreach(BuildInfo info in BuildData)
+            dict.Add(info.name, info);
+
+        return dict;
+    }
 }
 
 [System.Serializable]
@@ -131,7 +147,6 @@ public class MonsterSet : ILoader<string, MonsterInfo>
     public Dictionary<string, MonsterInfo> MakeDict()
     {
         Dictionary<string, MonsterInfo> dict = new Dictionary<string, MonsterInfo>();
-
         foreach(MonsterInfo monsterInfo in MonsterData)        
             dict.Add(monsterInfo.name, monsterInfo);
 
