@@ -78,7 +78,7 @@ MonoBehaviour:
       - m_Id: 147dd67ab7236cd4eb355f3f17075f03
         m_Value: 'ServerData/[BuildTarget]'
       - m_Id: 149c623f56d58054c92a8ce2fd7688a3
-        m_Value: 'http://[PrivateIpAddress]:[HostingServicePort]'
+        m_Value: 'https://s3.ap-southeast-2.amazonaws.com/first.awsaddressable/[BuildTarget]'
       - m_Id: 34eefdf150f193943ad8904329510b9c
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
       - m_Id: 7c9f25a054559c9469d5431abaf4ec3f
