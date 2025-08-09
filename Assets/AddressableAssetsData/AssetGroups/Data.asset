@@ -16,13 +16,13 @@ MonoBehaviour:
   m_GUID: 35de7e3f37382514c904b625d5df1630
   m_SerializeEntries:
   - m_GUID: 7ab5a05df3bbd974a886c677c20d65fd
-    m_Address: 2D_Project_MonsterData
+    m_Address: 2D_Project_FriendData
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a94294fe0ffd39b4eb46a7688969cad1
-    m_Address: 2D_Project_MonsterlevelData
+    m_Address: 2D_Project_FriendlevelData
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game

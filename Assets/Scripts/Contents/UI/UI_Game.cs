@@ -52,18 +52,12 @@ public class UI_Game : MonoBehaviour
 
     private void Awake()
     {
-        statusButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Status); });
         buildingButton.AddEvent((evt) =>
         {
             SetMenu(EUI_MenuType.Building);
             BuildingManager.Instance.Init();
         });
         optionButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Option); });
-    }
-
-    private void OnEnable()
-    {
-        PlayerDataManager.Instance.TextUpdate();
     }
 
     private void SetMenu(EUI_MenuType type)

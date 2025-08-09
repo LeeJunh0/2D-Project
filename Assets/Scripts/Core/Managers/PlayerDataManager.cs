@@ -9,7 +9,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 {
     [Header("플레이어 저장 데이터")]
     [SerializeField] private PlayerInfo playerInfo;
-    [SerializeField] private List<Monster> monsterList;
+    [SerializeField] private List<Friend> friendList;
     [SerializeField] private List<BaseBuilding> buildList;
     [SerializeField] private TextMeshProUGUI goldText;
 
@@ -21,11 +21,8 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SaveData();
-
-        if (Input.GetKeyDown(KeyCode.V))          
-            CreateMonster("AngryPig");
+        if (Input.GetKeyDown(KeyCode.Escape))
+            CreateFriend("AngryPig");
     }
 
     public void LoadData()
@@ -36,16 +33,29 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             Extension.ErrorLog("Not Find Data");
             CreateNewData();
         }
+        else
+        {
+            string jsonData = File.ReadAllText(path);
+            playerInfo = JsonConvert.DeserializeObject<PlayerInfo>(jsonData);
+            Extension.SuccessLog("PlayerData Load Complete");
 
-        string jsonData = File.ReadAllText(path);
-        playerInfo = JsonConvert.DeserializeObject<PlayerInfo>(jsonData);
-        Extension.SuccessLog("PlayerData Load Complete");
+            friendList = new List<Friend>();
+            buildList = new List<BaseBuilding>();
 
-        monsterList = new List<Monster>();
-        buildList = new List<BaseBuilding>();
+            LoadFriends();
+            LoadBuilding();
+        }
 
-        LoadMonsters();
-        LoadBuilding();
+        foreach (var build in buildList)
+        {
+            if (build.Info.objectName == "House")
+            {
+                goldText = build.GetComponentInChildren<TextMeshProUGUI>();
+                break;
+            }
+        }
+
+        GoldUpdate();
     }
 
     private void CreateNewData()
@@ -54,17 +64,18 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         playerInfo = new PlayerInfo();
         playerInfo.isFirst = true;
         playerInfo.gold = 0;
-        playerInfo.monsters = new Dictionary<string, List<MonsterStat>>();
-        playerInfo.mobPosDict = new Dictionary<string, List<SerializableVector3>>();
+        playerInfo.friends = new Dictionary<string, List<FriendStat>>();
+        playerInfo.friendPosDict = new Dictionary<string, List<SerializableVector3>>();
         playerInfo.builds = new Dictionary<string, List<BuildInfo>>();
         playerInfo.buildingPosDict = new Dictionary<string, List<SerializableVector3>>();
 
         // 처음 있어야 할 건물
-        GameObject home = Instantiate(homePrefab, parent);
+        GameObject home = Instantiate(homePrefab, BuildingManager.Instance.BuildParent);
         SerializableVector3 housePos = new SerializableVector3(home.transform.position);
-        buildList.Add(home.FindChild<BaseBuilding>());
-        playerInfo.builds.Add("House", new List<BuildInfo>() { buildList[0].Info });
-        playerInfo.buildingPosDict.Add("House", new List<SerializableVector3>() { housePos });
+        BaseBuilding baseBuilding = home.FindChild<BaseBuilding>();
+        baseBuilding.Info = MainManager.Data.BuildDataDict["집"];
+        buildList.Add(baseBuilding);
+        AddBuild(baseBuilding);
 
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         StreamWriter streamWriter = new StreamWriter(path);
@@ -73,76 +84,67 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         Extension.SuccessLog("New Data Create Complete");
     }
 
-    private void SaveData()
+    public void SaveData()
     {
-        SaveMonsters();
+        SaveFriends();
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         string jsonData = JsonConvert.SerializeObject(playerInfo, Formatting.Indented);
         File.WriteAllText(path, jsonData);
         Extension.SuccessLog("Save Complete");
     }
 
-    public void TextUpdate()
+    public void GoldUpdate()
     {
         if (goldText == null)
-            goldText = GameObject.Find("CoinText").GetOrAddComponent<TextMeshProUGUI>();
+        {
+            Extension.ErrorLog("goldText가 null입니다.");
+            return;
+        }
 
         goldText.text = ExChanger.GoldToText(playerInfo.gold);
     }
 
-    // 저장된 몬스터 불러오기
-    private void LoadMonsters()
+    // 저장된 친구 불러오기
+    private void LoadFriends()
     {
-        foreach (KeyValuePair<string, List<MonsterStat>> info in playerInfo.monsters)
+        foreach (KeyValuePair<string, List<FriendStat>> info in playerInfo.friends)
         {
             for (int i = 0; i < info.Value.Count; i++)
             {
                 GameObject go = MainManager.Resource.Instantiate(info.Key);
-                go.transform.position = playerInfo.mobPosDict[info.Key][i].ToVector3();
+                go.transform.position = playerInfo.friendPosDict[info.Key][i].ToVector3();
 
-                Monster monster = go.GetComponent<Monster>();
+                Friend monster = go.GetComponent<Friend>();
                 monster.Stat.info.name = monster.name;
                 monster.Stat.info.Level = info.Value[i].info.level;
 
-                monsterList.Add(monster);
+                friendList.Add(monster);
             }
         }
 
         Extension.SuccessLog("몬스터 데이터 불러오기 완료");
     }
 
-    // 이름으로 몬스터 만들기
-    private void CreateMonster(string name)
+    // 이름으로 친구 만들기
+    private void CreateFriend(string name)
     {
         GameObject go = MainManager.Resource.Instantiate(name);
-        Monster monster = go.GetComponent<Monster>();
-        monster.Stat.info.name = name;
-        monster.Stat.info.Level = 1;
-        monster.Stat.Rarity = MonsterGacha.RarityRandom();
+        Friend friend = go.GetComponent<Friend>();
+        friend.Stat.info.name = name;
+        friend.Stat.info.Level = 1;
+        friend.Stat.Rarity = FriendGacha.RarityRandom();
 
-        monsterList.Add(monster);
+        friendList.Add(friend);
     }
 
-    // 몬스터들 저장하기
-    private void SaveMonsters()
+    // 친구들 저장하기
+    private void SaveFriends()
     {
-        playerInfo.monsters.Clear();
-        playerInfo.mobPosDict.Clear();
+        playerInfo.friends.Clear();
+        playerInfo.friendPosDict.Clear();
 
-        for (int i = 0; i < monsterList.Count; i++)
-        {
-            SerializableVector3 sbVec = new SerializableVector3(monsterList[i].transform.position);
-            if(playerInfo.monsters.ContainsKey(monsterList[i].Stat.info.name) == true)
-            {
-                playerInfo.monsters[monsterList[i].Stat.info.name].Add(monsterList[i].Stat);
-                playerInfo.mobPosDict[monsterList[i].Stat.info.name].Add(sbVec);
-            }
-            else
-            {
-                playerInfo.monsters.Add(monsterList[i].Stat.info.name, new List<MonsterStat>() { monsterList[i].Stat });
-                playerInfo.mobPosDict.Add(monsterList[i].Stat.info.name, new List<SerializableVector3>() { sbVec });
-            }
-        }
+        for (int i = 0; i < friendList.Count; i++)
+            AddFriend(friendList[i]);
     }
 
     // 저장된 건물 불러오기
@@ -152,10 +154,11 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         {
             for (int i = 0; i < info.Value.Count; i++)
             {
-                GameObject go = MainManager.Resource.Instantiate(info.Key, parent);
+                GameObject go = MainManager.Resource.Instantiate(info.Key, BuildingManager.Instance.BuildParent);
                 go.transform.position = info.Value[i].ToVector3();
 
                 BaseBuilding build = go.GetComponent<BaseBuilding>();
+                build.Info = playerInfo.builds[info.Key][i];
                 buildList.Add(build);
             }
         }
@@ -169,18 +172,36 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         playerInfo.buildingPosDict.Clear();
 
         for (int i = 0; i < buildList.Count; i++)
+            AddBuild(buildList[i]);
+    }
+
+    public void AddFriend(Friend friend)
+    {
+        SerializableVector3 sbVec = new SerializableVector3(friend.transform.position);
+        if (playerInfo.friends.ContainsKey(friend.Stat.info.name) == true)
         {
-            SerializableVector3 sbVec = new SerializableVector3(buildList[i].transform.position);            
-            if (playerInfo.builds.ContainsKey(buildList[i].Info.name) == true)
-            {
-                playerInfo.builds[buildList[i].Info.name].Add(buildList[i].Info);
-                playerInfo.buildingPosDict[buildList[i].Info.name].Add(sbVec);
-            }
-            else
-            {
-                playerInfo.builds.Add(buildList[i].Info.name, new List<BuildInfo>() { buildList[i].Info });
-                playerInfo.buildingPosDict.Add(buildList[i].Info.name, new List<SerializableVector3>() { sbVec });
-            }
+            playerInfo.friends[friend.Stat.info.name].Add(friend.Stat);
+            playerInfo.friendPosDict[friend.Stat.info.name].Add(sbVec);
+        }
+        else
+        {
+            playerInfo.friends.Add(friend.Stat.info.name, new List<FriendStat>() { friend.Stat });
+            playerInfo.friendPosDict.Add(friend.Stat.info.name, new List<SerializableVector3>() { sbVec });
+        }
+    }
+
+    public void AddBuild(BaseBuilding build)
+    {
+        SerializableVector3 sbVec = new SerializableVector3(build.transform.position);
+        if (playerInfo.builds.ContainsKey(build.Info.objectName) == true)
+        {
+            playerInfo.builds[build.Info.objectName].Add(build.Info);
+            playerInfo.buildingPosDict[build.Info.objectName].Add(sbVec);
+        }
+        else
+        {
+            playerInfo.builds.Add(build.Info.objectName, new List<BuildInfo>() { build.Info });
+            playerInfo.buildingPosDict.Add(build.Info.objectName, new List<SerializableVector3>() { sbVec });
         }
     }
 }

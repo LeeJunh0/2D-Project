@@ -12,14 +12,14 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<string, List<StatInfo>> MonsterLevelDict { get; private set; } = new Dictionary<string, List<StatInfo>>();
-    public Dictionary<string, MonsterInfo> MonsterDataDict { get; private set; } = new Dictionary<string, MonsterInfo>();
+    public Dictionary<string, List<StatInfo>> FriendLevelDict { get; private set; } = new Dictionary<string, List<StatInfo>>();
+    public Dictionary<string, FriendInfo> FriendDataDict { get; private set; } = new Dictionary<string, FriendInfo>();
     public Dictionary<string, BuildInfo> BuildDataDict { get; private set; } = new Dictionary<string, BuildInfo>();
 
     public void Init()
     {
-        MonsterLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_MonsterlevelData"));
-        MonsterDataDict = LoadData<string, MonsterInfo, MonsterSet>("2D_Project_MonsterData");
+        FriendLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_FriendlevelData"));
+        FriendDataDict = LoadData<string, FriendInfo, FriendSet>("2D_Project_FriendData");
         BuildDataDict = LoadData<string, BuildInfo, BuildSet>("2D_Project_BuildData");
     }
 

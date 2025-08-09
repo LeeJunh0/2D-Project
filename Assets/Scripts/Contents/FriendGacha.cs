@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public static class MonsterGacha
+public static class FriendGacha
 {
-    private static int CompareWeight(KeyValuePair<Define.EMonster_Rarity, float> a, KeyValuePair<Define.EMonster_Rarity, float> b)
+    private static int CompareWeight(KeyValuePair<Define.EFriend_Rarity, float> a, KeyValuePair<Define.EFriend_Rarity, float> b)
     {
         return a.Value > b.Value ? -1 : 1;
     }
 
-    public static Define.EMonster_Rarity RarityRandom()
+    public static Define.EFriend_Rarity RarityRandom()
     {
-        Dictionary<Define.EMonster_Rarity, float> weightTable = new Dictionary<Define.EMonster_Rarity, float>()
+        Dictionary<Define.EFriend_Rarity, float> weightTable = new Dictionary<Define.EFriend_Rarity, float>()
         {
-            { Define.EMonster_Rarity.Legend, 0.1f },
-            { Define.EMonster_Rarity.Unique, 0.9f },
-            { Define.EMonster_Rarity.Rare, 2f }, 
-            { Define.EMonster_Rarity.Normal, 7f }
+            { Define.EFriend_Rarity.Legend, 0.1f },
+            { Define.EFriend_Rarity.Unique, 0.9f },
+            { Define.EFriend_Rarity.Rare, 2f }, 
+            { Define.EFriend_Rarity.Normal, 7f }
         };
 
         float total = 0f;
@@ -37,23 +37,23 @@ public static class MonsterGacha
             }
         }
 
-        return Define.EMonster_Rarity.None;
+        return Define.EFriend_Rarity.None;
     }
 
     #if UNITY_EDITOR
     public static void Test()
     {
-        Dictionary<Define.EMonster_Rarity, float> weightTable = new Dictionary<Define.EMonster_Rarity, float>()
+        Dictionary<Define.EFriend_Rarity, float> weightTable = new Dictionary<Define.EFriend_Rarity, float>()
         {
-            { Define.EMonster_Rarity.Legend, 1f },
-            { Define.EMonster_Rarity.Unique, 99f }
+            { Define.EFriend_Rarity.Legend, 1f },
+            { Define.EFriend_Rarity.Unique, 99f }
         };
 
         float total = 0f;
         foreach (float weight in weightTable.Values)
             total += weight;
 
-        Dictionary<Define.EMonster_Rarity, int> counts = new Dictionary<Define.EMonster_Rarity, int>();
+        Dictionary<Define.EFriend_Rarity, int> counts = new Dictionary<Define.EFriend_Rarity, int>();
         for (int i = 0; i < 10000; i++)
         {
             float pivot = UnityEngine.Random.Range(0, total);

@@ -14,9 +14,9 @@ public class AddressableManager
 
     public T Load<T>(string name) where T : Object
     {
-        if (resourceDict.TryGetValue(name, out Object obj) == false)
+            if (resourceDict.TryGetValue(name, out Object obj) == false)
         {
-            Debug.LogError($"{name}Àº ·ÎµåµÈ µ¥ÀÌÅÍ°¡ ¾Æ´Õ´Ï´Ù.");
+            Debug.LogError($"{name}ì€ ë¡œë“œëœ ë°ì´í„°ê°€ ì•„ë‹™ë‹ˆë‹¤.");
             return null;
         }
 

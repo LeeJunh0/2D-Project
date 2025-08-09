@@ -9,12 +9,10 @@ public class MainManager : MonoBehaviour
     // Not MonoBehaviour
     private DataManager dataManager = new DataManager();
     private ResourceManager resourceManager = new ResourceManager();
-    private UIManager uIManager = new UIManager();
     private AddressableManager addressableManager = new AddressableManager();
 
     public static DataManager Data { get => Instance.dataManager; }
     public static ResourceManager Resource { get => Instance.resourceManager; }
-    public static UIManager UI { get => Instance.uIManager; }
     public static AddressableManager Addressable { get => Instance.addressableManager; }
 
     static private void Init()

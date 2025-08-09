@@ -10,85 +10,79 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Building
+  m_Name: Animator
   m_EditorClassIdentifier: 
-  m_GroupName: Building
-  m_GUID: cbd7c070bc2bb0046bac32f091c59ec1
+  m_GroupName: Animator
+  m_GUID: a4665ea89b422d147bce56656a308b5a
   m_SerializeEntries:
-  - m_GUID: 021ff26291472044fa19805583c35074
-    m_Address: Grass 4
+  - m_GUID: 2985d7a9660feee44bf7001c7363a9f6
+    m_Address: Anim_Snail
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 02acf084978bb1a49b9fb84c089726bb
-    m_Address: Flower 1
+  - m_GUID: 5057af36d94075d42bb0f8f2d838bd50
+    m_Address: Anim_Bunny
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 06ff50ad48f66d549ae21195b2be24a9
-    m_Address: Flower 2
+  - m_GUID: 7f7fbd71efe62e04b9ae433b12f4a8f0
+    m_Address: Anim_AngryPig
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0abf6fbb66eb3444f85cd2804c3786bb
-    m_Address: Barrel
+  - m_GUID: 8003064d3df649742854eaddb927f0d3
+    m_Address: Anim_GGonRock
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1f04e05402b24e74f8942450dd9f8102
-    m_Address: Grass 2
+  - m_GUID: 81c850b453a1553498ae4f777a2aa033
+    m_Address: Anim_Radish
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 34f0d249ac268b641b37005a37aaa98c
-    m_Address: House
+  - m_GUID: 8f11bee305a99124695ac7009bb96937
+    m_Address: Anim_Trunk
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4d4cb88023f77734cb3f63260ca152ae
-    m_Address: Wooden Shed
+  - m_GUID: a496f2573c0f27b46b5693c3df7781c7
+    m_Address: Anim_MRock
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94337446412a54f40a1f01e146516542
-    m_Address: Grass 1
+  - m_GUID: a7c9559cfbd26fe49a0bb9a317041104
+    m_Address: Anim_Slime
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 95b63c989b70f03469a2a2f316a090e4
-    m_Address: Flower 4
+  - m_GUID: d619f4e3d38bb7f42a0513d9e7878225
+    m_Address: Anim_Rino
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ea2fd22dc4d3394a859ba2d78eaf986
-    m_Address: Grass 3
+  - m_GUID: dd1dfcb5674acec4e96d2c5d44dc535b
+    m_Address: Anim_Mushroom
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: aeeb7edba801b874d9215d0f0a9596db
-    m_Address: Flower 3
+  - m_GUID: ddb7f25dbb2235d458fae69de5df423a
+    m_Address: Anim_Chamel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d49cb6e315c01d14ba7f88939a188262
-    m_Address: Standing Torch
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Game
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e08afb00de90e774badc18caa7e25a5c
-    m_Address: Flower 5
+  - m_GUID: f11f00f492324b046804e52eabd3ba8d
+    m_Address: Anim_Chicken
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
@@ -97,5 +91,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 82bd423c4f6a44b41ae1f2769023f7ce, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: dac9c13ccf02fa84da9f655531ead683, type: 2}
-    - {fileID: 11400000, guid: bccbed12414e1754487d977a03b8ea8c, type: 2}
+    - {fileID: 11400000, guid: aca47b7356640664880dbb5e6d665e1f, type: 2}
+    - {fileID: 11400000, guid: d815e5f180147fb4b83acbe0f1711795, type: 2}

@@ -7,8 +7,11 @@ public class BuildingManager : Singleton<BuildingManager>
     [SerializeField] private Preview preview;
     [SerializeField] private BaseBuilding curBuild;
     [SerializeField] private Transform content;
+    [SerializeField] private GameObject cover;
     [SerializeField] private List<UI_BuildSlot> buildSlots;
     [SerializeField] private UI_BuildingToolTip tooltip;
+
+    public Transform BuildParent;
 
     private UI_BuildSlot curEnterSlot;
 
@@ -21,8 +24,9 @@ public class BuildingManager : Singleton<BuildingManager>
         {
             curBuild = value;
 
+            curBuild.Info = value.Info;
             SpriteRenderer spriteRenderer = preview.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = curBuild.GetComponent<SpriteRenderer>().sprite;
+            spriteRenderer.sprite = curBuild.GetComponentInChildren<SpriteRenderer>().sprite;
         }
     }
 
@@ -55,17 +59,41 @@ public class BuildingManager : Singleton<BuildingManager>
     public void ChoiceBuild(BaseBuilding build)
     {
         CurBuild = build;
-        BuildingSetting();
+        PreviewSetting();
     }
 
-    private void BuildingSetting()
+    private void PreviewSetting()
     {
-        preview.gameObject.SetActive(true);
+        OnPreview();
 
         BoxCollider2D previewColl = preview.GetComponent<BoxCollider2D>();
-        BoxCollider2D curColl = curBuild.GetComponent<BoxCollider2D>();
+        BoxCollider2D curColl = curBuild.GetComponentInChildren<BoxCollider2D>();
         previewColl.size = curColl.size;
         previewColl.offset = curColl.offset;
+    }
+
+    public void OnPreview()
+    {
+        preview.gameObject.SetActive(true);
+        cover.SetActive(true);
+    }
+
+    public void OffPreview()
+    {
+        preview.gameObject.SetActive(false);
+        cover.SetActive(false);
+    }
+
+    public void BuildMaterialzation()
+    {
+        GameObject go = MainManager.Resource.Instantiate(curBuild.Info.objectName);
+        go.transform.position = preview.transform.position;
+        go.transform.parent = BuildParent;
+
+        BaseBuilding baseBuilding = go.GetComponent<BaseBuilding>();
+        baseBuilding.Info = curBuild.Info;
+        PlayerDataManager.Instance.AddBuild(baseBuilding);
+        OffPreview();
     }
 
     public void OffBuildingToolTip()
@@ -78,7 +106,7 @@ public class BuildingManager : Singleton<BuildingManager>
         if (buildSlots.Count <= 0)
             return;
 
-        foreach(var slot in  buildSlots)
+        foreach (var slot in buildSlots)
             Destroy(slot.gameObject);
 
         buildSlots.Clear();

@@ -9,8 +9,8 @@ public class PlayerInfo
 {
     public bool isFirst;
     public double gold;
-    public Dictionary<string, List<MonsterStat>> monsters;
-    public Dictionary<string, List<SerializableVector3>> mobPosDict;
+    public Dictionary<string, List<FriendStat>> friends;
+    public Dictionary<string, List<SerializableVector3>> friendPosDict;
     public Dictionary<string, List<BuildInfo>> builds;
     public Dictionary<string, List<SerializableVector3>> buildingPosDict;
 }
@@ -47,16 +47,17 @@ public class StatInfo
 }
 
 [System.Serializable]
-public class MonsterInfo
+public class FriendInfo
 {
     public string objectName;
+    public string friendIcon;
     public string name;
     public string description;
 }
 
 // 정적 능력치
 [System.Serializable]
-public class MonsterStaticStat
+public class FriendStaticStat
 {
     public string name;
     public int level;
@@ -70,20 +71,20 @@ public class MonsterStaticStat
         set
         {
             level = value;
-            coinDefault = MainManager.Data.MonsterLevelDict[name][level].coinDefault;
-            coinCoefficient = MainManager.Data.MonsterLevelDict[name][level].coinCoefficient;
+            coinDefault = MainManager.Data.FriendLevelDict[name][level].coinDefault;
+            coinCoefficient = MainManager.Data.FriendLevelDict[name][level].coinCoefficient;
         }
     }
 }
 
 // 동적 능력치
 [System.Serializable]
-public class MonsterStat
+public class FriendStat
 {
-    public MonsterStaticStat info;
-    public Define.EMonster_Rarity rarity = Define.EMonster_Rarity.Normal;
+    public FriendStaticStat info;
+    public Define.EFriend_Rarity rarity = Define.EFriend_Rarity.Normal;
 
-    public Define.EMonster_Rarity Rarity
+    public Define.EFriend_Rarity Rarity
     {
         get => rarity;
         set
@@ -91,22 +92,22 @@ public class MonsterStat
             rarity = value;
             switch (rarity)
             {
-                case Define.EMonster_Rarity.None:
-                    Rarity = Define.EMonster_Rarity.Normal;
+                case Define.EFriend_Rarity.None:
+                    Rarity = Define.EFriend_Rarity.Normal;
                     break;
-                case Define.EMonster_Rarity.Normal:
+                case Define.EFriend_Rarity.Normal:
                     info.coinDefault *= 1;
                     info.coinCoefficient *= 1;
                     break;
-                case Define.EMonster_Rarity.Rare:
+                case Define.EFriend_Rarity.Rare:
                     info.coinDefault *= 1.15f;
                     info.coinCoefficient *= 1.15f;
                     break;
-                case Define.EMonster_Rarity.Unique:
+                case Define.EFriend_Rarity.Unique:
                     info.coinDefault *= 1.3f;
                     info.coinCoefficient *= 1.3f;
                     break;
-                case Define.EMonster_Rarity.Legend:
+                case Define.EFriend_Rarity.Legend:
                     info.coinDefault *= 2f;
                     info.coinCoefficient *= 2f;
                     break;
@@ -123,6 +124,7 @@ public class BuildInfo
     public int level;
     public int price;
     public string buildIcon;
+    public string objectName;
 }
 
 [System.Serializable]
@@ -140,15 +142,15 @@ public class BuildSet : ILoader<string,  BuildInfo>
 }
 
 [System.Serializable]
-public class MonsterSet : ILoader<string, MonsterInfo>
+public class FriendSet : ILoader<string, FriendInfo>
 {
-    public List<MonsterInfo> MonsterData { get; set; }
+    public List<FriendInfo> FriendData { get; set; }
 
-    public Dictionary<string, MonsterInfo> MakeDict()
+    public Dictionary<string, FriendInfo> MakeDict()
     {
-        Dictionary<string, MonsterInfo> dict = new Dictionary<string, MonsterInfo>();
-        foreach(MonsterInfo monsterInfo in MonsterData)        
-            dict.Add(monsterInfo.name, monsterInfo);
+        Dictionary<string, FriendInfo> dict = new Dictionary<string, FriendInfo>();
+        foreach(FriendInfo friendInfo in FriendData)        
+            dict.Add(friendInfo.name, friendInfo);
 
         return dict;
     }

@@ -23,7 +23,10 @@ public class UI_BuildSlot : MonoBehaviour
 
     private void OnClick(PointerEventData eventData)
     {
-
+        GameObject go = MainManager.Addressable.Load<GameObject>(InfoData.objectName);
+        BaseBuilding build = go.GetComponent<BaseBuilding>();
+        build.Info = InfoData;
+        BuildingManager.Instance.ChoiceBuild(build);
     }
 
     private void OnEnter(PointerEventData eventData)

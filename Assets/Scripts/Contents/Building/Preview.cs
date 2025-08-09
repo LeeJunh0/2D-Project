@@ -56,12 +56,13 @@ public class Preview : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0))
             {
-                
+                BuildingManager.Instance.BuildMaterialzation();
+                yield break;
             }
 
             if(Input.GetMouseButtonDown(1))
             {
-                gameObject.SetActive(false);
+                BuildingManager.Instance.OffPreview();
                 yield break;
             }
         }

@@ -14,14 +14,14 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 instance = (T)FindAnyObjectByType<T>();
 
                 if (instance == null)
-                    Debug.LogError($"{typeof(T)}´Â ¾ø´Â ½Ì±ÛÅæ ¸Å´ÏÀú ÀÔ´Ï´Ù.");
+                    Debug.LogError($"{typeof(T)}ëŠ” ì—†ëŠ” ì‹±ê¸€í†¤ ë§¤ë‹ˆì € ìž…ë‹ˆë‹¤.");
             }
 
             return instance;
         }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         DontDestroyOnLoad(this);
     }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 
-public class Monster : BaseObject
+public class Friend : BaseObject
 {
-    [Header("몬스터 스텟")]
+    [Header("친구 스텟")]
     [SerializeField] private string monsterName;
-    [SerializeField] private MonsterStat stat;
+    [SerializeField] private FriendStat stat;
     [SerializeField] private float createTime;
 
-    [Header("몬스터 행동시간 텀")]
+    [Header("친구 행동시간 텀")]
     [SerializeField] private float stateChangeSec = 3f;
 
     [SerializeField] private int Front { get { return CurFilpX ? 1 : -1; } }
@@ -19,14 +19,14 @@ public class Monster : BaseObject
     private SpriteRenderer spriteRenderer;
     private RevenueObject revenue;
 
-    public MonsterStat Stat { get => stat; }
+    public FriendStat Stat { get => stat; }
 
     protected override void Init()
     {
         spriteRenderer = gameObject.FindChild<SpriteRenderer>();
         revenue = gameObject.FindChild<RevenueObject>();
 
-        type = EWorldObject_Type.Monster; 
+        type = EWorldObject_Type.Friend; 
         State = EObject_State.Idle;
         RarityOutLine();    
 
@@ -39,16 +39,16 @@ public class Monster : BaseObject
     {
         switch (stat.Rarity)
         {
-            case EMonster_Rarity.Normal:
+            case EFriend_Rarity.Normal:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("NormalOutLine");
                 break;
-            case EMonster_Rarity.Rare:
+            case EFriend_Rarity.Rare:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("RareOutLine");
                 break;
-            case EMonster_Rarity.Unique:
+            case EFriend_Rarity.Unique:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("UniqueOutLine");
                 break;
-            case EMonster_Rarity.Legend:
+            case EFriend_Rarity.Legend:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("LegendOutLine");
                 break;
         }
@@ -86,10 +86,10 @@ public class Monster : BaseObject
 
             yield return new WaitForSeconds(createTime);
 
-            // 몬스터 수익
+            // 수익
             double gold = Stat.info.coinDefault * Stat.info.coinCoefficient;
             PlayerDataManager.Instance.Gold += gold;
-            PlayerDataManager.Instance.TextUpdate();
+            PlayerDataManager.Instance.GoldUpdate();
 
             // UI 초기화 및 생성
             revenue.CreateRevenue(gold);

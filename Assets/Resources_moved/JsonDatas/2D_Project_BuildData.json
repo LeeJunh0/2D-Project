@@ -5,21 +5,24 @@
             "description": "혼자살기 좋은 아늑한 마이 하우스입니다.",
             "level": 1,
             "price": 100,
-            "buildIcon": "BuildingIcon[House]"
+            "buildIcon": "BuildingIcon[House]",
+            "objectName": "House"
         },
         {
             "name": "오크통",
             "description": "오크통입니다.",
             "level": 1,
             "price": 50,
-            "buildIcon": "BuildingIcon[Barrel]"
+            "buildIcon": "BuildingIcon[Barrel]",
+            "objectName": "Barrel"
         },
         {
             "name": "서있는 횃불",
             "description": "서있는 횃불입니다.",
             "level": 1,
             "price": 30,
-            "buildIcon": "BuildingIcon[Standing Torch]"
+            "buildIcon": "BuildingIcon[Standing Torch]",
+            "objectName": "Standing Torch"
         }
     ]
 }

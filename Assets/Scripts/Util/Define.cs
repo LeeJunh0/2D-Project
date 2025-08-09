@@ -6,7 +6,7 @@ public static class Define
     public enum EWorldObject_Type
     {
         None,
-        Monster,
+        Friend,
     }
 
     public enum EObject_State
@@ -16,7 +16,7 @@ public static class Define
         Doing,
     }
 
-    public enum EMonster_Rarity
+    public enum EFriend_Rarity
     {
         None,
         Normal,
@@ -27,7 +27,6 @@ public static class Define
 
     public enum EUI_MenuType
     {
-        Status = 0,
         Building,
         Option,
         None
