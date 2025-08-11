@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-
 public static class Define
 {
     public enum EWorldObject_Type
@@ -18,8 +15,7 @@ public static class Define
 
     public enum EFriend_Rarity
     {
-        None,
-        Normal,
+        Normal = 0,
         Rare,
         Unique,
         Legend

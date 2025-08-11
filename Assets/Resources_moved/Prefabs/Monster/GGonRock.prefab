@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1966344234707627140}
   - component: {fileID: 313828700031248339}
-  - component: {fileID: 7849325396061483081}
+  - component: {fileID: 5888122414996174081}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -50,6 +50,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,20 +77,20 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 1625515041, guid: f0678fec24c0e614abff5dfac32a85f3, type: 3}
+  m_Sprite: {fileID: 8051377962075696410, guid: f73f3cc3314d8a842b04c5e5470969b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.125, y: 0.96875}
+  m_Size: {x: 1.1875, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7849325396061483081
+--- !u!95 &5888122414996174081
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,12 +98,13 @@ Animator:
   m_GameObject: {fileID: 507111553841507868}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8003064d3df649742854eaddb927f0d3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 769f0670592b8754d857d7d9fde4ee28, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -149,6 +153,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4269583338986927761}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -172,7 +177,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +189,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.1576647, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &-7388729529126425774
@@ -201,6 +206,14 @@ MonoBehaviour:
   curState: 0
   type: 1
   monsterName: GGonRock
+  stat:
+    info:
+      name: 
+      level: 0
+      coinDefault: 0
+      coinCoefficient: 0
+    isEquip: 0
+    rarity: 1
   createTime: 2
   stateChangeSec: 3
 --- !u!1001 &1358621507233104111

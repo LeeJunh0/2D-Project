@@ -16,8 +16,18 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     [SerializeField] private Transform parent;
     [SerializeField] private GameObject homePrefab;
 
-    public double Gold { get { return playerInfo.gold; } set { playerInfo.gold = value; } }
+    public double Gold { get => playerInfo.gold; set { playerInfo.gold = value; } }
+    public int CurFrieldCount
+    {
+        get => playerInfo.curFriendCount;
+        set
+        {
+            playerInfo.curFriendCount = Mathf.Clamp(value, 0, playerInfo.maxFriendCount);
+        }
+    }
+    public int MaxFriendCount { get => playerInfo.maxFriendCount; } // set은 생각해보자 
     public bool IsLoadCompleted { get; set; }
+    public List<Friend> FriendList => friendList;
 
     private void Update()
     {
@@ -62,12 +72,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     {
         // 새로만들 플레이어정보
         playerInfo = new PlayerInfo();
-        playerInfo.isFirst = true;
-        playerInfo.gold = 0;
-        playerInfo.friends = new Dictionary<string, List<FriendStat>>();
-        playerInfo.friendPosDict = new Dictionary<string, List<SerializableVector3>>();
-        playerInfo.builds = new Dictionary<string, List<BuildInfo>>();
-        playerInfo.buildingPosDict = new Dictionary<string, List<SerializableVector3>>();
 
         // 처음 있어야 할 건물
         GameObject home = Instantiate(homePrefab, BuildingManager.Instance.BuildParent);
@@ -111,9 +115,11 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         {
             for (int i = 0; i < info.Value.Count; i++)
             {
+                if (info.Value[i].isEquip == false)
+                    return;
+
                 GameObject go = MainManager.Resource.Instantiate(info.Key);
                 go.transform.position = playerInfo.friendPosDict[info.Key][i].ToVector3();
-
                 Friend monster = go.GetComponent<Friend>();
                 monster.Stat.info.name = monster.name;
                 monster.Stat.info.Level = info.Value[i].info.level;

@@ -2,73 +2,73 @@
     "FriendData": [
         {
             "objectName": "Mushroom",
-            "friendIcon": "FriendAtlas[Mushroom]",
+            "friendIcon": "FriendAtlas[Mushroom_Idle_0]",
             "name": "뭘보섯",
             "description": "\"뭘 봐? 뭘 보냐고!\" 화난 표정으로 다가오지만 사실 시력은 나쁜 편. 가까이 가면 헛다리만 짚는다."
         },
         {
             "objectName": "Slime",
-            "friendIcon": "FriendAtlas[Slime]",
+            "friendIcon": "FriendAtlas[Slime_Idle_0]",
             "name": "괴액이",
             "description": "\"나랑 허그 하자..\" 흐물흐물한 초록색 슬라임. 만지면 미끌미끌해서 기분이 좋지 않다."
         },
         {
             "objectName": "Radish",
-            "friendIcon": "FriendAtlas[Radish]",
+            "friendIcon": "FriendAtlas[Radish_Idle_0]",
             "name": "분홍무",
             "description": "\"흐아암.. 졸린데 어디 괜찮은 땅 없나..\" 침침한 눈으로 비옥한 땅을 찾아다니는 순무다. 가까이 가도 상대해 주지 않는다."
         },
         {
             "objectName": "Rino",
-            "friendIcon": "FriendAtlas[Rino]",
+            "friendIcon": "FriendAtlas[Rino_Idle_0]",
             "name": "힘찬코",
             "description": "\"힘차게 앞으로! 우하하하 하하하!!\" 언제나 웃고 있으며 활기찬 코뿔소. 가끔 주체되지 않을 때가 있다."
         },
         {
             "objectName": "Bunny",
-            "friendIcon": "FriendAtlas[Bunny]",
+            "friendIcon": "FriendAtlas[Bunny_Idle_0]",
             "name": "매드토끼",
             "description": "\"당근인가?! 끼햐아하핫!!\" 당근을 무척 사랑하는 분홍 토끼다. 눈이 빠지도록 당근을 찾아다녀 눈이 빨갛다."
         },
         {
             "objectName": "AngryPig",
-            "friendIcon": "FriendAtlas[AngryPig]",
+            "friendIcon": "FriendAtlas[AngryPig_Idle_0]",
             "name": "앵피",
             "description": "\"나 건드리면 좀 무섭다?\" 평소 초록색이지만 화가 나면 빨개지는 돼지이다."
         },
         {
             "objectName": "Chicken",
-            "friendIcon": "FriendAtlas[Chicken]",
+            "friendIcon": "FriendAtlas[Chicken_Idle_0]",
             "name": "벼슬",
             "description": "\"뭐꼬? 꼬?! 꼬?\" 성격이 괴팍한 닭이다. 가만히 있다가도 혼자 화나서 뛰어다닌다."
         },
         {
             "objectName": "Snail",
-            "friendIcon": "FriendAtlas[Snail]",
+            "friendIcon": "FriendAtlas[Snail_Idle_0]",
             "name": "므므",
             "description": "\"혼자 있게 놔둬...\" 혼자 있는 걸 사랑하는 달팽이. 가까이 가면 숨어있는다."
         },
         {
             "objectName": "Trunk",
-            "friendIcon": "FriendAtlas[Mushroom]",
+            "friendIcon": "FriendAtlas[Trunk_Idle_0]",
             "name": "코나무",
             "description": "\"내 코 어때? 뭐라도 나갈 거 같지 않아? 후후!\" 코가 인상적인 나무. 코에서 나무 씨앗을 쏠 수 있다."
         },
         {
             "objectName": "Chamel",
-            "friendIcon": "FriendAtlas[Chamel]",
+            "friendIcon": "FriendAtlas[Chamel_Idle_0]",
             "name": "먹보레온",
             "description": "\"벌레다 벌레 맛있겠다 으헤헤\" 심심하면 무언갈 먹으려 하는 카멜레온. 긴 혀의 사용력이 인상적이다."
         },
         {
             "objectName": "GGonRock",
-            "friendIcon": "FriendAtlas[GGonRock]",
+            "friendIcon": "FriendAtlas[GGonRock_Idle_0]",
             "name": "꼰돌",
             "description": "\"나 때는 말이야? 돌도 씹어 먹었어~!\" 어려 보이면 다가가 꼰대 같은 말을 하는 돌. 말이 그래도 마음은 따뜻하다."
         },
         {
             "objectName": "MRock",
-            "friendIcon": "FriendAtlas[MRock]",
+            "friendIcon": "FriendAtlas[MRock_Idle_0]",
             "name": "엠돌",
             "description": "\"내 일은 내가 알아서 할 거예요 신경 쓰지 마세요.\" 어른들이 신경 쓰여 말을 걸면 삐딱하게 대답하는 돌. 아직 어리기에 마음은 여리다."
         }

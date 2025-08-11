@@ -20,6 +20,8 @@ public static class FriendGacha
             { Define.EFriend_Rarity.Normal, 7f }
         };
 
+        Define.EFriend_Rarity result = Define.EFriend_Rarity.Normal;
+
         float total = 0f;
         foreach(float weight in weightTable.Values)
             total += weight;
@@ -32,12 +34,12 @@ public static class FriendGacha
             totalPercent += weight.Value;
             if (pivot <= totalPercent)
             {
-                Extension.SuccessLog($"{weight.Key}");
-                return weight.Key;
+                result = weight.Key;
+                break;
             }
         }
 
-        return Define.EFriend_Rarity.None;
+        return result;
     }
 
     #if UNITY_EDITOR

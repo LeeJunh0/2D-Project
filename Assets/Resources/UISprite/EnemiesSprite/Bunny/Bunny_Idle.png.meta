@@ -1,9 +1,33 @@
 fileFormatVersion: 2
-guid: 56531f61bee055d478cdd8aa5b94a7d4
+guid: a439859cf710f824ea28fb2ea0c3d2d6
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6999069530432035771
+    second: Bunny_Idle_0
+  - first:
+      213: -939137608414812575
+    second: Bunny_Idle_1
+  - first:
+      213: 1920718544153590629
+    second: Bunny_Idle_2
+  - first:
+      213: -8237514698909747018
+    second: Bunny_Idle_3
+  - first:
+      213: 6093868367728767931
+    second: Bunny_Idle_4
+  - first:
+      213: -708543183633021826
+    second: Bunny_Idle_5
+  - first:
+      213: -3935804624997222231
+    second: Bunny_Idle_6
+  - first:
+      213: -5888896025622945147
+    second: Bunny_Idle_7
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -67,7 +91,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +104,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +117,34 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,324 +160,203 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle (32x32)_0
+      name: Bunny_Idle_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 2
         y: 0
-        width: 26
-        height: 20
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5b65c732fbd309e42a23eb7dba95ca48
-      internalID: 244917423
+      spriteID: bbb59afb7a0b12160800000000000000
+      internalID: 6999069530432035771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_1
+      name: Bunny_Idle_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 36
         y: 0
-        width: 26
-        height: 20
+        width: 30
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 474d7e010f8742740b9c63105ff23fef
-      internalID: -379295279
+      spriteID: 166a937225387f2f0800000000000000
+      internalID: -939137608414812575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_2
+      name: Bunny_Idle_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 71
         y: 0
-        width: 26
-        height: 20
+        width: 29
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7e33732e87ea213498841134ea3fe83d
-      internalID: -1004831944
+      spriteID: 56bb7c9e653c7aa10800000000000000
+      internalID: 1920718544153590629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_3
+      name: Bunny_Idle_3
       rect:
         serializedVersion: 2
-        x: 99
+        x: 105
         y: 0
-        width: 26
-        height: 20
+        width: 29
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d3e6694a5fbbb8d45ba3f64695024c47
-      internalID: 939993068
+      spriteID: 6b8fc6b86087ead80800000000000000
+      internalID: -8237514698909747018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_4
+      name: Bunny_Idle_4
       rect:
         serializedVersion: 2
-        x: 131
-        y: 0
-        width: 26
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a9ea990b60cfd445a32b5af4603757a
-      internalID: -1796080821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_5
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 0
-        width: 26
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fdb0d5c7dc57ac4494d8964d73acd1b
-      internalID: -1127496742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_6
-      rect:
-        serializedVersion: 2
-        x: 195
-        y: 0
-        width: 26
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4889ed11f8cf51c4ab39926fe28ba885
-      internalID: -1455281745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_7
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 0
-        width: 26
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0f5a6b9047be384a91e9198c68105c4
-      internalID: 1620818002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_8
-      rect:
-        serializedVersion: 2
-        x: 258
+        x: 140
         y: 0
         width: 28
-        height: 19
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fb0de5d1a3e1e69489b948376dfe107f
-      internalID: 1966466783
+      spriteID: bb376766ef4c19450800000000000000
+      internalID: 6093868367728767931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_9
+      name: Bunny_Idle_5
       rect:
         serializedVersion: 2
-        x: 290
+        x: 174
         y: 0
         width: 28
-        height: 17
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3429c029357fbd442b8a65f760765ac3
-      internalID: -67545448
+      spriteID: e74878f7abfba26f0800000000000000
+      internalID: -708543183633021826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_10
+      name: Bunny_Idle_6
       rect:
         serializedVersion: 2
-        x: 322
+        x: 207
         y: 0
-        width: 28
-        height: 17
+        width: 29
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 98bac27c3e2f6ea40b10b8fe56e12e6a
-      internalID: -1223326413
+      spriteID: 9a873bddb863169c0800000000000000
+      internalID: -3935804624997222231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (32x32)_11
+      name: Bunny_Idle_7
       rect:
         serializedVersion: 2
-        x: 354
+        x: 241
         y: 0
-        width: 28
-        height: 18
+        width: 29
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5986eee5a6bdef9448ed7984f50cf222
-      internalID: -1063065824
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_12
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 0
-        width: 26
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dd853707a3c4e84f809643ed9625849
-      internalID: -1773697366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (32x32)_13
-      rect:
-        serializedVersion: 2
-        x: 419
-        y: 0
-        width: 26
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8dcebece9afb77499b92665e75d826e
-      internalID: 1447527203
+      spriteID: 582e881f340764ea0800000000000000
+      internalID: -5888896025622945147
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      Idle (32x32)_0: 244917423
-      Idle (32x32)_1: -379295279
-      Idle (32x32)_10: -1223326413
-      Idle (32x32)_11: -1063065824
-      Idle (32x32)_12: -1773697366
-      Idle (32x32)_13: 1447527203
-      Idle (32x32)_2: -1004831944
-      Idle (32x32)_3: 939993068
-      Idle (32x32)_4: -1796080821
-      Idle (32x32)_5: -1127496742
-      Idle (32x32)_6: -1455281745
-      Idle (32x32)_7: 1620818002
-      Idle (32x32)_8: 1966466783
-      Idle (32x32)_9: -67545448
+      Bunny_Idle_0: 6999069530432035771
+      Bunny_Idle_1: -939137608414812575
+      Bunny_Idle_2: 1920718544153590629
+      Bunny_Idle_3: -8237514698909747018
+      Bunny_Idle_4: 6093868367728767931
+      Bunny_Idle_5: -708543183633021826
+      Bunny_Idle_6: -3935804624997222231
+      Bunny_Idle_7: -5888896025622945147
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

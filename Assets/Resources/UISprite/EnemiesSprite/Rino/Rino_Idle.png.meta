@@ -1,9 +1,42 @@
 fileFormatVersion: 2
-guid: f0678fec24c0e614abff5dfac32a85f3
+guid: b4895146aa4f7ad419bb17e9abaa7df0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7150631790698270149
+    second: Rino_Idle_0
+  - first:
+      213: 102954193380986330
+    second: Rino_Idle_1
+  - first:
+      213: -1447322472301639600
+    second: Rino_Idle_2
+  - first:
+      213: 6773753357221247686
+    second: Rino_Idle_3
+  - first:
+      213: -1094118856874859810
+    second: Rino_Idle_4
+  - first:
+      213: -4503467990794172345
+    second: Rino_Idle_5
+  - first:
+      213: 7172917209631730265
+    second: Rino_Idle_6
+  - first:
+      213: 7329076891145957694
+    second: Rino_Idle_7
+  - first:
+      213: -6350919907886503870
+    second: Rino_Idle_8
+  - first:
+      213: 5565365536120388519
+    second: Rino_Idle_9
+  - first:
+      213: 6241886512642381418
+    second: Rino_Idle_10
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -67,7 +100,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +113,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +126,34 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,303 +169,272 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rock1_Idle (38x34)_0
+      name: Rino_Idle_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 360fd93ee806a5e4fb8b8ae53e02773d
-      internalID: 1625515041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_1
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 0
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63e60f2b97520ce42a7fd3b5a237661c
-      internalID: 801923151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_2
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 0
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4cbb83089ea07b46a58200cdec12a18
-      internalID: -1595743331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_3
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 0
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de7d753a5bfff21498702bf298171b55
-      internalID: 988922568
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_4
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 0
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1162c22462f8d0e46a337aac8c6cc7f6
-      internalID: -562786803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_5
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 0
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 266c00587f4672c4989ee1607ec280a1
-      internalID: -958870329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_6
-      rect:
-        serializedVersion: 2
-        x: 229
-        y: 0
-        width: 36
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52efc8e4e9759f34b872bafb69812707
-      internalID: -1389257714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_7
-      rect:
-        serializedVersion: 2
-        x: 267
-        y: 0
-        width: 36
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f08386d688588284e8cb9743c014181c
-      internalID: -830126655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_8
-      rect:
-        serializedVersion: 2
-        x: 305
-        y: 0
-        width: 36
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23e28e96816756e4bbdf28ae93dd919f
-      internalID: -1858443484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_9
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 0
-        width: 36
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27d7380483418504e9a0285756be3976
-      internalID: 1120407969
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_10
-      rect:
-        serializedVersion: 2
-        x: 381
-        y: 0
-        width: 36
+        width: 50
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 124a3e3953922fb4786d1fb247953618
-      internalID: 351840327
+      spriteID: b3270d3a54ad3cc90800000000000000
+      internalID: -7150631790698270149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock1_Idle (38x34)_12
+      name: Rino_Idle_1
       rect:
         serializedVersion: 2
-        x: 495
+        x: 52
         y: 0
-        width: 36
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90d3186b1c295f941ba68ff03803c9f8
-      internalID: 374806034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock1_Idle (38x34)_13
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 0
-        width: 38
+        width: 52
         height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8d4aa63d68e8999479194cef576b4a10
-      internalID: 1228979656
+      spriteID: add4c9c1b44cd6100800000000000000
+      internalID: 102954193380986330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 52
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058450331e31aebe0800000000000000
+      internalID: -1447322472301639600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 52
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca384d1ac4310e50800000000000000
+      internalID: 6773753357221247686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 50
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed2eae152b8e0d0f0800000000000000
+      internalID: -1094118856874859810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7480f5709b77081c0800000000000000
+      internalID: -4503467990794172345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 0
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95aa26bc2325b8360800000000000000
+      internalID: 7172917209631730265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 0
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e317744f99c16b560800000000000000
+      internalID: 7329076891145957694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 0
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248e77d0efffcd7a0800000000000000
+      internalID: -6350919907886503870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 0
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab38a1f7762c3d40800000000000000
+      internalID: 5565365536120388519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rino_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 0
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a66d95a56b2af9650800000000000000
+      internalID: 6241886512642381418
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      Rock1_Idle (38x34)_0: 1625515041
-      Rock1_Idle (38x34)_1: 801923151
-      Rock1_Idle (38x34)_10: 351840327
-      Rock1_Idle (38x34)_11: 1324619141
-      Rock1_Idle (38x34)_12: 374806034
-      Rock1_Idle (38x34)_13: 1228979656
-      Rock1_Idle (38x34)_2: -1595743331
-      Rock1_Idle (38x34)_3: 988922568
-      Rock1_Idle (38x34)_4: -562786803
-      Rock1_Idle (38x34)_5: -958870329
-      Rock1_Idle (38x34)_6: -1389257714
-      Rock1_Idle (38x34)_7: -830126655
-      Rock1_Idle (38x34)_8: -1858443484
-      Rock1_Idle (38x34)_9: 1120407969
+      Rino_Idle_0: -7150631790698270149
+      Rino_Idle_1: 102954193380986330
+      Rino_Idle_10: 6241886512642381418
+      Rino_Idle_2: -1447322472301639600
+      Rino_Idle_3: 6773753357221247686
+      Rino_Idle_4: -1094118856874859810
+      Rino_Idle_5: -4503467990794172345
+      Rino_Idle_6: 7172917209631730265
+      Rino_Idle_7: 7329076891145957694
+      Rino_Idle_8: -6350919907886503870
+      Rino_Idle_9: 5565365536120388519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -52,6 +52,7 @@ public class UI_Game : MonoBehaviour
 
     private void Awake()
     {
+        statusButton.AddEvent(FriendStatusController.Instance.OnFrieldStatus);
         buildingButton.AddEvent((evt) =>
         {
             SetMenu(EUI_MenuType.Building);

@@ -1,9 +1,27 @@
 fileFormatVersion: 2
-guid: 87047e837715e8b4c907c8542a3e74c9
+guid: 1e407d40e4a2c4b40a56cb55823b11fe
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7811735988217470459
+    second: Radish_Idle_0
+  - first:
+      213: -3274174120365121561
+    second: Radish_Idle_1
+  - first:
+      213: 1708031466123555311
+    second: Radish_Idle_2
+  - first:
+      213: 5176364357392284991
+    second: Radish_Idle_3
+  - first:
+      213: -4478995480319277213
+    second: Radish_Idle_4
+  - first:
+      213: 988736686231162032
+    second: Radish_Idle_5
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -67,7 +85,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +98,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +111,34 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,258 +154,157 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rock3_Idle (22x18)_0
+      name: Radish_Idle_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 18
-        height: 15
+        width: 29
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1c2bd3765d5ed9742bc61d5af12c4aa2
-      internalID: 957773981
+      spriteID: 502a92fc183279390800000000000000
+      internalID: -7811735988217470459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock3_Idle (22x18)_1
+      name: Radish_Idle_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 0
-        width: 18
-        height: 15
+        x: 29
+        y: 1
+        width: 31
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0e0e224c565083743be81e8108133ae0
-      internalID: 638371402
+      spriteID: 7ef1cde1cfbcf82d0800000000000000
+      internalID: -3274174120365121561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock3_Idle (22x18)_2
+      name: Radish_Idle_2
       rect:
         serializedVersion: 2
-        x: 46
-        y: 0
-        width: 18
-        height: 15
+        x: 59
+        y: 1
+        width: 31
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: df2e381c2d6488f4e97cebf0a1247f98
-      internalID: -643337145
+      spriteID: fe1fb73a19524b710800000000000000
+      internalID: 1708031466123555311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock3_Idle (22x18)_3
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 0
-        width: 18
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d77b4748f9ccaa4a9e947683e97ebf3
-      internalID: -1993843949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock3_Idle (22x18)_4
+      name: Radish_Idle_3
       rect:
         serializedVersion: 2
         x: 90
         y: 0
-        width: 18
-        height: 15
+        width: 29
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f1924fc4e6225154eb3fa7c6c3d65109
-      internalID: -1370976377
+      spriteID: f3d3c5e15f326d740800000000000000
+      internalID: 5176364357392284991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock3_Idle (22x18)_5
+      name: Radish_Idle_4
       rect:
         serializedVersion: 2
-        x: 112
+        x: 121
         y: 0
-        width: 18
-        height: 16
+        width: 27
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 25d88d5ea581fb3479d6cfd5f8e63f72
-      internalID: 1155498740
+      spriteID: 3674df4675967d1c0800000000000000
+      internalID: -4478995480319277213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rock3_Idle (22x18)_6
+      name: Radish_Idle_5
       rect:
         serializedVersion: 2
-        x: 134
+        x: 151
         y: 0
-        width: 18
-        height: 15
+        width: 27
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 31623c27c0f5b464fbe94287f775448d
-      internalID: -889603201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock3_Idle (22x18)_7
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 0
-        width: 18
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed3bc8bd81b377b459871f53975ec496
-      internalID: -536236850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock3_Idle (22x18)_8
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 0
-        width: 20
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01870963b91d69f4ea8748b2a7eabd60
-      internalID: -1144352873
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock3_Idle (22x18)_9
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 0
-        width: 20
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d05963711098c2d40aed19c10b2f07b8
-      internalID: 1396582968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rock3_Idle (22x18)_10
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 0
-        width: 18
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed8c7c9109a94a74699f7d6f1817c6d4
-      internalID: 799535657
+      spriteID: 0bc843f07c2b8bd00800000000000000
+      internalID: 988736686231162032
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      Rock3_Idle (22x18)_0: 957773981
-      Rock3_Idle (22x18)_1: 638371402
-      Rock3_Idle (22x18)_10: 799535657
-      Rock3_Idle (22x18)_2: -643337145
-      Rock3_Idle (22x18)_3: -1993843949
-      Rock3_Idle (22x18)_4: -1370976377
-      Rock3_Idle (22x18)_5: 1155498740
-      Rock3_Idle (22x18)_6: -889603201
-      Rock3_Idle (22x18)_7: -536236850
-      Rock3_Idle (22x18)_8: -1144352873
-      Rock3_Idle (22x18)_9: 1396582968
+      Radish_Idle_0: -7811735988217470459
+      Radish_Idle_1: -3274174120365121561
+      Radish_Idle_2: 1708031466123555311
+      Radish_Idle_3: 5176364357392284991
+      Radish_Idle_4: -4478995480319277213
+      Radish_Idle_5: 988736686231162032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

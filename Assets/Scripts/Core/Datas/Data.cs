@@ -7,12 +7,26 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerInfo
 {
+    public int maxFriendCount;
+    public int curFriendCount;
     public bool isFirst;
     public double gold;
     public Dictionary<string, List<FriendStat>> friends;
     public Dictionary<string, List<SerializableVector3>> friendPosDict;
     public Dictionary<string, List<BuildInfo>> builds;
     public Dictionary<string, List<SerializableVector3>> buildingPosDict;
+
+    public PlayerInfo()
+    {
+        maxFriendCount = 5;
+        curFriendCount = 0;
+        isFirst = true;
+        gold = 0;
+        friends = new Dictionary<string, List<FriendStat>>();
+        friendPosDict = new Dictionary<string, List<SerializableVector3>>();
+        builds = new Dictionary<string, List<BuildInfo>>();
+        buildingPosDict = new Dictionary<string, List<SerializableVector3>>();
+    }
 }
 
 [System.Serializable]
@@ -82,6 +96,7 @@ public class FriendStaticStat
 public class FriendStat
 {
     public FriendStaticStat info;
+    public bool isEquip;
     public Define.EFriend_Rarity rarity = Define.EFriend_Rarity.Normal;
 
     public Define.EFriend_Rarity Rarity
@@ -92,9 +107,6 @@ public class FriendStat
             rarity = value;
             switch (rarity)
             {
-                case Define.EFriend_Rarity.None:
-                    Rarity = Define.EFriend_Rarity.Normal;
-                    break;
                 case Define.EFriend_Rarity.Normal:
                     info.coinDefault *= 1;
                     info.coinCoefficient *= 1;
@@ -150,7 +162,7 @@ public class FriendSet : ILoader<string, FriendInfo>
     {
         Dictionary<string, FriendInfo> dict = new Dictionary<string, FriendInfo>();
         foreach(FriendInfo friendInfo in FriendData)        
-            dict.Add(friendInfo.name, friendInfo);
+            dict.Add(friendInfo.objectName, friendInfo);
 
         return dict;
     }

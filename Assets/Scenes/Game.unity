@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 208452461}
   - component: {fileID: 208452462}
   m_Layer: 0
-  m_Name: Friend_RenderTexture
+  m_Name: RenderTexture_Friend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1299,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.03125, y: 0.84375}
+  m_Size: {x: 0.875, y: 1.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -1315,7 +1315,7 @@ Animator:
   m_GameObject: {fileID: 208452457}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5057af36d94075d42bb0f8f2d838bd50, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15536,6 +15536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInfo:
+    maxFriendCount: 0
+    curFriendCount: 0
     isFirst: 0
     gold: 0
   friendList: []
@@ -15868,6 +15870,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1652309041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 358609428983762946, guid: c151acfb56931d24391a77efc03215d4, type: 3}
+  m_PrefabInstance: {fileID: 1392960698905521401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700739903
 GameObject:
   m_ObjectHideFlags: 0
@@ -16696,22 +16703,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1831817801}
   - component: {fileID: 1831817800}
-  - component: {fileID: 1831817799}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: RenderTexture_Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1831817799
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831817798}
-  m_Enabled: 1
 --- !u!20 &1831817800
 Camera:
   m_ObjectHideFlags: 0
@@ -17795,10 +17793,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d05d96569085a45aae4833ae45dab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderTexture: {fileID: 208452457}
+  friendStatus: {fileID: 1652309041}
   friendCountText: {fileID: 1956604419}
   exitButton: {fileID: 402636499}
   listContent: {fileID: 1996909827}
+  renderTexture: {fileID: 208452457}
+  portrailNameText: {fileID: 0}
+  createCoinText: {fileID: 0}
+  friendDesriptionText: {fileID: 0}
+  friendRankText: {fileID: 0}
 --- !u!1 &2101859614
 GameObject:
   m_ObjectHideFlags: 0
@@ -18255,10 +18258,6 @@ PrefabInstance:
     - target: {fileID: 868584478017846552, guid: fdfcebb8d51074d4caeba5d25f34bdf0, type: 3}
       propertyPath: m_Name
       value: UI_Title
-      objectReference: {fileID: 0}
-    - target: {fileID: 868584478017846552, guid: fdfcebb8d51074d4caeba5d25f34bdf0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4900565896658514098, guid: fdfcebb8d51074d4caeba5d25f34bdf0, type: 3}
       propertyPath: m_Pivot.x

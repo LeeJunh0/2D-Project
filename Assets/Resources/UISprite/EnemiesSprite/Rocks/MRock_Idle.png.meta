@@ -1,9 +1,42 @@
 fileFormatVersion: 2
-guid: a0fd2775e3422314498eef18fb69c519
+guid: 4d695bcbf7961c74ca59a26731b9aa13
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4610417621799257853
+    second: MRock_Idle_0
+  - first:
+      213: 983332349277692194
+    second: MRock_Idle_1
+  - first:
+      213: -4722132833576964925
+    second: MRock_Idle_2
+  - first:
+      213: 6683172795675806828
+    second: MRock_Idle_3
+  - first:
+      213: -1290971813682845707
+    second: MRock_Idle_4
+  - first:
+      213: 7891447555091069553
+    second: MRock_Idle_5
+  - first:
+      213: 2580566817120064167
+    second: MRock_Idle_6
+  - first:
+      213: -2971245923925846609
+    second: MRock_Idle_7
+  - first:
+      213: 8926473873378085033
+    second: MRock_Idle_8
+  - first:
+      213: 9067973752223907931
+    second: MRock_Idle_9
+  - first:
+      213: 7637591177975845473
+    second: MRock_Idle_10
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -67,7 +100,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +113,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +126,34 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,258 +169,272 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle (52x34)_0
+      name: MRock_Idle_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 0
-        width: 48
-        height: 28
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 97c2a8ba42f39b04f8f0fb197f1b0132
-      internalID: -1397060243
+      spriteID: 309347a99918400c0800000000000000
+      internalID: -4610417621799257853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_1
+      name: MRock_Idle_1
       rect:
         serializedVersion: 2
-        x: 53
+        x: 23
         y: 0
-        width: 50
-        height: 26
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 86f7e737f945f5a48a380c278f7b327e
-      internalID: 113496991
+      spriteID: 221e8decf8f75ad00800000000000000
+      internalID: 983332349277692194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_2
+      name: MRock_Idle_2
       rect:
         serializedVersion: 2
-        x: 105
+        x: 45
         y: 0
-        width: 50
-        height: 26
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ab7c187ab49d7974086eb1da00a7315a
-      internalID: 24247585
+      spriteID: 3ccaf60f43d977eb0800000000000000
+      internalID: -4722132833576964925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_3
+      name: MRock_Idle_3
       rect:
         serializedVersion: 2
-        x: 157
+        x: 67
         y: 0
-        width: 50
-        height: 26
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 163a230dbfd758a41ac432a7d5b66408
-      internalID: -2045427986
+      spriteID: c6c8fcaaf366fbc50800000000000000
+      internalID: 6683172795675806828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_4
+      name: MRock_Idle_4
       rect:
         serializedVersion: 2
-        x: 210
+        x: 89
         y: 0
-        width: 48
-        height: 27
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8a11250d16d440d40b12ebdbbcdbcbd6
-      internalID: 1211542250
+      spriteID: 5f7646ea9fb851ee0800000000000000
+      internalID: -1290971813682845707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_5
+      name: MRock_Idle_5
       rect:
         serializedVersion: 2
-        x: 262
+        x: 111
         y: 0
-        width: 48
-        height: 28
+        width: 20
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5cca2806c3598b646a8bcfab5c002aca
-      internalID: -875206154
+      spriteID: 17af3dc9dbd048d60800000000000000
+      internalID: 7891447555091069553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_6
+      name: MRock_Idle_6
       rect:
         serializedVersion: 2
-        x: 314
+        x: 133
         y: 0
-        width: 48
-        height: 29
+        width: 20
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1c1b218fc3794b649ae86be821c50912
-      internalID: 1141620118
+      spriteID: 7a21a9509d300d320800000000000000
+      internalID: 2580566817120064167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_7
+      name: MRock_Idle_7
       rect:
         serializedVersion: 2
-        x: 366
+        x: 155
         y: 0
-        width: 48
-        height: 29
+        width: 20
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 563b95c210292cc41812f604a3ba6438
-      internalID: -1160051049
+      spriteID: fa59214139304c6d0800000000000000
+      internalID: -2971245923925846609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_8
+      name: MRock_Idle_8
       rect:
         serializedVersion: 2
-        x: 418
+        x: 176
         y: 0
-        width: 48
-        height: 29
+        width: 22
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6450fdcf0a857904f80946c1a070228d
-      internalID: 1393713039
+      spriteID: 9a8818f71b431eb70800000000000000
+      internalID: 8926473873378085033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_9
+      name: MRock_Idle_9
       rect:
         serializedVersion: 2
-        x: 470
+        x: 198
         y: 0
-        width: 48
-        height: 29
+        width: 22
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5feaa4cd9e5640b4b90141931421a611
-      internalID: 1953010566
+      spriteID: b504fdd551ae7dd70800000000000000
+      internalID: 9067973752223907931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (52x34)_10
+      name: MRock_Idle_10
       rect:
         serializedVersion: 2
-        x: 522
+        x: 221
         y: 0
-        width: 48
-        height: 29
+        width: 20
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: da218a4f40c4a014388dbedee69edc2b
-      internalID: -1853124980
+      spriteID: 16258eee5bc2ef960800000000000000
+      internalID: 7637591177975845473
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      Idle (52x34)_0: -1397060243
-      Idle (52x34)_1: 113496991
-      Idle (52x34)_10: -1853124980
-      Idle (52x34)_2: 24247585
-      Idle (52x34)_3: -2045427986
-      Idle (52x34)_4: 1211542250
-      Idle (52x34)_5: -875206154
-      Idle (52x34)_6: 1141620118
-      Idle (52x34)_7: -1160051049
-      Idle (52x34)_8: 1393713039
-      Idle (52x34)_9: 1953010566
+      MRock_Idle_0: -4610417621799257853
+      MRock_Idle_1: 983332349277692194
+      MRock_Idle_10: 7637591177975845473
+      MRock_Idle_2: -4722132833576964925
+      MRock_Idle_3: 6683172795675806828
+      MRock_Idle_4: -1290971813682845707
+      MRock_Idle_5: 7891447555091069553
+      MRock_Idle_6: 2580566817120064167
+      MRock_Idle_7: -2971245923925846609
+      MRock_Idle_8: 8926473873378085033
+      MRock_Idle_9: 9067973752223907931
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

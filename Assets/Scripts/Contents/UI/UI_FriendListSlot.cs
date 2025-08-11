@@ -44,15 +44,25 @@ public class UI_FriendListSlot : MonoBehaviour
         nameText.text = info.name;
         friendIcon.sprite = MainManager.Resource.LoadAtlas(info.friendIcon);
 
+        FriendStatusController.SelectFrinedCheckHandler -= CurSlotCheck;
+        FriendStatusController.SelectFrinedCheckHandler += CurSlotCheck;
+
+        gameObject.AddEvent(OnClick);
     }
 
     private void OnClick(PointerEventData eventData)
     {
-        SelectFrinedCheckHandler?.Invoke();
+        FriendStatusController.Instance.CurFriend = this;
+    }
+
+    private void CurSlotCheck()
+    {
+        bool isCheck = FriendStatusController.Instance.CurFriend == this;
+        outLine.SetActive(isCheck);
     }
 
     private void OnDestroy()
     {
-        SelectFrinedCheckHandler.
+        FriendStatusController.SelectFrinedCheckHandler -= CurSlotCheck;
     }
 }

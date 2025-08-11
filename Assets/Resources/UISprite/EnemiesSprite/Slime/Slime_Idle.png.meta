@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 28682a3016fa7244db94fe20e48d0653
+guid: 29e023c28841db14f8da1fcc6c288822
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7363166705265310760
+    second: Slime_Idle_0
+  - first:
+      213: -5053397183770984521
+    second: Slime_Idle_1
+  - first:
+      213: 2562226924957090973
+    second: Slime_Idle_2
+  - first:
+      213: -5823576197350583881
+    second: Slime_Idle_3
+  - first:
+      213: 1838681140112674480
+    second: Slime_Idle_4
+  - first:
+      213: -1405210446015081617
+    second: Slime_Idle_5
+  - first:
+      213: 1813432566855913528
+    second: Slime_Idle_6
+  - first:
+      213: -2326420697060349729
+    second: Slime_Idle_7
+  - first:
+      213: -4963006180359112437
+    second: Slime_Idle_8
+  - first:
+      213: 3249778981035847744
+    second: Slime_Idle_9
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -67,7 +97,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +110,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +123,34 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,192 +166,249 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle (34x44)_0
+      name: Slime_Idle_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 2
         y: 0
-        width: 28
-        height: 41
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b5b252ac76c12a04f9cf870763b05e65
-      internalID: 1333736557
+      spriteID: 82c72515b193f2660800000000000000
+      internalID: 7363166705265310760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_1
+      name: Slime_Idle_1
       rect:
         serializedVersion: 2
-        x: 37
+        x: 45
         y: 0
-        width: 28
-        height: 40
+        width: 42
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3e09c17435bf46f488e6f73a6e66e728
-      internalID: 1152256442
+      spriteID: 7bffe50190abed9b0800000000000000
+      internalID: -5053397183770984521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_2
+      name: Slime_Idle_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 88
         y: 0
-        width: 27
-        height: 39
+        width: 44
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5e5368509861c5b40824def59acd8bf5
-      internalID: 1458824385
+      spriteID: d94420020dbde8320800000000000000
+      internalID: 2562226924957090973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_3
+      name: Slime_Idle_3
       rect:
         serializedVersion: 2
-        x: 106
+        x: 132
         y: 0
-        width: 27
-        height: 38
+        width: 44
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2bda6c99e02d06d47973202887210785
-      internalID: -1142886209
+      spriteID: 7b19f7a9d408e2fa0800000000000000
+      internalID: -5823576197350583881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_4
+      name: Slime_Idle_4
       rect:
         serializedVersion: 2
-        x: 141
+        x: 177
         y: 0
-        width: 26
-        height: 38
+        width: 42
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4668822601b1daa4ba60cb43537c66cb
-      internalID: -1532816474
+      spriteID: 0be40a351ce448910800000000000000
+      internalID: 1838681140112674480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_5
+      name: Slime_Idle_5
       rect:
         serializedVersion: 2
-        x: 175
+        x: 222
         y: 0
-        width: 26
-        height: 39
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ffefe4472e5aa534cb768a18a524862b
-      internalID: 1913044791
+      spriteID: f635a926b80bf7ce0800000000000000
+      internalID: -1405210446015081617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_6
+      name: Slime_Idle_6
       rect:
         serializedVersion: 2
-        x: 208
+        x: 267
         y: 0
-        width: 27
-        height: 40
+        width: 38
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: fade77494221f8a44a1433647cd4d71c
-      internalID: -1195415308
+      spriteID: 8305293cf4b9a2910800000000000000
+      internalID: 1813432566855913528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (34x44)_7
+      name: Slime_Idle_7
       rect:
         serializedVersion: 2
-        x: 242
+        x: 312
         y: 0
-        width: 27
-        height: 41
+        width: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e85582dbd10c9a04fb975d61b725f0e2
-      internalID: 523235499
+      spriteID: fd8e991b3b4e6bfd0800000000000000
+      internalID: -2326420697060349729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 0
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0970a19c2cdf1bb0800000000000000
+      internalID: -4963006180359112437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 0
+        width: 38
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0403c23e3c8891d20800000000000000
+      internalID: 3249778981035847744
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
-      Idle (34x44)_0: 1333736557
-      Idle (34x44)_1: 1152256442
-      Idle (34x44)_2: 1458824385
-      Idle (34x44)_3: -1142886209
-      Idle (34x44)_4: -1532816474
-      Idle (34x44)_5: 1913044791
-      Idle (34x44)_6: -1195415308
-      Idle (34x44)_7: 523235499
+      Slime_Idle_0: 7363166705265310760
+      Slime_Idle_1: -5053397183770984521
+      Slime_Idle_2: 2562226924957090973
+      Slime_Idle_3: -5823576197350583881
+      Slime_Idle_4: 1838681140112674480
+      Slime_Idle_5: -1405210446015081617
+      Slime_Idle_6: 1813432566855913528
+      Slime_Idle_7: -2326420697060349729
+      Slime_Idle_8: -4963006180359112437
+      Slime_Idle_9: 3249778981035847744
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

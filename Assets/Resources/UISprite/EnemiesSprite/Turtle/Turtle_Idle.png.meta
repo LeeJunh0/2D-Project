@@ -1,9 +1,51 @@
 fileFormatVersion: 2
-guid: b485c76d9fea51d438a2e26354449d32
+guid: 7a0ea00348b507448b3e1a3c5a9e604b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7442915053277858766
+    second: Turtle_Idle_0
+  - first:
+      213: 654561961380377404
+    second: Turtle_Idle_1
+  - first:
+      213: 5346806174202313527
+    second: Turtle_Idle_2
+  - first:
+      213: 5480504046814727136
+    second: Turtle_Idle_3
+  - first:
+      213: -3941739596183211233
+    second: Turtle_Idle_4
+  - first:
+      213: -7150761992606987815
+    second: Turtle_Idle_5
+  - first:
+      213: 1545508607076604633
+    second: Turtle_Idle_6
+  - first:
+      213: -5015051664257458395
+    second: Turtle_Idle_7
+  - first:
+      213: 7283813558395760945
+    second: Turtle_Idle_8
+  - first:
+      213: 163575278569601282
+    second: Turtle_Idle_9
+  - first:
+      213: 8679732141126735298
+    second: Turtle_Idle_10
+  - first:
+      213: 3418266056113048575
+    second: Turtle_Idle_11
+  - first:
+      213: -4415065107546084100
+    second: Turtle_Idle_12
+  - first:
+      213: -4925193399875440591
+    second: Turtle_Idle_13
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -34,7 +76,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +90,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +109,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +122,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -93,8 +135,34 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,346 +178,327 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle (38x24)_0
+      name: Turtle_Idle_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 1
         y: 0
-        width: 32
-        height: 22
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 23f9c48f9f4d3304da541a4ae06c9566
-      internalID: 1743273148
+      spriteID: 23437fb713475b890800000000000000
+      internalID: -7442915053277858766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_1
+      name: Turtle_Idle_1
       rect:
         serializedVersion: 2
-        x: 43
+        x: 44
         y: 0
-        width: 32
-        height: 22
+        width: 45
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1c535ca3627455b4d9a6e23814478e90
-      internalID: 383693451
+      spriteID: c337f87c2a8751900800000000000000
+      internalID: 654561961380377404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_2
+      name: Turtle_Idle_2
       rect:
         serializedVersion: 2
-        x: 81
+        x: 88
         y: 0
-        width: 32
-        height: 22
+        width: 45
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1272d6092c085b04583f5358921c8f60
-      internalID: -1522763577
+      spriteID: 73bb13803eba33a40800000000000000
+      internalID: 5346806174202313527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_3
+      name: Turtle_Idle_3
       rect:
         serializedVersion: 2
-        x: 119
+        x: 132
         y: 0
-        width: 32
-        height: 22
+        width: 45
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5f1fa02a1d35ef4458d788586e1c09d9
-      internalID: 521515911
+      spriteID: 0eb8b74c469ae0c40800000000000000
+      internalID: 5480504046814727136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_4
+      name: Turtle_Idle_4
       rect:
         serializedVersion: 2
-        x: 157
+        x: 177
         y: 0
-        width: 32
-        height: 22
+        width: 43
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d05f2c618a0aa0f4e91e2823159e1459
-      internalID: -293117274
+      spriteID: f137864b8b02c49c0800000000000000
+      internalID: -3941739596183211233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_5
+      name: Turtle_Idle_5
       rect:
         serializedVersion: 2
-        x: 195
+        x: 221
         y: 0
-        width: 32
-        height: 22
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 018523a35589468418ae1cee9667d66b
-      internalID: 1106584489
+      spriteID: 9d9cb45aad363cc90800000000000000
+      internalID: -7150761992606987815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_6
+      name: Turtle_Idle_6
       rect:
         serializedVersion: 2
-        x: 233
+        x: 265
         y: 0
-        width: 32
-        height: 22
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d0aed2f59a912b34dac4c52116d043c1
-      internalID: 491891624
+      spriteID: 9da1c12c3efb27510800000000000000
+      internalID: 1545508607076604633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_7
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 0
-        width: 32
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ccf025b051a9c2498735f8f27e76c15
-      internalID: 2004728002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle (38x24)_8
+      name: Turtle_Idle_7
       rect:
         serializedVersion: 2
         x: 309
         y: 0
-        width: 32
-        height: 23
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 65cbbbbd35b4bb34ba1c663718cc923d
-      internalID: -282572773
+      spriteID: 52fd3bd0515f66ab0800000000000000
+      internalID: -5015051664257458395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_9
+      name: Turtle_Idle_8
       rect:
         serializedVersion: 2
-        x: 347
+        x: 353
         y: 0
-        width: 32
-        height: 23
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 64700f7b86680684b84c63daff536c8f
-      internalID: 508075934
+      spriteID: 1317a5e07dd451560800000000000000
+      internalID: 7283813558395760945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_10
+      name: Turtle_Idle_9
       rect:
         serializedVersion: 2
-        x: 385
+        x: 397
         y: 0
-        width: 32
-        height: 23
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d72b234ab27b15e4786ee12147c12b82
-      internalID: 503218845
+      spriteID: 2093d2569d2254200800000000000000
+      internalID: 163575278569601282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_11
+      name: Turtle_Idle_10
       rect:
         serializedVersion: 2
-        x: 423
+        x: 441
         y: 0
-        width: 32
-        height: 23
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ee265c88992f60444a5d99bce2846ab0
-      internalID: -1623137643
+      spriteID: 2c55669256a947870800000000000000
+      internalID: 8679732141126735298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_12
+      name: Turtle_Idle_11
       rect:
         serializedVersion: 2
-        x: 461
+        x: 485
         y: 0
-        width: 32
-        height: 23
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bc3355bb5ab49ca46b18d8377221ce93
-      internalID: -595672605
+      spriteID: ffbc4660ede107f20800000000000000
+      internalID: 3418266056113048575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_13
+      name: Turtle_Idle_12
       rect:
         serializedVersion: 2
-        x: 499
+        x: 529
         y: 0
-        width: 32
-        height: 22
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 26ec071ad38bb4a44a5a77acc10eaeea
-      internalID: -1066647121
+      spriteID: cfc6e7c3da98ab2c0800000000000000
+      internalID: -4415065107546084100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle (38x24)_14
+      name: Turtle_Idle_13
       rect:
         serializedVersion: 2
-        x: 537
+        x: 573
         y: 0
-        width: 32
-        height: 22
+        width: 43
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a3ea2777aa6b2454e90bed86931e4098
-      internalID: -365634409
+      spriteID: 130735692b236abb0800000000000000
+      internalID: -4925193399875440591
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Idle (38x24)_0: 1743273148
-      Idle (38x24)_1: 383693451
-      Idle (38x24)_10: 503218845
-      Idle (38x24)_11: -1623137643
-      Idle (38x24)_12: -595672605
-      Idle (38x24)_13: -1066647121
-      Idle (38x24)_14: -365634409
-      Idle (38x24)_2: -1522763577
-      Idle (38x24)_3: 521515911
-      Idle (38x24)_4: -293117274
-      Idle (38x24)_5: 1106584489
-      Idle (38x24)_6: 491891624
-      Idle (38x24)_7: 2004728002
-      Idle (38x24)_8: -282572773
-      Idle (38x24)_9: 508075934
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
