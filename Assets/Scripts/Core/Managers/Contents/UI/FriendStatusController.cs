@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// 친구들의 능력치 관리 및 관련 UI관리
@@ -12,9 +13,11 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class FriendStatusController : Singleton<FriendStatusController>
 {
-    public static event Action SelectFrinedCheckHandler;
+    public static event Action<int> FriendWalkOrRestHandler;
 
     [SerializeField] private GameObject friendStatus;
+    [SerializeField] private GameObject portrailBackGround;
+    [SerializeField] private GameObject statusBackGround;
 
     [SerializeField] private TextMeshProUGUI friendCountText;
     [SerializeField] private GameObject exitButton;
@@ -28,20 +31,6 @@ public class FriendStatusController : Singleton<FriendStatusController>
 
     private List<UI_FriendListSlot> friendListSlots;
     private UI_FriendListSlot curFriend;
-
-    public UI_FriendListSlot CurFriend
-    {
-        get => curFriend;
-        set
-        {
-            if (curFriend != value)
-                curFriend = value;
-            else
-                curFriend = null;
-
-            SelectFrinedCheckHandler?.Invoke();
-        }
-    }
 
     public void Start()
     {
@@ -63,6 +52,12 @@ public class FriendStatusController : Singleton<FriendStatusController>
     public void FriendListInit(List<Friend> friends)
     {
         FriendListClear();
+
+        UI_FriendListSlot.SelectFrinedCheckHandler -= SelectFriendListSlot;
+        UI_FriendListSlot.SelectFrinedCheckHandler += SelectFriendListSlot;
+        UI_FriendListSlot.WalkOrRestCheckHandler -= FriendWalkOrRest;
+        UI_FriendListSlot.WalkOrRestCheckHandler += FriendWalkOrRest;
+
         for (int i = 0; i < friends.Count; i++)
         {
             GameObject go = MainManager.Resource.Instantiate("FriendList_Slot", listContent);
@@ -73,12 +68,11 @@ public class FriendStatusController : Singleton<FriendStatusController>
             friendListSlots.Add(slot);
         }
 
-        if (curFriend == null || friendListSlots.Count > 0)
-            CurFriend = friendListSlots[0];
+        if (curFriend == null && friendListSlots.Count > 0)
+            curFriend = friendListSlots[0];
 
-        friendCountText.text = string.Format($"{PlayerDataManager.Instance.CurFrieldCount} / {PlayerDataManager.Instance.MaxFriendCount}");
+        FriendCountUpdate();
         FriendListUpdate();
-        FriendStatusInit();
     }
 
     private void FriendListClear()
@@ -101,17 +95,28 @@ public class FriendStatusController : Singleton<FriendStatusController>
             friendListSlots[i].IsEquip = PlayerDataManager.Instance.FriendList[i].Stat.isEquip;
     }
 
+    private void FriendCountUpdate()
+    {
+        friendCountText.text = string.Format($"{PlayerDataManager.Instance.CurFrieldCount} / {PlayerDataManager.Instance.MaxFriendCount}");
+    }
+
     private void FriendStatusInit()
     {
         if (curFriend == null)
+        {
+            statusBackGround.SetActive(false);
+            portrailBackGround.SetActive(false);
             return;
+        }
 
+        statusBackGround.SetActive(true);
+        portrailBackGround.SetActive(true);
         FriendStat curFriendStat = PlayerDataManager.Instance.FriendList[curFriend.Index].Stat;
         renderTexture.runtimeAnimatorController = MainManager.Addressable.Load<RuntimeAnimatorController>($"Anim_{curFriendStat.info.name}");
         friendRankText.text = string.Format($"희귀도: {RarityToString(curFriendStat)}");
-        portrailNameText.text = curFriendStat.info.name;
-        createCoinText.text = string.Format($"기본값: {curFriendStat.info.coinDefault}, {curFriendStat.info.coinCoefficient}");
-        //friendDesriptionText.text = MainManager.Data.FriendDataDict[]
+        portrailNameText.text = MainManager.Data.FriendDataDict[curFriendStat.info.name].name;
+        createCoinText.text = string.Format($"생산량: {curFriendStat.info.coinDefault * curFriendStat.info.coinCoefficient}원");
+        friendDesriptionText.text = MainManager.Data.FriendDataDict[curFriendStat.info.name].description;
     }
 
     private string RarityToString(FriendStat stat)
@@ -119,15 +124,53 @@ public class FriendStatusController : Singleton<FriendStatusController>
         switch (stat.rarity)
         {
             case Define.EFriend_Rarity.Normal:
-                return "일반";
+                return "<color=black>일반</color>";
             case Define.EFriend_Rarity.Rare:
-                return "희귀";
+                return "<color=blue>희귀</color>";
             case Define.EFriend_Rarity.Unique:
-                return "네임드";
+                return "<color=green>네임드</color>";
             case Define.EFriend_Rarity.Legend:
-                return "보스";
+                return "<color=red>보스</color>";
             default:
                 return "";
         }
+    }
+
+    private void SelectFriendListSlot(UI_FriendListSlot slot)
+    {
+        if (curFriend != null)
+            curFriend.OffOutLine();
+
+        curFriend = slot;
+        curFriend.OnOutLine();
+        FriendStatusInit();
+    }
+
+    private void FriendWalkOrRest(UI_FriendListSlot slot)
+    {
+        FriendWalkOrRestHandler?.Invoke(slot.Index);
+        slot.IsEquip = PlayerDataManager.Instance.FriendList[slot.Index].Stat.isEquip;
+        FriendCountUpdate();
+    }
+
+    private void HandlerClear()
+    {
+        UI_FriendListSlot.SelectFrinedCheckHandler -= SelectFriendListSlot;
+        UI_FriendListSlot.WalkOrRestCheckHandler -= FriendWalkOrRest;
+    }
+
+    private void OnDestroy()
+    {
+        HandlerClear();
+    }
+
+    private void OnDisable()
+    {
+        HandlerClear();
+    }
+
+    private void OnApplicationQuit()
+    {
+        HandlerClear();
     }
 }

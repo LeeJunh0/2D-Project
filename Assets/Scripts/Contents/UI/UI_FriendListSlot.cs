@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UI_FriendListSlot : MonoBehaviour
 {
-    public static event Action SelectFrinedCheckHandler;
+    public static event Action<UI_FriendListSlot> SelectFrinedCheckHandler;
+    public static event Action<UI_FriendListSlot> WalkOrRestCheckHandler;
 
     [SerializeField] private GameObject outLine;
     [SerializeField] private TextMeshProUGUI nameText;
@@ -44,25 +45,20 @@ public class UI_FriendListSlot : MonoBehaviour
         nameText.text = info.name;
         friendIcon.sprite = MainManager.Resource.LoadAtlas(info.friendIcon);
 
-        FriendStatusController.SelectFrinedCheckHandler -= CurSlotCheck;
-        FriendStatusController.SelectFrinedCheckHandler += CurSlotCheck;
-
         gameObject.AddEvent(OnClick);
+        equipButton.gameObject.AddEvent(OnWalkOrRestClick);
     }
 
     private void OnClick(PointerEventData eventData)
     {
-        FriendStatusController.Instance.CurFriend = this;
+        SelectFrinedCheckHandler?.Invoke(this);
     }
 
-    private void CurSlotCheck()
+    private void OnWalkOrRestClick(PointerEventData eventData)
     {
-        bool isCheck = FriendStatusController.Instance.CurFriend == this;
-        outLine.SetActive(isCheck);
+        WalkOrRestCheckHandler?.Invoke(this);
     }
 
-    private void OnDestroy()
-    {
-        FriendStatusController.SelectFrinedCheckHandler -= CurSlotCheck;
-    }
+    public void OnOutLine() { outLine.SetActive(true); }
+    public void OffOutLine() { outLine.SetActive(false); }
 }

@@ -19,7 +19,7 @@ public class Friend : BaseObject
     private SpriteRenderer spriteRenderer;
     private RevenueObject revenue;
 
-    public FriendStat Stat { get => stat; }
+    public FriendStat Stat { get => stat; set => stat = value; }
 
     protected override void Init()
     {

@@ -66,6 +66,8 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         }
 
         GoldUpdate();
+        FriendStatusController.FriendWalkOrRestHandler -= FriendWalkOrRest;
+        FriendStatusController.FriendWalkOrRestHandler += FriendWalkOrRest;
     }
 
     private void CreateNewData()
@@ -120,11 +122,10 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
                 GameObject go = MainManager.Resource.Instantiate(info.Key);
                 go.transform.position = playerInfo.friendPosDict[info.Key][i].ToVector3();
-                Friend monster = go.GetComponent<Friend>();
-                monster.Stat.info.name = monster.name;
-                monster.Stat.info.Level = info.Value[i].info.level;
-
-                friendList.Add(monster);
+                Friend friend = go.GetComponent<Friend>();
+                friend.Stat = info.Value[i];
+                CurFrieldCount++;
+                friendList.Add(friend);
             }
         }
 
@@ -134,13 +135,32 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     // 이름으로 친구 만들기
     private void CreateFriend(string name)
     {
-        GameObject go = MainManager.Resource.Instantiate(name);
-        Friend friend = go.GetComponent<Friend>();
-        friend.Stat.info.name = name;
-        friend.Stat.info.Level = 1;
-        friend.Stat.Rarity = FriendGacha.RarityRandom();
+        GameObject go;
+        Friend friend;
+        if (CurFrieldCount >= MaxFriendCount)
+        {
+            go = MainManager.Addressable.Load<GameObject>(name);
+            friend = go.GetComponent<Friend>();
+            friend.Stat.info.name = name;
+            friend.Stat.info.Level = 1;
+            CurFrieldCount++;
+            friend.Stat.Rarity = FriendGacha.RarityRandom();
+            friend.Stat.isEquip = false;
+            friendList.Add(friend);
+        }
+        else
+        {
+            go = MainManager.Resource.Instantiate(name);
+            friend = go.GetComponent<Friend>();
+            friend.Stat.info.name = name;
+            friend.Stat.info.Level = 1;
+            CurFrieldCount++;
+            friend.Stat.Rarity = FriendGacha.RarityRandom();
+            friend.Stat.isEquip = true;
+            friendList.Add(friend);
+        }
 
-        friendList.Add(friend);
+        AddFriend(friend);
     }
 
     // 친구들 저장하기
@@ -209,5 +229,20 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             playerInfo.builds.Add(build.Info.objectName, new List<BuildInfo>() { build.Info });
             playerInfo.buildingPosDict.Add(build.Info.objectName, new List<SerializableVector3>() { sbVec });
         }
+    }
+
+    private void FriendWalkOrRest(int index)
+    {
+        friendList[index].Stat.isEquip = !friendList[index].Stat.isEquip;
+
+        if (friendList[index].Stat.isEquip == true)
+            CurFrieldCount++;
+        else
+            CurFrieldCount--;
+    }
+
+    private void OnApplicationQuit()
+    {
+        FriendStatusController.FriendWalkOrRestHandler -= FriendWalkOrRest;
     }
 }
