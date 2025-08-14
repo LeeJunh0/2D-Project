@@ -12,7 +12,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     [SerializeField] private List<Friend> friendList;
     [SerializeField] private List<BaseBuilding> buildList;
     [SerializeField] private TextMeshProUGUI goldText;
-
     [SerializeField] private Transform parent;
     [SerializeField] private GameObject homePrefab;
 
@@ -124,7 +123,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
                 go.transform.position = playerInfo.friendPosDict[info.Key][i].ToVector3();
                 Friend friend = go.GetComponent<Friend>();
                 friend.Stat = info.Value[i];
-                CurFrieldCount++;
                 friendList.Add(friend);
             }
         }
