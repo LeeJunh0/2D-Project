@@ -42,6 +42,7 @@ public class FriendStatusController : Singleton<FriendStatusController>
     {
         friendStatus.SetActive(true);
         FriendListInit(PlayerDataManager.Instance.FriendList);
+        FriendStatusInit();
     }
 
     private void OffFriendStatus(PointerEventData eventData)
