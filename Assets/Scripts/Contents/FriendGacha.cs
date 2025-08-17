@@ -14,8 +14,8 @@ public static class FriendGacha
     {
         Dictionary<Define.EFriend_Rarity, float> weightTable = new Dictionary<Define.EFriend_Rarity, float>()
         {
-            { Define.EFriend_Rarity.Legend, 0.1f },
-            { Define.EFriend_Rarity.Unique, 0.9f },
+            { Define.EFriend_Rarity.Boss, 0.1f },
+            { Define.EFriend_Rarity.Named, 0.9f },
             { Define.EFriend_Rarity.Rare, 2f }, 
             { Define.EFriend_Rarity.Normal, 7f }
         };
@@ -47,8 +47,8 @@ public static class FriendGacha
     {
         Dictionary<Define.EFriend_Rarity, float> weightTable = new Dictionary<Define.EFriend_Rarity, float>()
         {
-            { Define.EFriend_Rarity.Legend, 1f },
-            { Define.EFriend_Rarity.Unique, 99f }
+            { Define.EFriend_Rarity.Boss, 1f },
+            { Define.EFriend_Rarity.Named, 99f }
         };
 
         float total = 0f;

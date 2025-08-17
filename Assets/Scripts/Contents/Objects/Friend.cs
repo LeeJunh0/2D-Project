@@ -45,10 +45,10 @@ public class Friend : BaseObject
             case EFriend_Rarity.Rare:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("RareOutLine");
                 break;
-            case EFriend_Rarity.Unique:
+            case EFriend_Rarity.Named:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("UniqueOutLine");
                 break;
-            case EFriend_Rarity.Legend:
+            case EFriend_Rarity.Boss:
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("LegendOutLine");
                 break;
         }

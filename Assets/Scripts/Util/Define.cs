@@ -17,8 +17,8 @@ public static class Define
     {
         Normal = 0,
         Rare,
-        Unique,
-        Legend
+        Named,
+        Boss
     }
 
     public enum EUI_MenuType

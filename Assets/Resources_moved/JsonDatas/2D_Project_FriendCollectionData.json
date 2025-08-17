@@ -1,0 +1,88 @@
+{
+  "CollectionData": [
+    {
+      "name": "AngryPig",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Mushroom",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Slime",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Radish",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Rino",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Bunny",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Chicken",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Snail",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Trunk",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "Chamel",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "GGonRock",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    },
+    {
+      "name": "MRock",
+      "hasNormal": false,
+      "hasRare": false,
+      "hasNamed": false,
+      "hasBoss": false
+    }
+  ]
+}

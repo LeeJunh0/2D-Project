@@ -15,6 +15,7 @@ public class PlayerInfo
     public Dictionary<string, List<SerializableVector3>> friendPosDict;
     public Dictionary<string, List<BuildInfo>> builds;
     public Dictionary<string, List<SerializableVector3>> buildingPosDict;
+    public PlayerCollection playerCollection;
 
     public PlayerInfo()
     {
@@ -26,6 +27,7 @@ public class PlayerInfo
         friendPosDict = new Dictionary<string, List<SerializableVector3>>();
         builds = new Dictionary<string, List<BuildInfo>>();
         buildingPosDict = new Dictionary<string, List<SerializableVector3>>();
+        playerCollection = new PlayerCollection();
     }
 }
 
@@ -75,7 +77,7 @@ public class FriendStaticStat
 {
     public string name;
     public int level;
-    
+
     public float coinDefault;
     public float coinCoefficient;
 
@@ -115,15 +117,83 @@ public class FriendStat
                     info.coinDefault *= 1.15f;
                     info.coinCoefficient *= 1.15f;
                     break;
-                case Define.EFriend_Rarity.Unique:
+                case Define.EFriend_Rarity.Named:
                     info.coinDefault *= 1.3f;
                     info.coinCoefficient *= 1.3f;
                     break;
-                case Define.EFriend_Rarity.Legend:
+                case Define.EFriend_Rarity.Boss:
                     info.coinDefault *= 2f;
                     info.coinCoefficient *= 2f;
                     break;
             }
+        }
+    }
+}
+
+[System.Serializable]
+public class PlayerCollection
+{
+    public int totalFriendCount;
+    public int hasFriendCount;
+    public Dictionary<string, FriendCollectionInfo> collectionDict;
+
+    public void CollectionDictInit()
+    {
+        collectionDict = new Dictionary<string, FriendCollectionInfo>();
+        foreach (FriendInfo friend in MainManager.Data.FriendDataDict.Values)
+            collectionDict.Add(friend.objectName, new FriendCollectionInfo());
+
+        totalFriendCount = collectionDict.Count * 4;
+    }
+
+    public void GetCollection(string name, Define.EFriend_Rarity rarity)
+    {
+        if (rarity == Define.EFriend_Rarity.Normal && collectionDict[name].hasNormal == true)
+            return;
+        if (rarity == Define.EFriend_Rarity.Rare && collectionDict[name].hasRare == true)
+            return;
+        if (rarity == Define.EFriend_Rarity.Named && collectionDict[name].hasNamed == true)
+            return;
+        if (rarity == Define.EFriend_Rarity.Boss && collectionDict[name].hasBoss == true)
+            return;
+
+        collectionDict[name].GetCollection(rarity);
+        hasFriendCount = Mathf.Clamp(hasFriendCount + 1, 0, totalFriendCount);
+    }
+}
+
+[System.Serializable]
+public class FriendCollectionInfo
+{
+    public bool hasNormal;
+    public bool hasRare;
+    public bool hasNamed;
+    public bool hasBoss;
+
+    public FriendCollectionInfo()
+    {
+        hasNormal = false;
+        hasRare = false;
+        hasNamed = false;
+        hasBoss = false;
+    }
+
+    public void GetCollection(Define.EFriend_Rarity rarity)
+    {
+        switch (rarity)
+        {
+            case Define.EFriend_Rarity.Normal:
+                hasNormal = true;
+                break;
+            case Define.EFriend_Rarity.Rare:
+                hasRare = true;
+                break;
+            case Define.EFriend_Rarity.Named:
+                hasNamed = true;
+                break;
+            case Define.EFriend_Rarity.Boss:
+                hasBoss = true;
+                break;
         }
     }
 }
@@ -140,13 +210,13 @@ public class BuildInfo
 }
 
 [System.Serializable]
-public class BuildSet : ILoader<string,  BuildInfo>
+public class BuildSet : ILoader<string, BuildInfo>
 {
     public List<BuildInfo> BuildData { get; set; }
     public Dictionary<string, BuildInfo> MakeDict()
     {
-        Dictionary<string,BuildInfo> dict = new Dictionary<string, BuildInfo>();
-        foreach(BuildInfo info in BuildData)
+        Dictionary<string, BuildInfo> dict = new Dictionary<string, BuildInfo>();
+        foreach (BuildInfo info in BuildData)
             dict.Add(info.name, info);
 
         return dict;
@@ -161,7 +231,7 @@ public class FriendSet : ILoader<string, FriendInfo>
     public Dictionary<string, FriendInfo> MakeDict()
     {
         Dictionary<string, FriendInfo> dict = new Dictionary<string, FriendInfo>();
-        foreach(FriendInfo friendInfo in FriendData)        
+        foreach (FriendInfo friendInfo in FriendData)
             dict.Add(friendInfo.objectName, friendInfo);
 
         return dict;

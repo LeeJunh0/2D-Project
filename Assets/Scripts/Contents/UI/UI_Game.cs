@@ -1,10 +1,15 @@
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using static Define;
 
 public class UI_Game : MonoBehaviour
 {
+    public static event Action StatusOpenHandler;
+    public static event Action CollectionOpenHandler;
+
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
     [Header("좌측 BackGround")]
@@ -17,6 +22,8 @@ public class UI_Game : MonoBehaviour
     [Header("하단 버튼들")]
     [SerializeField] private GameObject statusButton;
     [SerializeField] private GameObject buildingButton;
+    [SerializeField] private GameObject shopButton;
+    [SerializeField] private GameObject collectionButton;
     [SerializeField] private GameObject optionButton;
 
     public EUI_MenuType MenuType
@@ -52,12 +59,13 @@ public class UI_Game : MonoBehaviour
 
     private void Awake()
     {
-        statusButton.AddEvent(FriendStatusController.Instance.OnFrieldStatus);
+        statusButton.AddEvent(FriendStatusButton);
         buildingButton.AddEvent((evt) =>
         {
             SetMenu(EUI_MenuType.Building);
             BuildingManager.Instance.Init();
         });
+        collectionButton.AddEvent(FriendCollectionButton);
         optionButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Option); });
     }
 
@@ -72,5 +80,15 @@ public class UI_Game : MonoBehaviour
 
         MenuType = type;
         IsOpen = true;
+    }
+
+    private void FriendStatusButton(PointerEventData eventData)
+    {
+        StatusOpenHandler?.Invoke();
+    }
+
+    private void FriendCollectionButton(PointerEventData eventData)
+    {
+        CollectionOpenHandler?.Invoke();
     }
 }

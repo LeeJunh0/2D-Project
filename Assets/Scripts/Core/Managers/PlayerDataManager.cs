@@ -27,6 +27,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     public int MaxFriendCount { get => playerInfo.maxFriendCount; } // set은 생각해보자 
     public bool IsLoadCompleted { get; set; }
     public List<Friend> FriendList => friendList;
+    public Dictionary<string, FriendCollectionInfo> collection => playerInfo.playerCollection.collectionDict;
 
     private void Update()
     {
@@ -65,14 +66,15 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         }
 
         GoldUpdate();
-        FriendStatusController.FriendWalkOrRestHandler -= FriendWalkOrRest;
-        FriendStatusController.FriendWalkOrRestHandler += FriendWalkOrRest;
+        UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
+        UI_FriendStatus.FriendWalkOrRestHandler += FriendWalkOrRest;
     }
 
     private void CreateNewData()
     {
         // 새로만들 플레이어정보
         playerInfo = new PlayerInfo();
+        playerInfo.playerCollection.CollectionDictInit();
 
         // 처음 있어야 할 건물
         GameObject home = Instantiate(homePrefab, BuildingManager.Instance.BuildParent);
@@ -135,6 +137,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     {
         GameObject go;
         Friend friend;
+        Define.EFriend_Rarity rarity = FriendGacha.RarityRandom();
         if (CurFrieldCount >= MaxFriendCount)
         {
             go = MainManager.Addressable.Load<GameObject>(name);
@@ -142,7 +145,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             friend.Stat.info.name = name;
             friend.Stat.info.Level = 1;
             CurFrieldCount++;
-            friend.Stat.Rarity = FriendGacha.RarityRandom();
+            friend.Stat.Rarity = rarity;
             friend.Stat.isEquip = false;
             friendList.Add(friend);
         }
@@ -153,11 +156,12 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             friend.Stat.info.name = name;
             friend.Stat.info.Level = 1;
             CurFrieldCount++;
-            friend.Stat.Rarity = FriendGacha.RarityRandom();
+            friend.Stat.Rarity = rarity;
             friend.Stat.isEquip = true;
             friendList.Add(friend);
         }
 
+        playerInfo.playerCollection.GetCollection(name, rarity);
         AddFriend(friend);
     }
 
@@ -241,6 +245,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     private void OnApplicationQuit()
     {
-        FriendStatusController.FriendWalkOrRestHandler -= FriendWalkOrRest;
+        UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
     }
 }
