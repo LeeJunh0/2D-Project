@@ -6,9 +6,10 @@ public class UI_CollectionSlot : MonoBehaviour
 {
     [SerializeField] private Image slot_Background;
     [SerializeField] private Image slotIcon;
+    [SerializeField] private GameObject slotScreen;
     [SerializeField] private TextMeshProUGUI nameText;
 
-    public void Init(string name, Define.EFriend_Rarity rarity)
+    public void Init(string name, Define.EFriend_Rarity rarity, bool hasFriend)
     {
         nameText.text = MainManager.Data.FriendDataDict[name].name;
         slotIcon.sprite = MainManager.Resource.LoadAtlas(MainManager.Data.FriendDataDict[name].friendIcon);
@@ -28,5 +29,7 @@ public class UI_CollectionSlot : MonoBehaviour
                 slot_Background.color = Color.red;
                 break;
         }
+
+        slotScreen.SetActive(!hasFriend);
     }
 }

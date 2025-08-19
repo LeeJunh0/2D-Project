@@ -196,6 +196,20 @@ public class FriendCollectionInfo
                 break;
         }
     }
+
+    public bool CheckCollection(Define.EFriend_Rarity rarity)
+    {
+        if (rarity == Define.EFriend_Rarity.Normal && hasNormal == true)
+            return true;
+        if (rarity == Define.EFriend_Rarity.Rare && hasRare == true)
+            return true;
+        if (rarity == Define.EFriend_Rarity.Named && hasNamed == true)
+            return true;
+        if (rarity == Define.EFriend_Rarity.Boss && hasBoss == true)
+            return true;
+
+        return false;
+    }
 }
 
 [System.Serializable]

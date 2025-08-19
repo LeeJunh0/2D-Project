@@ -10,19 +10,91 @@
         },
         {
             "name": "오크통",
-            "description": "오크통입니다.",
+            "description": "무엇이 들었는지 모를 오크통입니다.",
             "level": 1,
             "price": 50,
             "buildIcon": "BuildingIcon[Barrel]",
             "objectName": "Barrel"
         },
         {
-            "name": "서있는 횃불",
-            "description": "서있는 횃불입니다.",
+            "name": "횃불",
+            "description": "마을의 불빛인 횃불입니다.",
             "level": 1,
             "price": 30,
             "buildIcon": "BuildingIcon[Standing Torch]",
             "objectName": "Standing Torch"
+        },
+        {
+            "name": "꽃1",
+            "description": "꽃 입니다.",
+            "level": 1,
+            "price": 300,
+            "buildIcon": "BuildingIcon[Flower 1]",
+            "objectName": "Flower 1"
+        },
+        {
+            "name": "꽃2",
+            "description": "꽃 입니다.",
+            "level": 1,
+            "price": 280,
+            "buildIcon": "BuildingIcon[Flower 2]",
+            "objectName": "Flower 2"
+        },
+        {
+            "name": "꽃3",
+            "description": "꽃 입니다.",
+            "level": 1,
+            "price": 200,
+            "buildIcon": "BuildingIcon[Flower 3]",
+            "objectName": "Flower 3"
+        },
+        {
+            "name": "꽃4",
+            "description": "꽃 입니다.",
+            "level": 1,
+            "price": 300,
+            "buildIcon": "BuildingIcon[Flower 4]",
+            "objectName": "Flower 4"
+        },
+        {
+            "name": "꽃5",
+            "description": "꽃 입니다.",
+            "level": 1,
+            "price": 500,
+            "buildIcon": "BuildingIcon[Flower 5]",
+            "objectName": "Flower 5"
+        },
+        {
+            "name": "잔디1",
+            "description": "잔디 입니다.",
+            "level": 1,
+            "price": 100,
+            "buildIcon": "BuildingIcon[Grass 1]",
+            "objectName": "Grass 1"
+        },
+        {
+            "name": "잔디2",
+            "description": "잔디 입니다.",
+            "level": 1,
+            "price": 100,
+            "buildIcon": "BuildingIcon[Grass 2]",
+            "objectName": "Grass 2"
+        },
+        {
+            "name": "잔디3",
+            "description": "잔디 입니다.",
+            "level": 1,
+            "price": 100,
+            "buildIcon": "BuildingIcon[Grass 3]",
+            "objectName": "Grass 3"
+        },
+        {
+            "name": "잔디4",
+            "description": "잔디입니다.",
+            "level": 1,
+            "price": 100,
+            "buildIcon": "BuildingIcon[Grass 4]",
+            "objectName": "Grass 4"
         }
     ]
 }

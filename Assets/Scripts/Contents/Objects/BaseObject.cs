@@ -5,10 +5,10 @@ using static Define;
 
 public abstract class BaseObject : MonoBehaviour
 {
-    [Header("ÇöÀç »óÅÂ")]
+    [Header("í˜„ì¬ ìƒíƒœ")]
     [SerializeField] private EObject_State curState;
 
-    [Header("¿ÀºêÁ§Æ® Å¸ÀÔ")]
+    [Header("ì˜¤ë¸Œì íŠ¸ íƒ€ì…")]
     [SerializeField] protected EWorldObject_Type type = EWorldObject_Type.None;
 
     private Animator anim;
@@ -37,7 +37,7 @@ public abstract class BaseObject : MonoBehaviour
     }
     protected abstract void Init();
 
-    private void Start()
+    private void OnEnable()
     {
         Init();
     }

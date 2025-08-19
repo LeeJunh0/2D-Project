@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GUID: c2488c7b81c4ac4428e926eacf97553d
   m_SerializeEntries:
   - m_GUID: 3f7e019edf77d7244a8f45c4d8b185b2
-    m_Address: UniqueOutLine
+    m_Address: NamedOutLine
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
@@ -28,7 +28,7 @@ MonoBehaviour:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eaa3cfe0a7ca29748824233cfe740b48
-    m_Address: LegendOutLine
+    m_Address: BossOutLine
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game

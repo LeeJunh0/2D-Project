@@ -35,7 +35,10 @@ public class Preview : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Building")
+        if (collision.transform.parent == null)
+            return;
+
+        if (collision.transform.parent.tag == "Building")
         {
             IsCheck = false;
         }
@@ -43,7 +46,10 @@ public class Preview : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Building")
+        if (collision.transform.parent == null)
+            return;
+
+        if (collision.transform.parent.tag == "Building")
             IsCheck = true;
     }
 

@@ -15,5 +15,5 @@ public class BaseBuilding : MonoBehaviour
 
     protected virtual void Init() { }
 
-    protected virtual void Interacting() { BuildingManager.Instance.ChoiceBuild(this);  }
+    protected virtual void Interacting() {  }
 }

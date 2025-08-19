@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_FriendListSlot : MonoBehaviour
+public class UI_FriendListSlot : UI_ScrollInButton
 {
     public static event Action<UI_FriendListSlot> SelectFrinedCheckHandler;
     public static event Action<UI_FriendListSlot> WalkOrRestCheckHandler;
@@ -44,11 +44,12 @@ public class UI_FriendListSlot : MonoBehaviour
     {
         nameText.text = info.name;
         friendIcon.sprite = MainManager.Resource.LoadAtlas(info.friendIcon);
-
+        
+        SetEvent();
         gameObject.AddEvent(OnClick);
         equipButton.gameObject.AddEvent(OnWalkOrRestClick);
     }
-
+    
     private void OnClick(PointerEventData eventData)
     {
         SelectFrinedCheckHandler?.Invoke(this);

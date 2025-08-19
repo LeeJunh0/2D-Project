@@ -19,6 +19,8 @@ public class Friend : BaseObject
     private SpriteRenderer spriteRenderer;
     private RevenueObject revenue;
 
+    List<Coroutine> coroutineList;
+
     public FriendStat Stat { get => stat; set => stat = value; }
 
     protected override void Init()
@@ -26,13 +28,16 @@ public class Friend : BaseObject
         spriteRenderer = gameObject.FindChild<SpriteRenderer>();
         revenue = gameObject.FindChild<RevenueObject>();
 
-        type = EWorldObject_Type.Friend; 
+        type = EWorldObject_Type.Friend;
         State = EObject_State.Idle;
-        RarityOutLine();    
+        RarityOutLine();
 
-        StartCoroutine(FilpRotation());
-        StartCoroutine(StateRandom());
-        StartCoroutine(GoldCreate());
+        coroutineList = new List<Coroutine>
+        {
+            StartCoroutine(FilpRotation()),
+            StartCoroutine(StateRandom()),
+            StartCoroutine(GoldCreate())
+        };
     }
 
     public void RarityOutLine()
@@ -46,17 +51,17 @@ public class Friend : BaseObject
                 spriteRenderer.material = MainManager.Addressable.Load<Material>("RareOutLine");
                 break;
             case EFriend_Rarity.Named:
-                spriteRenderer.material = MainManager.Addressable.Load<Material>("UniqueOutLine");
+                spriteRenderer.material = MainManager.Addressable.Load<Material>("NamedOutLine");
                 break;
             case EFriend_Rarity.Boss:
-                spriteRenderer.material = MainManager.Addressable.Load<Material>("LegendOutLine");
+                spriteRenderer.material = MainManager.Addressable.Load<Material>("BossOutLine");
                 break;
         }
     }
 
     private IEnumerator StateRandom() // 랜덤 행동 코루틴
     {
-        while(true)
+        while (true)
         {
             if (PlayerDataManager.Instance.IsLoadCompleted == false)
             {
@@ -76,9 +81,9 @@ public class Friend : BaseObject
 
     private IEnumerator GoldCreate() //TODO 골드 생성시간 개별화
     {
-        while(true)
+        while (true)
         {
-            if(PlayerDataManager.Instance.IsLoadCompleted == false)
+            if (PlayerDataManager.Instance.IsLoadCompleted == false)
             {
                 yield return null;
                 continue;
@@ -98,7 +103,7 @@ public class Friend : BaseObject
 
     private IEnumerator FilpRotation()
     {
-        while(true)
+        while (true)
         {
             float rand = Random.Range(1f, 2f);
             yield return new WaitForSeconds(rand);
@@ -109,12 +114,21 @@ public class Friend : BaseObject
 
     protected override void UpdateIdle()
     {
-        
+
     }
 
     protected override void UpdateMove()
     {
-        float clampX = Mathf.Clamp(transform.position.x + (Front * Time.deltaTime * 2f) , -21.5f, 23.5f);
+        float clampX = Mathf.Clamp(transform.position.x + (Front * Time.deltaTime * 2f), -21.5f, 23.5f);
         transform.position = new Vector3(clampX, transform.position.y, 0);
+    }
+
+    private void OnDisable()
+    {
+        if (coroutineList.Count <= 0)
+            return;
+
+        foreach(var co in coroutineList)
+            StopCoroutine(co);
     }
 }

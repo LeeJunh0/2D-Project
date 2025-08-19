@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class BuildingManager : Singleton<BuildingManager>
@@ -13,52 +14,35 @@ public class BuildingManager : Singleton<BuildingManager>
 
     public Transform BuildParent;
 
-    private UI_BuildSlot curEnterSlot;
-
     public bool IsBuilding { get; set; }
-
-    public BaseBuilding CurBuild
-    {
-        get { return curBuild; }
-        set
-        {
-            curBuild = value;
-
-            curBuild.Info = value.Info;
-            SpriteRenderer spriteRenderer = preview.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = curBuild.GetComponentInChildren<SpriteRenderer>().sprite;
-        }
-    }
-
-    public UI_BuildSlot CurEnterSlot
-    {
-        get => curEnterSlot;
-        set
-        {
-            curEnterSlot = value;
-            if (curEnterSlot == null)
-                return;
-
-            tooltip.Init(curEnterSlot.InfoData);
-        }
-    }
-
     public void Init()
     {
         // 건물UI 슬롯 초기화
         BuildingSlotClear();
         foreach (var data in MainManager.Data.BuildDataDict)
         {
+            if (data.Value.objectName == "House")
+                continue;
+
             GameObject go = MainManager.Resource.Instantiate("Building_Slot", content);
             UI_BuildSlot slot = go.GetComponent<UI_BuildSlot>();
             slot.Init(data.Value);
             buildSlots.Add(slot);
         }
+
+        UI_BuildSlot.OnToolTipHandler -= tooltip.Init;
+        UI_BuildSlot.OnToolTipHandler += tooltip.Init;
+        UI_BuildSlot.OffToolTipHandler -= OffBuildingToolTip;
+        UI_BuildSlot.OffToolTipHandler += OffBuildingToolTip;
+        UI_BuildSlot.OnBuildModeHandler -= ChoiceBuild;
+        UI_BuildSlot.OnBuildModeHandler += ChoiceBuild;
     }
 
     public void ChoiceBuild(BaseBuilding build)
     {
-        CurBuild = build;
+        curBuild = build;
+        SpriteRenderer spriteRenderer = preview.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = curBuild.GetComponentInChildren<SpriteRenderer>().sprite;
         PreviewSetting();
     }
 
@@ -110,5 +94,17 @@ public class BuildingManager : Singleton<BuildingManager>
             Destroy(slot.gameObject);
 
         buildSlots.Clear();
+    }
+
+    private void HandlerClear()
+    {
+        UI_BuildSlot.OnBuildModeHandler -= ChoiceBuild;
+        UI_BuildSlot.OnToolTipHandler -= tooltip.Init;
+        UI_BuildSlot.OffToolTipHandler -= OffBuildingToolTip;
+    }
+
+    private void OnApplicationQuit()
+    {
+        HandlerClear();
     }
 }

@@ -27,7 +27,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     public int MaxFriendCount { get => playerInfo.maxFriendCount; } // set은 생각해보자 
     public bool IsLoadCompleted { get; set; }
     public List<Friend> FriendList => friendList;
-    public Dictionary<string, FriendCollectionInfo> collection => playerInfo.playerCollection.collectionDict;
+    public PlayerCollection Collection => playerInfo.playerCollection;
 
     private void Update()
     {
@@ -47,13 +47,22 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         {
             string jsonData = File.ReadAllText(path);
             playerInfo = JsonConvert.DeserializeObject<PlayerInfo>(jsonData);
-            Extension.SuccessLog("PlayerData Load Complete");
 
-            friendList = new List<Friend>();
-            buildList = new List<BaseBuilding>();
+            if (playerInfo.maxFriendCount <= 0)
+            {
+                Extension.ErrorLog("잘못된 세이브 데이터를 불러와서 초기화 합니다.");
+                CreateNewData();
+            }
+            else
+            {
+                Extension.SuccessLog("PlayerData Load Complete");
 
-            LoadFriends();
-            LoadBuilding();
+                friendList = new List<Friend>();
+                buildList = new List<BaseBuilding>();
+
+                LoadFriends();
+                LoadBuilding();
+            }
         }
 
         foreach (var build in buildList)
@@ -68,6 +77,8 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         GoldUpdate();
         UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
         UI_FriendStatus.FriendWalkOrRestHandler += FriendWalkOrRest;
+        UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
+        UI_FriendShopSlot.BuyFriendHandler += BuyFriendGoldCheck;
     }
 
     private void CreateNewData()
@@ -118,18 +129,23 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         {
             for (int i = 0; i < info.Value.Count; i++)
             {
-                if (info.Value[i].isEquip == false)
-                    return;
-
                 GameObject go = MainManager.Resource.Instantiate(info.Key);
                 go.transform.position = playerInfo.friendPosDict[info.Key][i].ToVector3();
                 Friend friend = go.GetComponent<Friend>();
                 friend.Stat = info.Value[i];
                 friendList.Add(friend);
+
+                friend.gameObject.SetActive(friend.Stat.isEquip);
             }
         }
 
         Extension.SuccessLog("몬스터 데이터 불러오기 완료");
+    }
+
+    private void BuyFriendGoldCheck(string name)
+    {
+        //TODO 돈 체크
+        CreateFriend(name);
     }
 
     // 이름으로 친구 만들기
@@ -241,10 +257,18 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             CurFrieldCount++;
         else
             CurFrieldCount--;
+
+        friendList[index].gameObject.SetActive(friendList[index].Stat.isEquip);
+    }
+
+    private void HandlerClear()
+    {
+        UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
+        UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
     }
 
     private void OnApplicationQuit()
     {
-        UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
+        HandlerClear();
     }
 }
