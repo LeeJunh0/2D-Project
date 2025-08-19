@@ -17,7 +17,8 @@ public class UI_FriendShopSlot : UI_ScrollInButton
         SetEvent();
 
         FriendName = friendName;
-        slotIcon.sprite = MainManager.Resource.LoadAtlas(MainManager.Data.FriendDataDict[name].friendIcon);
+        string spritePath = MainManager.Data.FriendDataDict[friendName].friendIcon;
+        slotIcon.sprite = MainManager.Resource.LoadAtlas(spritePath);
         buyButton.gameObject.AddEvent(BuyFriend);
     }
 

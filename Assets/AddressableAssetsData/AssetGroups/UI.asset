@@ -27,6 +27,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8cfe3eb78ae694498688ba15915ee8d
+    m_Address: FriendShop_Slot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f998fd1b3774f3c40ab8ddc752a06861
     m_Address: FriendList_Slot
     m_ReadOnly: 0

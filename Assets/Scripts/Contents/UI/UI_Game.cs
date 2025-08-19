@@ -9,6 +9,7 @@ public class UI_Game : MonoBehaviour
 {
     public static event Action StatusOpenHandler;
     public static event Action CollectionOpenHandler;
+    public static event Action ShopOpenHandler;
 
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
@@ -66,6 +67,7 @@ public class UI_Game : MonoBehaviour
             BuildingManager.Instance.Init();
         });
         collectionButton.AddEvent(FriendCollectionButton);
+        shopButton.AddEvent(FriendShopButton);
         optionButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Option); });
     }
 
@@ -90,5 +92,10 @@ public class UI_Game : MonoBehaviour
     private void FriendCollectionButton(PointerEventData eventData)
     {
         CollectionOpenHandler?.Invoke();
+    }
+
+    private void FriendShopButton(PointerEventData eventData)
+    {
+        ShopOpenHandler?.Invoke();
     }
 }
