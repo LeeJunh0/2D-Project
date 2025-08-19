@@ -8,9 +8,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public static class Extension
 {
-    public static void SuccessLog(string message) { Debug.Log($"<color=#00FF22>{message}</color>"); }
-    public static void ErrorLog(string message) { Debug.Log($"<color=red>{message}</color>"); }
-    public static void LoadingLog(string message) { Debug.Log($"<color=cyan>{message}</color>"); }
+    public static void SuccessLog(string message) { Debug.Log($"<color=#00FF22>[SUCCESS] {message}</color>"); }
+    public static void ErrorLog(string message) { Debug.Log($"<color=red>[ERROR] {message}</color>"); }
+    public static void LoadingLog(string message) { Debug.Log($"<color=cyan>[LOADING] {message}</color>"); }
 
     public static void CameraMove(this Camera camera, float dir, float speed)
     {

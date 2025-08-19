@@ -1,0 +1,88 @@
+{
+    "FriendStatData": [
+        {
+            "number": 1,
+            "name": "Mushroom",
+            "coinDefault": 5,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 2,
+            "name": "Chicken",
+            "coinDefault": 15,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 3,
+            "name": "Chamel",
+            "coinDefault": 33,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 4,
+            "name": "Bunny",
+            "coinDefault": 50,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 5,
+            "name": "GGonRock",
+            "coinDefault": 74,
+            "coinCoefficient": 1
+        },
+        {
+            "number": 6,
+            "name": "MRock",
+            "coinDefault": 95,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 7,
+            "name": "Snail",
+            "coinDefault": 120,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 8,
+            "name": "Trunk",
+            "coinDefault": 161,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 9,
+            "name": "Slime",
+            "coinDefault": 243,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 10,
+            "name": "AngryPig",
+            "coinDefault": 317,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 11,
+            "name": "Rino",
+            "coinDefault": 422,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        },
+        {
+            "number": 12,
+            "name": "Radish",
+            "coinDefault": 678,
+            "coinCoefficient": 1,
+            "coinPerSec": 1
+        }
+    ]
+    
+}

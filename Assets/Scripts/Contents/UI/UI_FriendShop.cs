@@ -8,8 +8,7 @@ public class UI_FriendShop : MonoBehaviour
     [SerializeField] private GameObject ui;
     [SerializeField] private Button exitButton;
     [SerializeField] private Transform content;
-    //[SerializeField] private TODO : 잠금해제 조건 툴팁
-    // TODO : 친구 해제 조건 만들기
+    [SerializeField] private UI_UnLockToolTip unlockTip;
 
     private List<UI_FriendShopSlot> listSlots;
 
@@ -23,7 +22,7 @@ public class UI_FriendShop : MonoBehaviour
     private void Init()
     {
         ListClear();
-        foreach(var info in MainManager.Data.FriendDataDict)
+        foreach(var info in MainManager.Data.FriendStatDict)
         {
             GameObject go = MainManager.Resource.Instantiate("FriendShop_Slot", content);
             UI_FriendShopSlot slot = go.GetComponent<UI_FriendShopSlot>();
@@ -32,6 +31,11 @@ public class UI_FriendShop : MonoBehaviour
         }
 
         exitButton.gameObject.AddEvent(OffFriendShop);
+
+        UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
+        UI_FriendShopSlot.EnterSlotHandler += OnUnLockTip;
+        UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
+        UI_FriendShopSlot.ExitSlotHandler += OffUnLockTip;
     }
 
     private void OnFriendShop()
@@ -44,6 +48,20 @@ public class UI_FriendShop : MonoBehaviour
         ui.SetActive(false);
     }
 
+    private void OnUnLockTip(string name)
+    {
+        if (MainManager.Data.FriendUnLockDataDict.ContainsKey(name) == false)
+            return;
+
+        unlockTip.gameObject.SetActive(true);
+        unlockTip.Init(MainManager.Data.FriendUnLockDataDict[name].unlockData);
+    }
+
+    private void OffUnLockTip()
+    {
+        unlockTip.gameObject.SetActive(false);
+    }
+
     private void ListClear()
     {
         if (listSlots.Count <= 0)
@@ -54,9 +72,12 @@ public class UI_FriendShop : MonoBehaviour
 
         listSlots.Clear();
     }
+
     private void HandlerClear()
     {
         UI_Game.ShopOpenHandler -= OnFriendShop;
+        UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
+        UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
     }
 
     private void OnApplicationQuit()

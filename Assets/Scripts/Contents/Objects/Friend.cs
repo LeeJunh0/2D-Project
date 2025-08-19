@@ -8,7 +8,6 @@ public class Friend : BaseObject
     [Header("친구 스텟")]
     [SerializeField] private string monsterName;
     [SerializeField] private FriendStat stat;
-    [SerializeField] private float createTime;
 
     [Header("친구 행동시간 텀")]
     [SerializeField] private float stateChangeSec = 3f;
@@ -18,8 +17,6 @@ public class Friend : BaseObject
 
     private SpriteRenderer spriteRenderer;
     private RevenueObject revenue;
-
-    List<Coroutine> coroutineList;
 
     public FriendStat Stat { get => stat; set => stat = value; }
 
@@ -79,7 +76,7 @@ public class Friend : BaseObject
         }
     }
 
-    private IEnumerator GoldCreate() //TODO 골드 생성시간 개별화
+    private IEnumerator GoldCreate()
     {
         while (true)
         {
@@ -89,10 +86,10 @@ public class Friend : BaseObject
                 continue;
             }
 
-            yield return new WaitForSeconds(createTime);
+            yield return new WaitForSeconds(stat.info.coinPerSec);
 
             // 수익
-            double gold = Stat.info.coinDefault * Stat.info.coinCoefficient;
+            double gold = Stat.info.Coin;
             PlayerDataManager.Instance.Gold += gold;
             PlayerDataManager.Instance.GoldUpdate();
 

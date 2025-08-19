@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ public class PlayerInfo
     public Dictionary<string, List<BuildInfo>> builds;
     public Dictionary<string, List<SerializableVector3>> buildingPosDict;
     public PlayerCollection playerCollection;
+    public PlayerUnLockData playerFriendUnlock;
 
     public PlayerInfo()
     {
@@ -28,6 +30,7 @@ public class PlayerInfo
         builds = new Dictionary<string, List<BuildInfo>>();
         buildingPosDict = new Dictionary<string, List<SerializableVector3>>();
         playerCollection = new PlayerCollection();
+        playerFriendUnlock = new PlayerUnLockData();
     }
 }
 
@@ -54,52 +57,137 @@ public struct SerializableVector3
 [System.Serializable]
 public class StatInfo
 {
+    public int num;
     public string name;
-    public int level;
     public float coinDefault;
     public float coinCoefficient;
+    public float coinPerSec;
 
     public double Coin { get { return coinDefault * coinCoefficient; } }
+
+    public StatInfo() { }
+    public StatInfo(StatInfo info)
+    {
+        num = info.num;
+        name = info.name;
+        coinDefault = info.coinDefault;
+        coinCoefficient = info.coinCoefficient;
+        coinPerSec = info.coinPerSec;
+    }
+}
+
+[System.Serializable]
+public class FriendStatSet : ILoader<string, StatInfo>
+{
+    public List<StatInfo> FriendStatData { get; set; }
+
+    public Dictionary<string, StatInfo> MakeDict()
+    {
+        Dictionary<string, StatInfo> dict = new Dictionary<string, StatInfo>();
+        foreach (StatInfo info in FriendStatData)
+            dict.Add(info.name, info);
+
+        return dict;
+    }
+}
+
+[System.Serializable]
+public class NumberData
+{
+    public int number;
+    public string name_desc;
+}
+
+[System.Serializable]
+public class NumberDataSet : ILoader<int, NumberData>
+{
+    public List<NumberData> NumberData;
+    public Dictionary<int, NumberData> MakeDict()
+    {
+        Dictionary<int, NumberData> dict = new Dictionary<int, NumberData>();
+        foreach (NumberData info in NumberData)
+            dict.Add(info.number, info);
+
+        return dict;
+    }
+}
+
+public enum UnlockObjectType
+{
+    None,
+    Friend,
+    Build,
+    Item
+}
+public enum UnlockActionType
+{
+    None,
+    Buy,
+    Sell,
+}
+
+[System.Serializable]
+public class UnLockData
+{
+    // 나중에 배열로 만들어서 여러개의 조건을 걸수도..?
+    public UnlockObjectType objectType;
+    public UnlockActionType actionType;
+    public int objectNum;
+    public int actionCount;
+    public int curCount;
+    public bool isCompleted;
+    public int CurCount
+    {
+        get => curCount;
+        set
+        {
+            curCount = Mathf.Clamp(value, 0,actionCount);
+
+            if (curCount >= actionCount)
+                isCompleted = true;
+        }
+    }
+}
+
+[System.Serializable]
+public class FriendUnLockData
+{
+    public string objectName;
+    public UnLockData unlockData;
+}
+
+[System.Serializable]
+public class FriendUnLockDataSet : ILoader<string, FriendUnLockData>
+{
+    public List<FriendUnLockData> UnLockData { get; set; }
+    public Dictionary<string, FriendUnLockData> MakeDict()
+    {
+        Dictionary<string, FriendUnLockData> dict = new Dictionary<string, FriendUnLockData>();
+        foreach(FriendUnLockData data in  UnLockData)
+            dict.Add(data.objectName, data);
+
+        return dict;
+    }
 }
 
 [System.Serializable]
 public class FriendInfo
 {
+    public int number;
     public string objectName;
     public string friendIcon;
     public string name;
     public string description;
-}
-
-// 정적 능력치
-[System.Serializable]
-public class FriendStaticStat
-{
-    public string name;
-    public int level;
-
-    public float coinDefault;
-    public float coinCoefficient;
-
-    public int Level
-    {
-        get => level;
-        set
-        {
-            level = value;
-            coinDefault = MainManager.Data.FriendLevelDict[name][level].coinDefault;
-            coinCoefficient = MainManager.Data.FriendLevelDict[name][level].coinCoefficient;
-        }
-    }
+    public int price;
 }
 
 // 동적 능력치
 [System.Serializable]
 public class FriendStat
 {
-    public FriendStaticStat info;
     public bool isEquip;
     public Define.EFriend_Rarity rarity = Define.EFriend_Rarity.Normal;
+    public StatInfo info;
 
     public Define.EFriend_Rarity Rarity
     {
@@ -110,20 +198,20 @@ public class FriendStat
             switch (rarity)
             {
                 case Define.EFriend_Rarity.Normal:
-                    info.coinDefault *= 1;
-                    info.coinCoefficient *= 1;
+                    info.coinCoefficient = 1;
+                    info.coinPerSec = 3.0f;
                     break;
                 case Define.EFriend_Rarity.Rare:
-                    info.coinDefault *= 1.15f;
-                    info.coinCoefficient *= 1.15f;
+                    info.coinCoefficient = 3f;
+                    info.coinPerSec = 6.93f;
                     break;
                 case Define.EFriend_Rarity.Named:
-                    info.coinDefault *= 1.3f;
-                    info.coinCoefficient *= 1.3f;
+                    info.coinCoefficient = 7f;
+                    info.coinPerSec = 14f;
                     break;
                 case Define.EFriend_Rarity.Boss:
-                    info.coinDefault *= 2f;
-                    info.coinCoefficient *= 2f;
+                    info.coinCoefficient = 12f;
+                    info.coinPerSec = 18f;
                     break;
             }
         }
@@ -140,8 +228,8 @@ public class PlayerCollection
     public void CollectionDictInit()
     {
         collectionDict = new Dictionary<string, FriendCollectionInfo>();
-        foreach (FriendInfo friend in MainManager.Data.FriendDataDict.Values)
-            collectionDict.Add(friend.objectName, new FriendCollectionInfo());
+        foreach (string friend in MainManager.Data.FriendStatDict.Keys)
+            collectionDict.Add(friend, new FriendCollectionInfo());
 
         totalFriendCount = collectionDict.Count * 4;
     }
@@ -159,6 +247,19 @@ public class PlayerCollection
 
         collectionDict[name].GetCollection(rarity);
         hasFriendCount = Mathf.Clamp(hasFriendCount + 1, 0, totalFriendCount);
+    }
+}
+
+[System.Serializable]
+public class PlayerUnLockData
+{
+    public Dictionary<string, UnLockData> unlockData;
+
+    public void UnLockDataInit()
+    {
+        unlockData = new Dictionary<string, UnLockData>();
+        foreach (FriendUnLockData unlock in MainManager.Data.FriendUnLockDataDict.Values)
+            unlockData.Add(MainManager.Data.NumberDataDict[unlock.unlockData.objectNum].name_desc, unlock.unlockData);
     }
 }
 

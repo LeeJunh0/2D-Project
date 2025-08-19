@@ -12,6 +12,7 @@ public abstract class BaseObject : MonoBehaviour
     [SerializeField] protected EWorldObject_Type type = EWorldObject_Type.None;
 
     private Animator anim;
+    protected List<Coroutine> coroutineList;
     
     public virtual EObject_State State
     {

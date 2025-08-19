@@ -86,6 +86,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         // 새로만들 플레이어정보
         playerInfo = new PlayerInfo();
         playerInfo.playerCollection.CollectionDictInit();
+        playerInfo.playerFriendUnlock.UnLockDataInit();
 
         // 처음 있어야 할 건물
         GameObject home = Instantiate(homePrefab, BuildingManager.Instance.BuildParent);
@@ -144,8 +145,16 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     private void BuyFriendGoldCheck(string name)
     {
-        //TODO 돈 체크
-        CreateFriend(name);
+        if (playerInfo.gold < MainManager.Data.FriendDataDict[name].price)
+        {
+            Extension.ErrorLog("넌 돈이 없는 거지로구나...으음");
+            return;
+        }
+
+        playerInfo.gold -= MainManager.Data.FriendDataDict[name].price;
+        EventManager.UnLockActionBuy(name);
+        GoldUpdate();
+        CreateFriend(name); //TODO : 가챠UI 만들기
     }
 
     // 이름으로 친구 만들기
@@ -156,10 +165,9 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         Define.EFriend_Rarity rarity = FriendGacha.RarityRandom();
         if (CurFrieldCount >= MaxFriendCount)
         {
-            go = MainManager.Addressable.Load<GameObject>(name);
+            go = MainManager.Resource.Instantiate(name);
             friend = go.GetComponent<Friend>();
-            friend.Stat.info.name = name;
-            friend.Stat.info.Level = 1;
+            friend.Stat.info = new StatInfo(MainManager.Data.FriendStatDict[name]);
             CurFrieldCount++;
             friend.Stat.Rarity = rarity;
             friend.Stat.isEquip = false;
@@ -169,12 +177,12 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         {
             go = MainManager.Resource.Instantiate(name);
             friend = go.GetComponent<Friend>();
-            friend.Stat.info.name = name;
-            friend.Stat.info.Level = 1;
+            friend.Stat.info = new StatInfo(MainManager.Data.FriendStatDict[name]);
             CurFrieldCount++;
             friend.Stat.Rarity = rarity;
             friend.Stat.isEquip = true;
             friendList.Add(friend);
+            go.SetActive(true);
         }
 
         playerInfo.playerCollection.GetCollection(name, rarity);

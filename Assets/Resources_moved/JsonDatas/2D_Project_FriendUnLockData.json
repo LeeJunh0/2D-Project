@@ -1,0 +1,125 @@
+{
+    "UnLockData": [
+        {
+            "objectName": "Chicken",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Buy",
+                "objectNum": 1,
+                "actionCount": 1,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Chamel",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 2,
+                "actionCount": 1,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Bunny",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Buy",
+                "objectNum": 3,
+                "actionCount": 1,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "GGonRock",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 4,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "MRock",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 5,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Snail",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Buy",
+                "objectNum": 6,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Trunk",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 7,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Slime",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 8,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "AngryPig",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 9,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Rino",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 10,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        },
+        {
+            "objectName": "Radish",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Sell",
+                "objectNum": 11,
+                "actionCount": 5,
+                "curCount": 0,
+                "isCompleted": false
+            }
+        }
+    ]
+}

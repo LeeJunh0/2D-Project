@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
-using System.IO;
 
 public interface ILoader<Key, Value>
 {
@@ -12,26 +9,19 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<string, List<StatInfo>> FriendLevelDict { get; private set; } = new Dictionary<string, List<StatInfo>>();
+    public Dictionary<string, StatInfo> FriendStatDict { get; private set; } = new Dictionary<string, StatInfo>();
     public Dictionary<string, FriendInfo> FriendDataDict { get; private set; } = new Dictionary<string, FriendInfo>();
+    public Dictionary<string, FriendUnLockData> FriendUnLockDataDict { get; private set; } = new Dictionary<string, FriendUnLockData>();
+    public Dictionary<int, NumberData> NumberDataDict { get; private set; } = new Dictionary<int, NumberData>();
     public Dictionary<string, BuildInfo> BuildDataDict { get; private set; } = new Dictionary<string, BuildInfo>();
 
     public void Init()
     {
-        FriendLevelDict = PasingJsonData<StatInfo>(JsonLoad("2D_Project_FriendlevelData"));
+        FriendStatDict = LoadData<string, StatInfo, FriendStatSet>("2D_Project_FriendlStatData");
         FriendDataDict = LoadData<string, FriendInfo, FriendSet>("2D_Project_FriendData");
+        FriendUnLockDataDict = LoadData<string, FriendUnLockData, FriendUnLockDataSet>("2D_Project_FriendUnLockData");
+        NumberDataDict = LoadData<int, NumberData, NumberDataSet>("2D_Project_NumberData");
         BuildDataDict = LoadData<string, BuildInfo, BuildSet>("2D_Project_BuildData");
-    }
-
-    public string JsonLoad(string path)
-    {
-        TextAsset json = MainManager.Addressable.Load<TextAsset>(path);
-        return json.text;
-    }
-
-    private Dictionary<string, List<T>> PasingJsonData<T>(string json) where T : StatInfo
-    {
-        return JsonConvert.DeserializeObject<Dictionary<string, List<T>>>(json);
     }
 
     private T LoadJson<T>(string path)

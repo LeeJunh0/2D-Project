@@ -21,14 +21,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8181519c83cede140909adfcd191fb28
+    m_Address: 2D_Project_FriendUnLockData
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a94294fe0ffd39b4eb46a7688969cad1
-    m_Address: 2D_Project_FriendlevelData
+    m_Address: 2D_Project_FriendlStatData
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce059ae4ae765464483ad448e21d2f25
     m_Address: 2D_Project_BuildData
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e066d406a7653de4a96c3c579db914c1
+    m_Address: 2D_Project_NumberData
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game

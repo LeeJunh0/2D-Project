@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5994170024470458639
 Transform:
   m_ObjectHideFlags: 0
@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6997295029044376573}
+  - {fileID: 4915762619181939220}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &9052402645644432961
@@ -96,14 +97,14 @@ MonoBehaviour:
   type: 1
   monsterName: Radish
   stat:
+    isEquip: 0
+    rarity: 0
     info:
+      num: 0
       name: 
-      level: 0
       coinDefault: 0
       coinCoefficient: 0
-    isEquip: 0
-    rarity: 1
-  createTime: 2
+      coinPerSec: 0
   stateChangeSec: 3
 --- !u!1 &3926703597714368663
 GameObject:
@@ -215,3 +216,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &5320572018696083906
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5994170024470458639}
+    m_Modifications:
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576284222105090869, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_Name
+      value: RevenueObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 5470168416836969768, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.725
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+--- !u!4 &4915762619181939220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1003796946189083606, guid: fb0632caa9b634c43875cca64f821ebc, type: 3}
+  m_PrefabInstance: {fileID: 5320572018696083906}
+  m_PrefabAsset: {fileID: 0}

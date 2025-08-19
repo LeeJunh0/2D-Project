@@ -119,7 +119,7 @@ public class UI_FriendStatus : MonoBehaviour
         renderTexture.runtimeAnimatorController = MainManager.Addressable.Load<RuntimeAnimatorController>($"Anim_{curFriendStat.info.name}");
         friendRankText.text = string.Format($"희귀도: {RarityToString(curFriendStat)}");
         portrailNameText.text = MainManager.Data.FriendDataDict[curFriendStat.info.name].name;
-        createCoinText.text = string.Format($"생산량: {curFriendStat.info.coinDefault * curFriendStat.info.coinCoefficient}원");
+        createCoinText.text = string.Format($"생산량: {curFriendStat.info.coinPerSec}초당 {curFriendStat.info.Coin}원");
         friendDesriptionText.text = MainManager.Data.FriendDataDict[curFriendStat.info.name].description;
     }
 

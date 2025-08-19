@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4822848964382712071
 Transform:
   m_ObjectHideFlags: 0
@@ -97,14 +97,14 @@ MonoBehaviour:
   type: 1
   monsterName: Chicken
   stat:
-    info:
-      name: 
-      level: 0
-      coinDefault: 0
-      coinCoefficient: 0
     isEquip: 0
     rarity: 1
-  createTime: 2
+    info:
+      num: 0
+      name: 
+      coinDefault: 0
+      coinCoefficient: 0
+      coinPerSec: 0
   stateChangeSec: 3
 --- !u!1 &3261835618586750656
 GameObject:
