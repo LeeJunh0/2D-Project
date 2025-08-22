@@ -52,7 +52,7 @@ public class UI_Game : MonoBehaviour
             isOpen = value;
 
             if (value == true)
-                menuBackGround.DOMoveX(0f, 0.5f);
+                menuBackGround.DOMoveX(203f, 0.5f);
             else
                 menuBackGround.DOMoveX(-385f, 0.5f);
         }
