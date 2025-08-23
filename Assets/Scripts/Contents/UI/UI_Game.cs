@@ -7,9 +7,11 @@ using static Define;
 
 public class UI_Game : MonoBehaviour
 {
-    public static event Action StatusOpenHandler;
-    public static event Action CollectionOpenHandler;
-    public static event Action ShopOpenHandler;
+    public static event Action<bool> StatusOpenHandler;
+    public static event Action<bool> BuildingOpenHandler;
+    public static event Action<bool> ShopOpenHandler;
+    public static event Action<bool> CollectionOpenHandler;
+    
 
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
@@ -61,11 +63,7 @@ public class UI_Game : MonoBehaviour
     private void Awake()
     {
         statusButton.AddEvent(FriendStatusButton);
-        buildingButton.AddEvent((evt) =>
-        {
-            SetMenu(EUI_MenuType.Building);
-            BuildingManager.Instance.Init();
-        });
+        buildingButton.AddEvent(BuildingShopButton);
         collectionButton.AddEvent(FriendCollectionButton);
         shopButton.AddEvent(FriendShopButton);
         optionButton.AddEvent((evt) => { SetMenu(EUI_MenuType.Option); });
@@ -86,16 +84,26 @@ public class UI_Game : MonoBehaviour
 
     private void FriendStatusButton(PointerEventData eventData)
     {
-        StatusOpenHandler?.Invoke();
+        SetMenu(EUI_MenuType.Status);
+        StatusOpenHandler?.Invoke(IsOpen);
     }
 
-    private void FriendCollectionButton(PointerEventData eventData)
+    private void BuildingShopButton(PointerEventData eventData)
     {
-        CollectionOpenHandler?.Invoke();
+        SetMenu(EUI_MenuType.Building);
+        BuildingOpenHandler?.Invoke(IsOpen);
     }
 
     private void FriendShopButton(PointerEventData eventData)
     {
-        ShopOpenHandler?.Invoke();
+        SetMenu(EUI_MenuType.Shop);
+        ShopOpenHandler?.Invoke(IsOpen);
     }
+
+    private void FriendCollectionButton(PointerEventData eventData)
+    {
+        SetMenu(EUI_MenuType.Collection);
+        CollectionOpenHandler?.Invoke(IsOpen);
+    }
+
 }

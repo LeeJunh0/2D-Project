@@ -15,12 +15,10 @@ public class UI_FriendStatus : MonoBehaviour
 {
     public static event Action<int> FriendWalkOrRestHandler;
 
-    [SerializeField] private GameObject friendStatus;
     [SerializeField] private GameObject portrailBackGround;
     [SerializeField] private GameObject statusBackGround;
 
     [SerializeField] private TextMeshProUGUI friendCountText;
-    [SerializeField] private GameObject exitButton;
     [SerializeField] private Transform listContent;
 
     [SerializeField] private Animator renderTexture;
@@ -35,22 +33,18 @@ public class UI_FriendStatus : MonoBehaviour
     public void Start()
     {
         friendListSlots = new List<UI_FriendListSlot>();
-        exitButton.AddEvent(OffFriendStatus);
 
-        UI_Game.StatusOpenHandler -= OnFrieldStatus;
-        UI_Game.StatusOpenHandler += OnFrieldStatus;
+        UI_Game.StatusOpenHandler -= SetFrieldStatus;
+        UI_Game.StatusOpenHandler += SetFrieldStatus;
     }
 
-    public void OnFrieldStatus()
+    private void SetFrieldStatus(bool isOpen)
     {
-        friendStatus.SetActive(true);
+        if (isOpen == false)
+            return;
+
         FriendListInit(PlayerDataManager.Instance.FriendList);
         FriendStatusInit();
-    }
-
-    private void OffFriendStatus(PointerEventData eventData)
-    {
-        friendStatus.SetActive(false);
     }
 
     public void FriendListInit(List<Friend> friends)
@@ -161,7 +155,7 @@ public class UI_FriendStatus : MonoBehaviour
     {
         UI_FriendListSlot.SelectFrinedCheckHandler -= SelectFriendListSlot;
         UI_FriendListSlot.WalkOrRestCheckHandler -= FriendWalkOrRest;
-        UI_Game.StatusOpenHandler -= HandlerClear;
+        UI_Game.StatusOpenHandler -= SetFrieldStatus;
     }
 
     private void OnDestroy()

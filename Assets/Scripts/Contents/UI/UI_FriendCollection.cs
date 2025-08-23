@@ -11,29 +11,24 @@ public class UI_FriendCollection : MonoBehaviour
     private const int RarityCount = 4;
     private List<UI_CollectionSlot> slots;
 
-    [SerializeField] private GameObject ui;
-    [SerializeField] private Button exitButton;
+
     [SerializeField] private Transform content;
     [SerializeField] private TextMeshProUGUI countText;
 
     private void Start()
     {
-        UI_Game.CollectionOpenHandler -= OnCollection;
-        UI_Game.CollectionOpenHandler += OnCollection;
+        UI_Game.CollectionOpenHandler -= SetCollection;
+        UI_Game.CollectionOpenHandler += SetCollection;
 
-        exitButton.gameObject.AddEvent(OffCollection);
         slots = new List<UI_CollectionSlot>();
     }
 
-    private void OnCollection()
+    private void SetCollection(bool isOpen)
     {
-        ui.SetActive(true);
-        CollectionInit();
-    }
+        if (isOpen == false)
+            return;
 
-    private void OffCollection(PointerEventData eventData)
-    {
-        ui.SetActive(false);
+        CollectionInit();
     }
 
     private void CollectionInit()
@@ -76,7 +71,7 @@ public class UI_FriendCollection : MonoBehaviour
 
     private void HandlerClear()
     {
-        UI_Game.CollectionOpenHandler -= OnCollection;
+        UI_Game.CollectionOpenHandler -= SetCollection;
     }
 
     private void OnApplicationQuit()

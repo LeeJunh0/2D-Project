@@ -15,9 +15,30 @@ public class BuildingManager : Singleton<BuildingManager>
     public Transform BuildParent;
 
     public bool IsBuilding { get; set; }
-    public void Init()
+
+    private void Start()
     {
-        // 건물UI 슬롯 초기화
+        UI_Game.BuildingOpenHandler -= SetBuilding; // TODO 건물창 이벤트 
+        UI_Game.BuildingOpenHandler += SetBuilding;
+
+        UI_BuildSlot.OnToolTipHandler -= tooltip.Init;
+        UI_BuildSlot.OnToolTipHandler += tooltip.Init;
+        UI_BuildSlot.OffToolTipHandler -= OffBuildingToolTip;
+        UI_BuildSlot.OffToolTipHandler += OffBuildingToolTip;
+        UI_BuildSlot.OnBuildModeHandler -= ChoiceBuild;
+        UI_BuildSlot.OnBuildModeHandler += ChoiceBuild;
+    }
+
+    private void SetBuilding(bool isOpen)
+    {
+        if (isOpen == false)
+            return;
+
+        Init();
+    }
+
+    private void Init()
+    {
         BuildingSlotClear();
         foreach (var data in MainManager.Data.BuildDataDict)
         {
@@ -29,16 +50,9 @@ public class BuildingManager : Singleton<BuildingManager>
             slot.Init(data.Value);
             buildSlots.Add(slot);
         }
-
-        UI_BuildSlot.OnToolTipHandler -= tooltip.Init;
-        UI_BuildSlot.OnToolTipHandler += tooltip.Init;
-        UI_BuildSlot.OffToolTipHandler -= OffBuildingToolTip;
-        UI_BuildSlot.OffToolTipHandler += OffBuildingToolTip;
-        UI_BuildSlot.OnBuildModeHandler -= ChoiceBuild;
-        UI_BuildSlot.OnBuildModeHandler += ChoiceBuild;
     }
 
-    public void ChoiceBuild(BaseBuilding build)
+    private void ChoiceBuild(BaseBuilding build)
     {
         curBuild = build;
         SpriteRenderer spriteRenderer = preview.GetComponent<SpriteRenderer>();
@@ -101,6 +115,7 @@ public class BuildingManager : Singleton<BuildingManager>
         UI_BuildSlot.OnBuildModeHandler -= ChoiceBuild;
         UI_BuildSlot.OnToolTipHandler -= tooltip.Init;
         UI_BuildSlot.OffToolTipHandler -= OffBuildingToolTip;
+        UI_Game.BuildingOpenHandler -= SetBuilding;
     }
 
     private void OnApplicationQuit()

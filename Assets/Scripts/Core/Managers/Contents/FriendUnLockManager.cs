@@ -17,14 +17,7 @@ public class FriendUnLockManager : MonoBehaviour
         foreach (var data in MainManager.Data.FriendUnLockDataDict.Values)
         {
             if (MainManager.Data.NumberDataDict[data.unlockData.objectNum].name_desc == name && data.unlockData.actionType == curAction)
-            {
                 data.unlockData.CurCount++;
-
-                if (data.unlockData.isCompleted == true)
-                {
-                    
-                }
-            }
         }
     }
 

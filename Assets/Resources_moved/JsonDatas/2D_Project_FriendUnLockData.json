@@ -1,6 +1,17 @@
 {
     "UnLockData": [
         {
+            "objectName": "Mushroom",
+            "unlockData": {
+                "objectType": "Friend",
+                "actionType": "Buy",
+                "objectNum": 1,
+                "actionCount": 1,
+                "curCount": 0,
+                "isCompleted": true
+            }
+        },
+        {
             "objectName": "Chicken",
             "unlockData": {
                 "objectType": "Friend",

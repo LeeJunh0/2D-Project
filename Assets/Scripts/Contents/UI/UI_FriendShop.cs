@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class UI_FriendShop : MonoBehaviour
 {
-    [SerializeField] private GameObject ui;
-    [SerializeField] private Button exitButton;
     [SerializeField] private Transform content;
     [SerializeField] private UI_UnLockToolTip unlockTip;
 
@@ -14,8 +12,8 @@ public class UI_FriendShop : MonoBehaviour
 
     private void Start()
     {
-        UI_Game.ShopOpenHandler -= OnFriendShop;
-        UI_Game.ShopOpenHandler += OnFriendShop;
+        UI_Game.ShopOpenHandler -= SetFriendShop;
+        UI_Game.ShopOpenHandler += SetFriendShop;
         listSlots = new List<UI_FriendShopSlot>();
     }
 
@@ -30,22 +28,18 @@ public class UI_FriendShop : MonoBehaviour
             listSlots.Add(slot);
         }
 
-        exitButton.gameObject.AddEvent(OffFriendShop);
-
         UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
         UI_FriendShopSlot.EnterSlotHandler += OnUnLockTip;
         UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
         UI_FriendShopSlot.ExitSlotHandler += OffUnLockTip;
     }
 
-    private void OnFriendShop()
+    private void SetFriendShop(bool isOpen)
     {
-        ui.SetActive(true);
+        if (isOpen == false)
+            return;
+
         Init();
-    }
-    private void OffFriendShop(PointerEventData eventData)
-    {
-        ui.SetActive(false);
     }
 
     private void OnUnLockTip(string name)
@@ -75,7 +69,7 @@ public class UI_FriendShop : MonoBehaviour
 
     private void HandlerClear()
     {
-        UI_Game.ShopOpenHandler -= OnFriendShop;
+        UI_Game.ShopOpenHandler -= SetFriendShop;
         UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
         UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
     }

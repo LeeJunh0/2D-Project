@@ -22,21 +22,23 @@ public class UI_FriendShopSlot : UI_ScrollInButton
         SetEvent();
 
         FriendName = friendName;
-        if (MainManager.Data.FriendUnLockDataDict.ContainsKey(friendName) == false || MainManager.Data.FriendUnLockDataDict[friendName].unlockData.isCompleted == true)
-        {
-            filter.gameObject.SetActive(false);
-            buyButton.gameObject.AddEvent(BuyFriend);
-        }
-        else
-        {
-            filter.gameObject.SetActive(true);
-            gameObject.AddEvent(OnEnter, Define.EEvent_Type.Enter);
-            gameObject.AddEvent(OnExit, Define.EEvent_Type.Exit);
-        }
+        SetUnLock(MainManager.Data.FriendUnLockDataDict[friendName].unlockData.isCompleted);
 
         string spritePath = MainManager.Data.FriendDataDict[friendName].friendIcon;
         slotIcon.sprite = MainManager.Resource.LoadAtlas(spritePath);
         goldText.text = MainManager.Data.FriendDataDict[friendName].price.ToString();
+    }
+
+    public void SetUnLock(bool isComplete)
+    {
+        filter.SetActive(isComplete);
+        if (isComplete)
+            buyButton.gameObject.AddEvent(BuyFriend);
+        else
+        {
+            gameObject.AddEvent(OnEnter, Define.EEvent_Type.Enter);
+            gameObject.AddEvent(OnExit, Define.EEvent_Type.Exit);
+        }
     }
 
     private void BuyFriend(PointerEventData eventData)

@@ -23,7 +23,10 @@ public static class Define
 
     public enum EUI_MenuType
     {
+        Status,
         Building,
+        Shop,
+        Collection,
         Option,
         None
     }

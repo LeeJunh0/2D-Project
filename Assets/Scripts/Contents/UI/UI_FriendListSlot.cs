@@ -10,7 +10,6 @@ public class UI_FriendListSlot : UI_ScrollInButton
     public static event Action<UI_FriendListSlot> WalkOrRestCheckHandler;
 
     [SerializeField] private GameObject outLine;
-    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Image friendIcon;
 
     [SerializeField] private Image equipButton;
@@ -42,7 +41,6 @@ public class UI_FriendListSlot : UI_ScrollInButton
 
     public void Init(FriendInfo info)
     {
-        nameText.text = info.name;
         friendIcon.sprite = MainManager.Resource.LoadAtlas(info.friendIcon);
         
         SetEvent();
