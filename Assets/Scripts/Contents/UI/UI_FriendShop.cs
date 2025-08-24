@@ -1,31 +1,38 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UI_FriendShop : MonoBehaviour
 {
     [SerializeField] private Transform content;
     [SerializeField] private UI_UnLockToolTip unlockTip;
 
-    private List<UI_FriendShopSlot> listSlots;
+    private Dictionary<string, UI_FriendShopSlot> dictSlots;
 
     private void Start()
     {
         UI_Game.ShopOpenHandler -= SetFriendShop;
         UI_Game.ShopOpenHandler += SetFriendShop;
-        listSlots = new List<UI_FriendShopSlot>();
+        EventManager.OnUnLockSlotHandler -= SlotUnLock;
+        EventManager.OnUnLockSlotHandler += SlotUnLock;
+
+        dictSlots = new Dictionary<string, UI_FriendShopSlot>();
     }
 
     private void Init()
     {
-        ListClear();
-        foreach(var info in MainManager.Data.FriendStatDict)
+        DictClear();
+        foreach (var info in PlayerDataManager.Instance.UnLockData.unlockData)
         {
+            if (info.Key == "None")
+                continue;
+
             GameObject go = MainManager.Resource.Instantiate("FriendShop_Slot", content);
             UI_FriendShopSlot slot = go.GetComponent<UI_FriendShopSlot>();
+
             slot.Init(info.Key);
-            listSlots.Add(slot);
+            slot.SetUnLock(info.Value.isUnLock,info.Value.isCompleted);
+            dictSlots.Add(info.Key, slot);
         }
 
         UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
@@ -34,12 +41,21 @@ public class UI_FriendShop : MonoBehaviour
         UI_FriendShopSlot.ExitSlotHandler += OffUnLockTip;
     }
 
+    private void SlotUnLock(string name)
+    {
+        if (dictSlots.ContainsKey(name) == false)
+            return;
+
+        dictSlots[name].SetUnLock(true, true);
+    }
+
     private void SetFriendShop(bool isOpen)
     {
         if (isOpen == false)
             return;
 
-        Init();
+        if (dictSlots.Count <= 0 )
+            Init();
     }
 
     private void OnUnLockTip(string name)
@@ -48,7 +64,7 @@ public class UI_FriendShop : MonoBehaviour
             return;
 
         unlockTip.gameObject.SetActive(true);
-        unlockTip.Init(MainManager.Data.FriendUnLockDataDict[name].unlockData);
+        unlockTip.Init(MainManager.Data.FriendUnLockDataDict[name]);
     }
 
     private void OffUnLockTip()
@@ -56,15 +72,15 @@ public class UI_FriendShop : MonoBehaviour
         unlockTip.gameObject.SetActive(false);
     }
 
-    private void ListClear()
+    private void DictClear()
     {
-        if (listSlots.Count <= 0)
+        if (dictSlots.Count <= 0)
             return;
 
-        foreach(var  slot in listSlots)
+        foreach (var slot in dictSlots.Values)
             Destroy(slot.gameObject);
 
-        listSlots.Clear();
+        dictSlots.Clear();
     }
 
     private void HandlerClear()
@@ -72,6 +88,7 @@ public class UI_FriendShop : MonoBehaviour
         UI_Game.ShopOpenHandler -= SetFriendShop;
         UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
         UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
+        EventManager.OnUnLockSlotHandler -= SlotUnLock;
     }
 
     private void OnApplicationQuit()

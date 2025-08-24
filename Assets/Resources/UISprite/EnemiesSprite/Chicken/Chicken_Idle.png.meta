@@ -175,10 +175,10 @@ TextureImporter:
       name: Chicken_Idle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 31
-        height: 34
+        width: 29
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: Chicken_Idle_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
-        width: 31
-        height: 33
+        width: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: Chicken_Idle_2
       rect:
         serializedVersion: 2
-        x: 63
+        x: 64
         y: 0
-        width: 33
-        height: 29
+        width: 31
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: Chicken_Idle_3
       rect:
         serializedVersion: 2
-        x: 95
+        x: 128
         y: 0
-        width: 66
-        height: 27
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,10 +263,10 @@ TextureImporter:
       name: Chicken_Idle_4
       rect:
         serializedVersion: 2
-        x: 160
+        x: 161
         y: 0
-        width: 32
-        height: 27
+        width: 30
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: Chicken_Idle_5
       rect:
         serializedVersion: 2
-        x: 193
+        x: 194
         y: 0
-        width: 30
-        height: 31
+        width: 28
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: Chicken_Idle_6
       rect:
         serializedVersion: 2
-        x: 225
+        x: 226
         y: 0
-        width: 30
-        height: 34
+        width: 28
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +329,10 @@ TextureImporter:
       name: Chicken_Idle_7
       rect:
         serializedVersion: 2
-        x: 257
+        x: 258
         y: 0
-        width: 30
-        height: 34
+        width: 28
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,9 +351,9 @@ TextureImporter:
       name: Chicken_Idle_8
       rect:
         serializedVersion: 2
-        x: 288
+        x: 289
         y: 0
-        width: 31
+        width: 29
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -373,9 +373,9 @@ TextureImporter:
       name: Chicken_Idle_9
       rect:
         serializedVersion: 2
-        x: 320
+        x: 321
         y: 0
-        width: 31
+        width: 29
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -395,9 +395,9 @@ TextureImporter:
       name: Chicken_Idle_10
       rect:
         serializedVersion: 2
-        x: 352
+        x: 353
         y: 0
-        width: 31
+        width: 29
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -417,9 +417,9 @@ TextureImporter:
       name: Chicken_Idle_11
       rect:
         serializedVersion: 2
-        x: 384
+        x: 385
         y: 0
-        width: 31
+        width: 29
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -439,7 +439,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9e26324fe6bcb7e468358309970fa8a0
     internalID: 0
     vertices: []
     indices: 

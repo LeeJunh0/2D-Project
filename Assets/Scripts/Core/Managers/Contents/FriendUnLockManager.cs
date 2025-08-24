@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.AddressableAssets.Build;
 using UnityEngine;
 
 public class FriendUnLockManager : MonoBehaviour
@@ -14,10 +13,13 @@ public class FriendUnLockManager : MonoBehaviour
 
     private void CheckUnLockData(string name, UnlockActionType curAction)
     {
-        foreach (var data in MainManager.Data.FriendUnLockDataDict.Values)
+        foreach (var data in PlayerDataManager.Instance.UnLockData.unlockData.Values)
         {
-            if (MainManager.Data.NumberDataDict[data.unlockData.objectNum].name_desc == name && data.unlockData.actionType == curAction)
-                data.unlockData.CurCount++;
+            if (MainManager.Data.NumberDataDict[data.objectNum].name_desc == name && data.actionType == curAction)
+            {
+                data.CurCount++;
+                EventManager.UnLockSlotUI(name);
+            }
         }
     }
 

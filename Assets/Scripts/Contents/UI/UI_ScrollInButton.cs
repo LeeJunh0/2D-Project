@@ -8,7 +8,7 @@ public abstract class UI_ScrollInButton : MonoBehaviour
 
     protected virtual void SetEvent()
     {
-        parentScroll = transform.parent.parent.parent.parent.GetComponent<ScrollRect>();
+        parentScroll = gameObject.FindParent<ScrollRect>();
 
         gameObject.AddEvent(OnBeginDrag,Define.EEvent_Type.BeginDrag);
         gameObject.AddEvent(OnDrag,Define.EEvent_Type.Drag);

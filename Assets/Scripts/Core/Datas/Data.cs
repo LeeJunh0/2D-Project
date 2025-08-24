@@ -130,41 +130,39 @@ public enum UnlockActionType
 public class UnLockData
 {
     // 나중에 배열로 만들어서 여러개의 조건을 걸수도..?
+    public string targetName;
     public UnlockObjectType objectType;
     public UnlockActionType actionType;
     public int objectNum;
     public int actionCount;
     public int curCount;
     public bool isCompleted;
+    public bool isUnLock;
     public int CurCount
     {
         get => curCount;
         set
         {
-            curCount = Mathf.Clamp(value, 0,actionCount);
+            curCount = Mathf.Clamp(value, 0, actionCount);
 
             if (curCount >= actionCount)
+            {
                 isCompleted = true;
+                EventManager.UnLockSlotUI(targetName);
+            }
         }
     }
 }
 
 [System.Serializable]
-public class FriendUnLockData
+public class FriendUnLockDataSet : ILoader<string, UnLockData>
 {
-    public string objectName;
-    public UnLockData unlockData;
-}
-
-[System.Serializable]
-public class FriendUnLockDataSet : ILoader<string, FriendUnLockData>
-{
-    public List<FriendUnLockData> UnLockData { get; set; }
-    public Dictionary<string, FriendUnLockData> MakeDict()
+    public List<UnLockData> UnLockData { get; set; }
+    public Dictionary<string, UnLockData> MakeDict()
     {
-        Dictionary<string, FriendUnLockData> dict = new Dictionary<string, FriendUnLockData>();
-        foreach(FriendUnLockData data in  UnLockData)
-            dict.Add(data.objectName, data);
+        Dictionary<string, UnLockData> dict = new Dictionary<string, UnLockData>();
+        foreach (UnLockData data in UnLockData)
+            dict.Add(data.targetName, data);
 
         return dict;
     }
@@ -258,8 +256,19 @@ public class PlayerUnLockData
     public void UnLockDataInit()
     {
         unlockData = new Dictionary<string, UnLockData>();
-        foreach (FriendUnLockData unlock in MainManager.Data.FriendUnLockDataDict.Values)
-            unlockData.Add(MainManager.Data.NumberDataDict[unlock.unlockData.objectNum].name_desc, unlock.unlockData);
+        foreach (UnLockData unlock in MainManager.Data.FriendUnLockDataDict.Values)
+            unlockData.Add(MainManager.Data.NumberDataDict[unlock.objectNum].name_desc, unlock);
+    }
+
+    public bool GetUnLockState(string name)
+    {
+        if (unlockData.ContainsKey(name) == false)
+        {
+            Extension.ErrorLog($"{name}은 없는 몬스터 이름입니다.");
+            return false;
+        }
+
+        return unlockData[name].isCompleted;
     }
 }
 

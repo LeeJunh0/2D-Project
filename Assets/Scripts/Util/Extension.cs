@@ -35,6 +35,24 @@ public static class Extension
         return child;
     }
 
+    public static T FindParent<T>(this GameObject go) where T : Component
+    {
+        UnityEngine.Transform parent = go.transform.parent;
+        while(parent != null)
+        {
+            T component = parent.GetComponent<T>();
+            if (component == null)
+            {
+                parent = parent.parent;
+                continue;
+            }
+
+            return component;
+        }
+
+        return null;
+    }
+
     public static void AddEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
     {
         UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);
@@ -64,6 +82,38 @@ public static class Extension
                 break;
             case Define.EEvent_Type.EndDrag:
                 evt.onEndDrag += action;
+                break;
+        }
+    }
+    public static void RemoveEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
+    {
+        UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);
+
+        switch (type)
+        {
+            case Define.EEvent_Type.LeftClick:
+                evt.onLeftClick -= action;
+                break;
+            case Define.EEvent_Type.Enter:
+                evt.onEnter -= action;
+                break;
+            case Define.EEvent_Type.Exit:
+                evt.onExit -= action;
+                break;
+            case Define.EEvent_Type.Down:
+                evt.onDown -= action;
+                break;
+            case Define.EEvent_Type.Up:
+                evt.onUp -= action;
+                break;
+            case Define.EEvent_Type.BeginDrag:
+                evt.onBeginDrag -= action;
+                break;
+            case Define.EEvent_Type.Drag:
+                evt.onDrag -= action;
+                break;
+            case Define.EEvent_Type.EndDrag:
+                evt.onEndDrag -= action;
                 break;
         }
     }

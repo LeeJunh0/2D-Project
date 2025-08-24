@@ -18452,14 +18452,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 360862212644441682, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579832709607739089, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2378695307535958586, guid: c151acfb56931d24391a77efc03215d4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -18540,10 +18532,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3783127032701999516, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4390579856827489771, guid: c151acfb56931d24391a77efc03215d4, type: 3}
       propertyPath: m_Name
       value: UI_Game
@@ -18552,25 +18540,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4559979542192583191, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_SizeDelta.y
+    - target: {fileID: 5191642708034933413, guid: c151acfb56931d24391a77efc03215d4, type: 3}
+      propertyPath: m_Vertical
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191642708034933413, guid: c151acfb56931d24391a77efc03215d4, type: 3}
+      propertyPath: m_Horizontal
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5071754886890593994, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -30.525099
-      objectReference: {fileID: 0}
-    - target: {fileID: 5071754886890593994, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.26254272
-      objectReference: {fileID: 0}
-    - target: {fileID: 5790797493603724391, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6706868594277852412, guid: c151acfb56931d24391a77efc03215d4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
+    - target: {fileID: 5191642708034933413, guid: c151acfb56931d24391a77efc03215d4, type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -28,6 +28,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     public bool IsLoadCompleted { get; set; }
     public List<Friend> FriendList => friendList;
     public PlayerCollection Collection => playerInfo.playerCollection;
+    public PlayerUnLockData UnLockData => playerInfo.playerFriendUnlock;
 
     private void Update()
     {
