@@ -14,6 +14,8 @@ using UnityEngine.UI;
 public class UI_FriendStatus : MonoBehaviour
 {
     public static event Action<int> FriendWalkOrRestHandler;
+    public static event Action<int> OnIndexUpdateHandler;
+    public static event Func<int, bool> FriendSellHandler;
 
     [SerializeField] private GameObject portrailBackGround;
     [SerializeField] private GameObject statusBackGround;
@@ -27,6 +29,11 @@ public class UI_FriendStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI friendDesriptionText;
     [SerializeField] private TextMeshProUGUI friendRankText;
 
+    [SerializeField] private Button sellButton;
+    [SerializeField] private GameObject wanningScreen;
+    [SerializeField] private Button reallySellButton;
+    [SerializeField] private Button exitButton;
+
     private List<UI_FriendListSlot> friendListSlots;
     private UI_FriendListSlot curFriend;
 
@@ -36,6 +43,12 @@ public class UI_FriendStatus : MonoBehaviour
 
         UI_Game.StatusOpenHandler -= SetFrieldStatus;
         UI_Game.StatusOpenHandler += SetFrieldStatus;
+        EventManager.OnFriendCountUpdateHandler -= FriendCountUpdate;
+        EventManager.OnFriendCountUpdateHandler += FriendCountUpdate;
+
+        sellButton.gameObject.AddEvent(SellUIOpen);
+        reallySellButton.gameObject.AddEvent(ReallySell);
+        exitButton.gameObject.AddEvent(SellUIExit);
     }
 
     private void SetFrieldStatus(bool isOpen)
@@ -44,7 +57,7 @@ public class UI_FriendStatus : MonoBehaviour
             return;
 
         FriendListInit(PlayerDataManager.Instance.FriendList);
-        FriendStatusInit();
+        FriendStatusUpdate();
     }
 
     public void FriendListInit(List<Friend> friends)
@@ -70,7 +83,7 @@ public class UI_FriendStatus : MonoBehaviour
             curFriend = friendListSlots[0];
 
         FriendCountUpdate();
-        FriendListUpdate();
+        FriendListEquipUpdate();
     }
 
     private void FriendListClear()
@@ -84,7 +97,7 @@ public class UI_FriendStatus : MonoBehaviour
         friendListSlots.Clear();
     }
 
-    private void FriendListUpdate()
+    private void FriendListEquipUpdate()
     {
         if (friendListSlots.Count <= 0)
             return;
@@ -98,7 +111,7 @@ public class UI_FriendStatus : MonoBehaviour
         friendCountText.text = string.Format($"{PlayerDataManager.Instance.CurFrieldCount} / {PlayerDataManager.Instance.MaxFriendCount}");
     }
 
-    private void FriendStatusInit()
+    private void FriendStatusUpdate()
     {
         if (curFriend == null)
         {
@@ -141,7 +154,35 @@ public class UI_FriendStatus : MonoBehaviour
 
         curFriend = slot;
         curFriend.OnOutLine();
-        FriendStatusInit();
+        FriendStatusUpdate();
+    }
+
+    private void SellUIOpen(PointerEventData eventData)
+    {
+        wanningScreen.SetActive(true);
+    }
+
+    private void ReallySell(PointerEventData eventData)
+    {
+        if (FriendSellHandler == null)
+            return;
+
+        bool isComplete = FriendSellHandler.Invoke(curFriend.Index);
+        if (isComplete == false)
+            return;
+
+        int removeIndex = curFriend.Index;
+        friendListSlots.RemoveAt(removeIndex);
+        OnIndexUpdateHandler?.Invoke(removeIndex);
+        Destroy(curFriend.gameObject);
+        curFriend = null;
+        FriendStatusUpdate();
+        SellUIExit(eventData);
+    }
+
+    private void SellUIExit(PointerEventData eventData)
+    {
+        wanningScreen.SetActive(false);
     }
 
     private void FriendWalkOrRest(UI_FriendListSlot slot)
@@ -156,6 +197,11 @@ public class UI_FriendStatus : MonoBehaviour
         UI_FriendListSlot.SelectFrinedCheckHandler -= SelectFriendListSlot;
         UI_FriendListSlot.WalkOrRestCheckHandler -= FriendWalkOrRest;
         UI_Game.StatusOpenHandler -= SetFrieldStatus;
+        EventManager.OnFriendCountUpdateHandler -= FriendCountUpdate;
+
+        sellButton.gameObject.RemoveEvent(SellUIOpen);
+        reallySellButton.gameObject.RemoveEvent(ReallySell);
+        exitButton.gameObject.RemoveEvent(SellUIExit);
     }
 
     private void OnDestroy()

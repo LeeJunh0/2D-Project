@@ -31,7 +31,7 @@ public class UI_FriendShop : MonoBehaviour
             UI_FriendShopSlot slot = go.GetComponent<UI_FriendShopSlot>();
 
             slot.Init(info.Key);
-            slot.SetUnLock(info.Value.isUnLock,info.Value.isCompleted);
+            slot.SetUnLock(info.Value.isUnLock);
             dictSlots.Add(info.Key, slot);
         }
 
@@ -46,7 +46,8 @@ public class UI_FriendShop : MonoBehaviour
         if (dictSlots.ContainsKey(name) == false)
             return;
 
-        dictSlots[name].SetUnLock(true, true);
+        UnLockData data = PlayerDataManager.Instance.UnLockData.unlockData[name];
+        dictSlots[name].SetUnLock(data.isUnLock);
     }
 
     private void SetFriendShop(bool isOpen)
@@ -64,7 +65,7 @@ public class UI_FriendShop : MonoBehaviour
             return;
 
         unlockTip.gameObject.SetActive(true);
-        unlockTip.Init(MainManager.Data.FriendUnLockDataDict[name]);
+        unlockTip.Init(PlayerDataManager.Instance.UnLockData.unlockData[name]);
     }
 
     private void OffUnLockTip()

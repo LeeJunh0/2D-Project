@@ -21,7 +21,7 @@ public class PlayerInfo
 
     public PlayerInfo()
     {
-        maxFriendCount = 5;
+        maxFriendCount = 10;
         curFriendCount = 0;
         isFirst = true;
         gold = 0;
@@ -136,7 +136,6 @@ public class UnLockData
     public int objectNum;
     public int actionCount;
     public int curCount;
-    public bool isCompleted;
     public bool isUnLock;
     public int CurCount
     {
@@ -147,7 +146,7 @@ public class UnLockData
 
             if (curCount >= actionCount)
             {
-                isCompleted = true;
+                isUnLock = true;
                 EventManager.UnLockSlotUI(targetName);
             }
         }
@@ -186,6 +185,7 @@ public class FriendStat
     public bool isEquip;
     public Define.EFriend_Rarity rarity = Define.EFriend_Rarity.Normal;
     public StatInfo info;
+    public float curCoinTime;
 
     public Define.EFriend_Rarity Rarity
     {
@@ -257,18 +257,7 @@ public class PlayerUnLockData
     {
         unlockData = new Dictionary<string, UnLockData>();
         foreach (UnLockData unlock in MainManager.Data.FriendUnLockDataDict.Values)
-            unlockData.Add(MainManager.Data.NumberDataDict[unlock.objectNum].name_desc, unlock);
-    }
-
-    public bool GetUnLockState(string name)
-    {
-        if (unlockData.ContainsKey(name) == false)
-        {
-            Extension.ErrorLog($"{name}은 없는 몬스터 이름입니다.");
-            return false;
-        }
-
-        return unlockData[name].isCompleted;
+            unlockData.Add(unlock.targetName, unlock);
     }
 }
 

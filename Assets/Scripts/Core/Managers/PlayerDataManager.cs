@@ -22,6 +22,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         set
         {
             playerInfo.curFriendCount = Mathf.Clamp(value, 0, playerInfo.maxFriendCount);
+            EventManager.FriendCountUpdate();
         }
     }
     public int MaxFriendCount { get => playerInfo.maxFriendCount; } // set은 생각해보자 
@@ -78,8 +79,11 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         GoldUpdate();
         UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
         UI_FriendStatus.FriendWalkOrRestHandler += FriendWalkOrRest;
+        UI_FriendStatus.FriendSellHandler -= SellFriend;
+        UI_FriendStatus.FriendSellHandler += SellFriend;
         UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
         UI_FriendShopSlot.BuyFriendHandler += BuyFriendGoldCheck;
+
     }
 
     private void CreateNewData()
@@ -152,39 +156,60 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             return;
         }
 
+        if (MaxFriendCount <= CurFrieldCount)
+        {
+            Extension.ErrorLog("최대 친구수입니다.");
+            return;
+        }
+
         playerInfo.gold -= MainManager.Data.FriendDataDict[name].price;
         EventManager.UnLockActionBuy(name);
         GoldUpdate();
         CreateFriend(name); //TODO : 가챠UI 만들기
     }
 
+    private bool SellFriend(int index)
+    {
+        if (friendList.Count < index)
+        {
+            Extension.ErrorLog("말도안되는 접근입니다.");
+            return false;
+        }
+
+        if (friendList[index] == null)
+        {
+            Extension.ErrorLog("해당 인덱스의 데이터는 null 입니다.");
+            return false;
+        }
+
+        playerInfo.gold += MainManager.Data.FriendDataDict[friendList[index].Stat.info.name].price / 3;
+        EventManager.UnLockActionSell(index);
+        Destroy(FriendList[index].gameObject);
+        FriendList.RemoveAt(index);
+        CurFrieldCount--;
+        GoldUpdate();
+        Extension.SuccessLog("판매성공 확인바람");
+        return true;
+    }
+
     // 이름으로 친구 만들기
     private void CreateFriend(string name)
     {
-        GameObject go;
-        Friend friend;
-        Define.EFriend_Rarity rarity = FriendGacha.RarityRandom();
         if (CurFrieldCount >= MaxFriendCount)
         {
-            go = MainManager.Resource.Instantiate(name);
-            friend = go.GetComponent<Friend>();
-            friend.Stat.info = new StatInfo(MainManager.Data.FriendStatDict[name]);
-            CurFrieldCount++;
-            friend.Stat.Rarity = rarity;
-            friend.Stat.isEquip = false;
-            friendList.Add(friend);
+            Extension.ErrorLog("친구 수가 최대치입니다.");
+            return;
         }
-        else
-        {
-            go = MainManager.Resource.Instantiate(name);
-            friend = go.GetComponent<Friend>();
-            friend.Stat.info = new StatInfo(MainManager.Data.FriendStatDict[name]);
-            CurFrieldCount++;
-            friend.Stat.Rarity = rarity;
-            friend.Stat.isEquip = true;
-            friendList.Add(friend);
-            go.SetActive(true);
-        }
+
+        GameObject go = MainManager.Resource.Instantiate(name);
+        Friend friend = go.GetComponent<Friend>();
+        Define.EFriend_Rarity rarity = FriendGacha.RarityRandom();
+        friend.Stat.info = new StatInfo(MainManager.Data.FriendStatDict[name]);
+        CurFrieldCount++;
+        friend.Stat.Rarity = rarity;
+        friend.Stat.isEquip = true;
+        friendList.Add(friend);
+        go.SetActive(true);
 
         playerInfo.playerCollection.GetCollection(name, rarity);
         AddFriend(friend);
@@ -261,12 +286,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     private void FriendWalkOrRest(int index)
     {
         friendList[index].Stat.isEquip = !friendList[index].Stat.isEquip;
-
-        if (friendList[index].Stat.isEquip == true)
-            CurFrieldCount++;
-        else
-            CurFrieldCount--;
-
         friendList[index].gameObject.SetActive(friendList[index].Stat.isEquip);
     }
 
@@ -274,6 +293,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     {
         UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
         UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
+        UI_FriendStatus.FriendSellHandler -= SellFriend;
     }
 
     private void OnApplicationQuit()

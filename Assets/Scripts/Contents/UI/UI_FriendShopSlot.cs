@@ -13,7 +13,6 @@ public class UI_FriendShopSlot : UI_ScrollInButton
 
     [SerializeField] private GameObject filter;
     [SerializeField] private Image slotIcon;
-    [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI goldText;
 
     public string FriendName { get; set; }
@@ -29,20 +28,20 @@ public class UI_FriendShopSlot : UI_ScrollInButton
         goldText.text = MainManager.Data.FriendDataDict[friendName].price.ToString();
     }
 
-    public void SetUnLock(bool isUnLock, bool isComplete)
+    public void SetUnLock(bool isUnLock)
     {
         filter.SetActive(!isUnLock);
-        if (isComplete)
+        if (isUnLock == true)
         {
             gameObject.RemoveEvent(OnEnter, Define.EEvent_Type.Enter);
             gameObject.RemoveEvent(OnExit, Define.EEvent_Type.Exit);
-            buyButton.gameObject.AddEvent(BuyFriend);
+            gameObject.AddEvent(BuyFriend);
         }
         else
         {
             gameObject.AddEvent(OnEnter, Define.EEvent_Type.Enter);
             gameObject.AddEvent(OnExit, Define.EEvent_Type.Exit);
-            buyButton.gameObject.RemoveEvent(BuyFriend);
+            gameObject.RemoveEvent(BuyFriend);
         }
     }
 

@@ -86,15 +86,20 @@ public class Friend : BaseObject
                 continue;
             }
 
-            yield return new WaitForSeconds(stat.info.coinPerSec);
+            stat.curCoinTime += Time.deltaTime;
+            yield return null;
 
             // 수익
-            double gold = Stat.info.Coin;
-            PlayerDataManager.Instance.Gold += gold;
-            PlayerDataManager.Instance.GoldUpdate();
+            if (stat.curCoinTime >= stat.info.coinPerSec)
+            {
+                double gold = Stat.info.Coin;
+                PlayerDataManager.Instance.Gold += gold;
+                PlayerDataManager.Instance.GoldUpdate();
 
-            // UI 초기화 및 생성
-            revenue.CreateRevenue(gold);
+                // UI 초기화 및 생성
+                revenue.CreateRevenue(gold);
+                stat.curCoinTime = 0f;
+            }
         }
     }
 

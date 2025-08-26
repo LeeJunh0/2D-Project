@@ -8,6 +8,7 @@ public class UI_FriendListSlot : UI_ScrollInButton
 {
     public static event Action<UI_FriendListSlot> SelectFrinedCheckHandler;
     public static event Action<UI_FriendListSlot> WalkOrRestCheckHandler;
+    
 
     [SerializeField] private GameObject outLine;
     [SerializeField] private Image friendIcon;
@@ -46,6 +47,9 @@ public class UI_FriendListSlot : UI_ScrollInButton
         SetEvent();
         gameObject.AddEvent(OnClick);
         equipButton.gameObject.AddEvent(OnWalkOrRestClick);
+
+        UI_FriendStatus.OnIndexUpdateHandler -= IndexUpdate;
+        UI_FriendStatus.OnIndexUpdateHandler += IndexUpdate;
     }
     
     private void OnClick(PointerEventData eventData)
@@ -58,6 +62,29 @@ public class UI_FriendListSlot : UI_ScrollInButton
         WalkOrRestCheckHandler?.Invoke(this);
     }
 
+    private void IndexUpdate(int removeIndex)
+    {
+        if (removeIndex >= Index)
+            return;
+
+        Index--;
+    }
+
     public void OnOutLine() { outLine.SetActive(true); }
     public void OffOutLine() { outLine.SetActive(false); }
+
+    private void HandlerClear()
+    {
+        UI_FriendStatus.OnIndexUpdateHandler -= IndexUpdate;
+    }
+
+    private void OnDestroy()
+    {
+        HandlerClear();
+    }
+
+    private void OnApplicationQuit()
+    {
+        HandlerClear();
+    }
 }

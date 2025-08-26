@@ -1,34 +1,40 @@
 {
     "UnLockData": [
         {
+            "targetName": "Mushroom",
+            "objectType": "Friend",
+            "actionType": "Buy",
+            "objectNum": 0,
+            "actionCount": 1,
+            "curCount": 0,
+            "isUnLock": true
+        },
+        {
             "targetName": "Chicken",
             "objectType": "Friend",
             "actionType": "Buy",
             "objectNum": 1,
             "actionCount": 1,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Chamel",
             "objectType": "Friend",
-            "actionType": "Sell",
+            "actionType": "Buy",
             "objectNum": 2,
             "actionCount": 1,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Bunny",
             "objectType": "Friend",
-            "actionType": "Buy",
+            "actionType": "Sell",
             "objectNum": 3,
-            "actionCount": 1,
+            "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "GGonRock",
@@ -37,28 +43,25 @@
             "objectNum": 4,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "MRock",
             "objectType": "Friend",
-            "actionType": "Sell",
+            "actionType": "Buy",
             "objectNum": 5,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Snail",
             "objectType": "Friend",
-            "actionType": "Buy",
+            "actionType": "Sell",
             "objectNum": 6,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Trunk",
@@ -67,8 +70,7 @@
             "objectNum": 7,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Slime",
@@ -77,8 +79,7 @@
             "objectNum": 8,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "AngryPig",
@@ -87,8 +88,7 @@
             "objectNum": 9,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Rino",
@@ -97,8 +97,7 @@
             "objectNum": 10,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         },
         {
             "targetName": "Radish",
@@ -107,8 +106,7 @@
             "objectNum": 11,
             "actionCount": 5,
             "curCount": 0,
-            "isCompleted": false,
-            "isUnLock": true
+            "isUnLock": false
         }
     ]
 }
