@@ -6,11 +6,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// 친구들의 능력치 관리 및 관련 UI관리
-/// 나중에 커지게 되면 둘이 분리할수도..?
-/// 
-/// </summary>
 public class UI_FriendStatus : MonoBehaviour
 {
     public static event Action<int> FriendWalkOrRestHandler;

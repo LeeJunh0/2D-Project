@@ -25,7 +25,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             EventManager.FriendCountUpdate();
         }
     }
-    public int MaxFriendCount { get => playerInfo.maxFriendCount; } // set은 생각해보자 
+    public int MaxFriendCount { get => playerInfo.maxFriendCount; }
     public bool IsLoadCompleted { get; set; }
     public List<Friend> FriendList => friendList;
     public PlayerCollection Collection => playerInfo.playerCollection;
@@ -165,7 +165,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         playerInfo.gold -= MainManager.Data.FriendDataDict[name].price;
         EventManager.UnLockActionBuy(name);
         GoldUpdate();
-        CreateFriend(name); //TODO : 가챠UI 만들기
+        CreateFriend(name);
     }
 
     private bool SellFriend(int index)
