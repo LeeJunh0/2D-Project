@@ -94,7 +94,6 @@ public class Friend : BaseObject
             {
                 double gold = Stat.info.Coin;
                 PlayerDataManager.Instance.Gold += gold;
-                PlayerDataManager.Instance.GoldUpdate();
 
                 // UI 초기화 및 생성
                 revenue.CreateRevenue(gold);

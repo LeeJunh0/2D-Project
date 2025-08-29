@@ -19,7 +19,7 @@ public class UI_BuildSlot : UI_ScrollInButton
         InfoData = buildData;
         SetEvent();
         icon.sprite = MainManager.Resource.LoadAtlas(buildData.buildIcon);
-        priceText.text = buildData.price.ToString();
+        priceText.text = buildData.price.ToString("N0");
 
         gameObject.AddEvent(OnClick);
         gameObject.AddEvent(OnEnter, Define.EEvent_Type.Enter);

@@ -60,31 +60,40 @@ public static class Extension
         switch (type)
         {
             case Define.EEvent_Type.LeftClick:
+                evt.onLeftClick -= action;
                 evt.onLeftClick += action;
                 break;
             case Define.EEvent_Type.Enter:
+                evt.onEnter -= action;
                 evt.onEnter += action;
                 break;
             case Define.EEvent_Type.Exit:
+                evt.onExit -= action;
                 evt.onExit += action;
                 break;
             case Define.EEvent_Type.Down:
+                evt.onDown -= action;
                 evt.onDown += action;
                 break;
             case Define.EEvent_Type.Up:
+                evt.onUp -= action;
                 evt.onUp += action;
                 break;
             case Define.EEvent_Type.BeginDrag:
+                evt.onBeginDrag -= action;
                 evt.onBeginDrag += action;
                 break;
             case Define.EEvent_Type.Drag:
+                evt.onDrag -= action;
                 evt.onDrag += action;
                 break;
             case Define.EEvent_Type.EndDrag:
+                evt.onEndDrag -= action;
                 evt.onEndDrag += action;
                 break;
         }
     }
+
     public static void RemoveEvent(this GameObject go, Action<PointerEventData> action, Define.EEvent_Type type = Define.EEvent_Type.LeftClick)
     {
         UI_EventHandler evt = GetOrAddComponent<UI_EventHandler>(go);

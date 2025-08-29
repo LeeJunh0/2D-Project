@@ -13,7 +13,7 @@ public class RevenueObject : MonoBehaviour
     public void CreateRevenue(double gold)
     {
         InitUI();
-        goldText.text = ExChanger.GoldToText(gold);
+        goldText.text = gold.ToString("N0");
         OnRevenueText();
     }
 

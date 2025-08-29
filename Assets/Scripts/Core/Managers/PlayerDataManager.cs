@@ -15,7 +15,15 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     [SerializeField] private Transform parent;
     [SerializeField] private GameObject homePrefab;
 
-    public double Gold { get => playerInfo.gold; set { playerInfo.gold = value; } }
+    public double Gold
+    {
+        get => playerInfo.gold;
+        set
+        {
+            playerInfo.gold = value;
+            GoldUpdate();
+        }
+    }
     public int CurFrieldCount
     {
         get => playerInfo.curFriendCount;
@@ -83,7 +91,8 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         UI_FriendStatus.FriendSellHandler += SellFriend;
         UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
         UI_FriendShopSlot.BuyFriendHandler += BuyFriendGoldCheck;
-
+        UI_ShopGacha.OnFriendGetHandler -= FriendComeHome;
+        UI_ShopGacha.OnFriendGetHandler += FriendComeHome;
     }
 
     private void CreateNewData()
@@ -125,7 +134,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             return;
         }
 
-        goldText.text = ExChanger.GoldToText(playerInfo.gold);
+        goldText.text = Gold.ToString("N0");
     }
 
     // 저장된 친구 불러오기
@@ -148,24 +157,28 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         Extension.SuccessLog("몬스터 데이터 불러오기 완료");
     }
 
-    private void BuyFriendGoldCheck(string name)
+    private bool BuyFriendGoldCheck(string name)
     {
-        if (playerInfo.gold < MainManager.Data.FriendDataDict[name].price)
+        if (Gold < MainManager.Data.FriendDataDict[name].price)
         {
             Extension.ErrorLog("넌 돈이 없는 거지로구나...으음");
-            return;
+            return false;
         }
 
         if (MaxFriendCount <= CurFrieldCount)
         {
             Extension.ErrorLog("최대 친구수입니다.");
-            return;
+            return false;
         }
 
-        playerInfo.gold -= MainManager.Data.FriendDataDict[name].price;
+        Gold -= MainManager.Data.FriendDataDict[name].price;
+        return true;
+    }
+
+    private void FriendComeHome(string name, Define.EFriend_Rarity rarity)
+    {
         EventManager.UnLockActionBuy(name);
-        GoldUpdate();
-        CreateFriend(name);
+        CreateFriend(name, rarity);
     }
 
     private bool SellFriend(int index)
@@ -182,28 +195,20 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
             return false;
         }
 
-        playerInfo.gold += MainManager.Data.FriendDataDict[friendList[index].Stat.info.name].price / 3;
+        Gold += MainManager.Data.FriendDataDict[friendList[index].Stat.info.name].price / 3;
         EventManager.UnLockActionSell(index);
         Destroy(FriendList[index].gameObject);
         FriendList.RemoveAt(index);
         CurFrieldCount--;
-        GoldUpdate();
         Extension.SuccessLog("판매성공 확인바람");
         return true;
     }
 
     // 이름으로 친구 만들기
-    private void CreateFriend(string name)
+    private void CreateFriend(string name, Define.EFriend_Rarity rarity = Define.EFriend_Rarity.Normal)
     {
-        if (CurFrieldCount >= MaxFriendCount)
-        {
-            Extension.ErrorLog("친구 수가 최대치입니다.");
-            return;
-        }
-
         GameObject go = MainManager.Resource.Instantiate(name);
         Friend friend = go.GetComponent<Friend>();
-        Define.EFriend_Rarity rarity = FriendGacha.RarityRandom();
         friend.Stat.info = new StatInfo(MainManager.Data.FriendStatDict[name]);
         CurFrieldCount++;
         friend.Stat.Rarity = rarity;

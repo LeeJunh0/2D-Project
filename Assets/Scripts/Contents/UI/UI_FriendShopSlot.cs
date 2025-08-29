@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UI_FriendShopSlot : UI_ScrollInButton
 {
     public static event Action<UI_FriendShopSlot> UnLockSlotHandler;
-    public static event Action<string> BuyFriendHandler;
+    public static event Func<string, bool> BuyFriendHandler;
     public static event Action<string> EnterSlotHandler;
     public static event Action ExitSlotHandler;
 
@@ -25,7 +25,7 @@ public class UI_FriendShopSlot : UI_ScrollInButton
 
         string spritePath = MainManager.Data.FriendDataDict[friendName].friendIcon;
         slotIcon.sprite = MainManager.Resource.LoadAtlas(spritePath);
-        goldText.text = MainManager.Data.FriendDataDict[friendName].price.ToString();
+        goldText.text = MainManager.Data.FriendDataDict[friendName].price.ToString("N0");
     }
 
     public void SetUnLock(bool isUnLock)
@@ -35,19 +35,27 @@ public class UI_FriendShopSlot : UI_ScrollInButton
         {
             gameObject.RemoveEvent(OnEnter, Define.EEvent_Type.Enter);
             gameObject.RemoveEvent(OnExit, Define.EEvent_Type.Exit);
-            gameObject.AddEvent(BuyFriend);
+            gameObject.AddEvent(OnBuyFriend);
         }
         else
         {
             gameObject.AddEvent(OnEnter, Define.EEvent_Type.Enter);
             gameObject.AddEvent(OnExit, Define.EEvent_Type.Exit);
-            gameObject.RemoveEvent(BuyFriend);
+            gameObject.RemoveEvent(OnBuyFriend);
         }
     }
 
-    private void BuyFriend(PointerEventData eventData)
+    private void OnBuyFriend(PointerEventData eventData)
     {
-        BuyFriendHandler?.Invoke(FriendName);
+        BuyFriend(FriendName);
+    }
+
+    public static void BuyFriend(string name)
+    {
+        if (BuyFriendHandler?.Invoke(name) == false)
+            return;
+
+        EventManager.GachaUpdate(name);
     }
 
     private void OnEnter(PointerEventData eventData)

@@ -7,6 +7,7 @@ public class EventManager : MonoBehaviour
     public static Action<int, UnlockActionType> OnFriendSellHandler;
     public static Action<string> OnUnLockSlotHandler;
     public static Action OnFriendCountUpdateHandler;
+    public static Action<string> OnGachaUpdateHandler;
 
     public static void UnLockActionBuy(string name)
     {
@@ -26,5 +27,10 @@ public class EventManager : MonoBehaviour
     public static void FriendCountUpdate()
     {
         OnFriendCountUpdateHandler?.Invoke();
+    }
+
+    public static void GachaUpdate(string name)
+    {
+        OnGachaUpdateHandler?.Invoke(name);
     }
 }
