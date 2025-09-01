@@ -1,18 +1,37 @@
 using System;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 using static Define;
+using static WindowManager;
 
 public class WindowManager : MonoBehaviour
 {
-    [DllImport("user32.dll")] private static extern IntPtr GetActiveWindow();
-    [DllImport("user32.dll")] private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-    [DllImport("user32.dll")] private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+    public struct MARGINS
+    {
+        public int leftWidth;
+        public int rightWidth;
+        public int topHeight;
+        public int bottomHeight;
+    }
 
-    private readonly int style = -16;
+    [DllImport("user32.dll")] private static extern IntPtr GetActiveWindow();
+    [DllImport("user32.dll")] private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+    [DllImport("user32.dll")] private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+    [DllImport("user32.dll")] private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
+    [DllImport("Dwmapi.dll")] private static extern uint DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS margins);
+
+    private readonly int GWL_STYLE = -16;
     private readonly int windowVisble = 0x10000000;
     private readonly IntPtr level = new IntPtr(-1);
-    private readonly uint showWindow = 0x0040;
+    private readonly int showWindow = 0x0040;
+
+    private readonly int GWL_EXSTYLE = -20;
+    private readonly uint WS_EX_LAYERED = 0x00080000;
+
+    private readonly int WS_BORDER = 0x00800000;
+    private readonly int WS_CAPTION = 0x00C00000;
 
 
     [SerializeField] int gameSizeX;
@@ -27,10 +46,10 @@ public class WindowManager : MonoBehaviour
 
     private void Awake()
     {
-        #if UNITY_EDITOR
-        #else
+#if UNITY_EDITOR
+#else
         Type = EWindowPos.Bottom;
-        #endif
+#endif
 
         DontDestroyOnLoad(gameObject);
     }
@@ -63,7 +82,7 @@ public class WindowManager : MonoBehaviour
                 break;
             case EWindowPos.Bottom:
                 screenX = 0;
-                screenY = curSize.height - 400;
+                screenY = curSize.height - gameSizeY;
                 break;
         }
     }
@@ -72,8 +91,22 @@ public class WindowManager : MonoBehaviour
     {
         IntPtr hwnd = GetActiveWindow();
 
+        ApplyTransparentAndBorderless(hwnd);
+
         UpdateScreenSize();
-        SetWindowLong(hwnd, style, windowVisble);
         SetWindowPos(hwnd, level, screenX, screenY, gameSizeX, gameSizeY, showWindow);
+    }
+   
+    private void ApplyTransparentAndBorderless(IntPtr hWnd)
+    {
+        SetWindowLong(hWnd, GWL_EXSTYLE, (int)WS_EX_LAYERED);
+
+        int style = GetWindowLong(hWnd, GWL_STYLE);
+        style &= ~WS_BORDER;
+        style &= ~WS_CAPTION;
+        SetWindowLong(hWnd, GWL_STYLE, style);
+
+        MARGINS margins = new MARGINS { leftWidth = -1 };
+        DwmExtendFrameIntoClientArea(hWnd, ref margins);
     }
 }

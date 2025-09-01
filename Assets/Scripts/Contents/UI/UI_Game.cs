@@ -11,7 +11,7 @@ public class UI_Game : MonoBehaviour
     public static event Action<bool> BuildingOpenHandler;
     public static event Action<bool> ShopOpenHandler;
     public static event Action<bool> CollectionOpenHandler;
-    
+
 
     [SerializeField] private EUI_MenuType curMenu = EUI_MenuType.None;
 
@@ -35,11 +35,13 @@ public class UI_Game : MonoBehaviour
         set
         {
             curMenu = value;
-
             for (int i = 0; i < menus.Count; i++)
             {
                 if (i == (int)curMenu)
+                {
                     menus[i].SetActive(true);
+                    AudioManager.Instance.EffectPlay("Open");
+                }
                 else
                     menus[i].SetActive(false);
             }
@@ -56,7 +58,10 @@ public class UI_Game : MonoBehaviour
             if (value == true)
                 menuBackGround.DOAnchorPosX(203f, 0.5f);
             else
+            {
                 menuBackGround.DOAnchorPosX(-385f, 0.5f);
+                AudioManager.Instance.EffectPlay("Close");
+            }
         }
     }
 

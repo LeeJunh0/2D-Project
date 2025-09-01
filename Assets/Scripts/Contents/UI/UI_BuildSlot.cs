@@ -33,6 +33,7 @@ public class UI_BuildSlot : UI_ScrollInButton
         build.Info = InfoData;
 
         OnBuildModeHandler?.Invoke(build);
+        AudioManager.Instance.EffectPlay("Click");
     }
 
     private void OnEnter(PointerEventData eventData)

@@ -95,6 +95,30 @@
             "price": 100,
             "buildIcon": "BuildingIcon[Grass 4]",
             "objectName": "Grass 4"
+        },
+        {
+            "name": "나무1",
+            "description": "나무입니다.",
+            "level": 1,
+            "price": 5000,
+            "buildIcon": "BuildingIcon[Tree 1]",
+            "objectName": "Tree 1"
+        },
+        {
+            "name": "나무2",
+            "description": "나무입니다.",
+            "level": 1,
+            "price": 12500,
+            "buildIcon": "BuildingIcon[Tree 2]",
+            "objectName": "Tree 2"
+        },
+        {
+            "name": "나무3",
+            "description": "나무입니다.",
+            "level": 1,
+            "price": 25000,
+            "buildIcon": "BuildingIcon[Tree 3]",
+            "objectName": "Tree 3"
         }
     ]
 }

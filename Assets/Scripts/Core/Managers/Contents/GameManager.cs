@@ -12,5 +12,6 @@ public class GameManager : Singleton<GameManager>
     private void OnApplicationQuit()
     {
         PlayerDataManager.Instance.SaveData();
+        OptionManager.Instance.SaveOptionData();
     }
 }

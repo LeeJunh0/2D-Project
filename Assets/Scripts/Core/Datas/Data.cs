@@ -35,6 +35,23 @@ public class PlayerInfo
 }
 
 [System.Serializable]
+public class PlayerOptionData
+{
+    public float curBGM;
+    public float curEffect;
+    public bool isMute;
+    public bool isWindowPin;
+
+    public PlayerOptionData()
+    {
+        curBGM = 100f;
+        curEffect = 100f;
+        isMute = false;
+        isWindowPin = true;
+    }
+}
+
+[System.Serializable]
 public struct SerializableVector3
 {
     public float x;

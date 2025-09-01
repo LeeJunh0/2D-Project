@@ -55,11 +55,13 @@ public class UI_FriendListSlot : UI_ScrollInButton
     private void OnClick(PointerEventData eventData)
     {
         SelectFrinedCheckHandler?.Invoke(this);
+        AudioManager.Instance.EffectPlay("Click");
     }
 
     private void OnWalkOrRestClick(PointerEventData eventData)
     {
         WalkOrRestCheckHandler?.Invoke(this);
+        AudioManager.Instance.EffectPlay("Click");
     }
 
     private void IndexUpdate(int removeIndex)

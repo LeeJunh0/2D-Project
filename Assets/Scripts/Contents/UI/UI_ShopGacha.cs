@@ -32,8 +32,9 @@ public class UI_ShopGacha : MonoBehaviour
 
     private void FriendUpdate(string name)
     {
-        ui.SetActive(true);      
+        ui.SetActive(true);
 
+        AudioManager.Instance.EffectPlay("GachaEffect");
         rarity = FriendGacha.RarityRandom();
         friend = MainManager.Data.FriendDataDict[name];
         renderTexture.runtimeAnimatorController = MainManager.Addressable.Load<RuntimeAnimatorController>($"Anim_{friend.objectName}");
@@ -60,6 +61,7 @@ public class UI_ShopGacha : MonoBehaviour
 
     private void FriendGet(PointerEventData eventData)
     {
+        AudioManager.Instance.EffectPlay("Click");
         OnFriendGetHandler?.Invoke(friend.objectName, rarity);
         ui.SetActive(false);
     }
@@ -67,10 +69,12 @@ public class UI_ShopGacha : MonoBehaviour
     private void FriendLeave(PointerEventData eventData)
     {
         ui.SetActive(false);
+        AudioManager.Instance.EffectPlay("Close");
     }
 
     private void GachaRetry(PointerEventData eventData)
     {
+        AudioManager.Instance.EffectPlay("Click");
         UI_FriendShopSlot.BuyFriend(friend.objectName);
     }
 

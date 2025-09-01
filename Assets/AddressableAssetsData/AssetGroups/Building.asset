@@ -39,6 +39,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Game
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f34269fd17492e49a1aaf00b6283c45
+    m_Address: Tree3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f04e05402b24e74f8942450dd9f8102
     m_Address: Grass 2
     m_ReadOnly: 0
@@ -53,6 +59,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d4cb88023f77734cb3f63260ca152ae
     m_Address: Wooden Shed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 819d0f15d04f0d44b84fdf98c942a2fc
+    m_Address: Tree2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game
@@ -77,6 +89,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeeb7edba801b874d9215d0f0a9596db
     m_Address: Flower 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5286e567bbb2d7479be92b84941a2b3
+    m_Address: Tree1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Game

@@ -47,6 +47,7 @@ public class UI_FriendShopSlot : UI_ScrollInButton
 
     private void OnBuyFriend(PointerEventData eventData)
     {
+        AudioManager.Instance.EffectPlay("Click");
         BuyFriend(FriendName);
     }
 

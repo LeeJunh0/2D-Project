@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sound
+  m_EditorClassIdentifier: 
+  m_GroupName: Sound
+  m_GUID: c09f178c7a1ed1442864d5483df2cb8f
+  m_SerializeEntries:
+  - m_GUID: 3cc7d6ab6bd0d1547a3c43feb72273fd
+    m_Address: "\uC5B4\uB290\uD654\uCC3D\uD55C\uB0A0\uC5B4\uB9B0\uC544\uC774\uC758\uD53C\uC544\uB178\uC5F0\uC8FC"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64e75d01ede2efd46940828813d8bb06
+    m_Address: Open
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91a0bf9ff738a7a4bb5a12c657886eff
+    m_Address: Click
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b61de35d36874b24db8408e567706a8f
+    m_Address: Close
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4b66decded0aab4584e8d8b41aeb941
+    m_Address: GachaEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 82bd423c4f6a44b41ae1f2769023f7ce, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8cc37be595d64ad4e994b37c2cca66a0, type: 2}
+    - {fileID: 11400000, guid: 6da7df96b14101243acedb076ff42d5f, type: 2}
