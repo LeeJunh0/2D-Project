@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BuildingManager : Singleton<BuildingManager>
 {
+    public static Action BuildingStartHandler;
+
     [SerializeField] private Preview preview;
     [SerializeField] private BaseBuilding curBuild;
     [SerializeField] private Transform content;
@@ -72,6 +74,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     public void OnPreview()
     {
+        BuildingStartHandler?.Invoke();
         preview.gameObject.SetActive(true);
         cover.SetActive(true);
     }

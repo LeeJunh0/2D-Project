@@ -8,10 +8,14 @@ public class Preview : MonoBehaviour
     [SerializeField] private Color OffHighlightColor;
     [SerializeField] private GameObject tipText;
 
+    SpriteRenderer spriteRenderer;
+
     private void OnEnable()
     {
         tipText.SetActive(true);
         StartCoroutine(BuilingPreview());
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = OnHighlightColor;
     }
 
     public bool IsCheck 
@@ -20,7 +24,6 @@ public class Preview : MonoBehaviour
         set
         {
             isCheck = value;
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color = isCheck == true ? OnHighlightColor : OffHighlightColor;
         } 
     }

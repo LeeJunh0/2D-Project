@@ -1,12 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.XR;
 using static Define;
-using static WindowManager;
 
-public class WindowManager : MonoBehaviour
+public class WindowManager : Singleton<WindowManager>
 {
     public struct MARGINS
     {
@@ -16,51 +13,82 @@ public class WindowManager : MonoBehaviour
         public int bottomHeight;
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public struct RECT
+    {
+        public int Left;
+        public int Top;
+        public int Right;
+        public int Bottom;
+    }
+
     [DllImport("user32.dll")] private static extern IntPtr GetActiveWindow();
     [DllImport("user32.dll")] private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
     [DllImport("user32.dll")] private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
     [DllImport("user32.dll")] private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags);
     [DllImport("Dwmapi.dll")] private static extern uint DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS margins);
 
+    [DllImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static extern bool SystemParametersInfo(uint uiAction, uint uiParam, ref RECT pvParam, uint fWinIni);
+
     private readonly int GWL_STYLE = -16;
     private readonly int windowVisble = 0x10000000;
-    private readonly IntPtr level = new IntPtr(-1);
+
+    private IntPtr curPin;
+    private readonly IntPtr topMost = new IntPtr(-1);
+    private readonly IntPtr noneTopMost = new IntPtr(-2);
+
     private readonly int showWindow = 0x0040;
 
     private readonly int GWL_EXSTYLE = -20;
     private readonly uint WS_EX_LAYERED = 0x00080000;
+    private readonly uint SPI_GETWORKAREA = 0x0030;
 
     private readonly int WS_BORDER = 0x00800000;
     private readonly int WS_CAPTION = 0x00C00000;
 
 
-    [SerializeField] int gameSizeX;
-    [SerializeField] int gameSizeY;
+    [SerializeField] private int gameSizeX;
+    [SerializeField] private int gameSizeY;
 
     private int screenX;
     private int screenY;
     private Resolution curSize;
 
     private EWindowPos type = EWindowPos.Bottom;
+    private bool isPin = true;
     public EWindowPos Type { get => type; set { type = value; UpdateWindowPos(); } }
-
-    private void Awake()
+    public bool IsPin
     {
-#if UNITY_EDITOR
-#else
+        get => isPin;
+        set
+        {
+            isPin = value;
+            if (isPin == true)
+                curPin = topMost;
+            else
+                curPin = noneTopMost;
+
+            #if UNITY_EDITOR
+            #else
+            UpdateWindowPos();
+            #endif
+        }
+    }
+
+    private void Start()
+    {
+        #if UNITY_EDITOR
+        #else
         Type = EWindowPos.Bottom;
-#endif
+        #endif
 
         DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
     {
-        curSize = Screen.currentResolution;
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
-
         if (Input.GetKeyDown(KeyCode.UpArrow))
             Type = EWindowPos.Top;
 
@@ -70,33 +98,35 @@ public class WindowManager : MonoBehaviour
 
     private void UpdateScreenSize()
     {
-        curSize = Screen.currentResolution;
-        gameSizeX = curSize.width;
+        RECT rect = new RECT();
+        SystemParametersInfo(SPI_GETWORKAREA, 0, ref rect, 0);
+
+        gameSizeX = rect.Right - rect.Left;
         gameSizeY = 400;
 
         switch (type)
         {
             case EWindowPos.Top:
-                screenX = 0;
-                screenY = 0;
+                screenX = rect.Left;
+                screenY = rect.Top;
                 break;
             case EWindowPos.Bottom:
-                screenX = 0;
-                screenY = curSize.height - gameSizeY;
+                screenX = rect.Left;
+                screenY = rect.Bottom - gameSizeY;
                 break;
         }
     }
 
     private void UpdateWindowPos()
     {
-        IntPtr hwnd = GetActiveWindow();
+        IntPtr hwnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
 
         ApplyTransparentAndBorderless(hwnd);
 
         UpdateScreenSize();
-        SetWindowPos(hwnd, level, screenX, screenY, gameSizeX, gameSizeY, showWindow);
+        SetWindowPos(hwnd, curPin, screenX, screenY, gameSizeX, gameSizeY, showWindow);
     }
-   
+
     private void ApplyTransparentAndBorderless(IntPtr hWnd)
     {
         SetWindowLong(hWnd, GWL_EXSTYLE, (int)WS_EX_LAYERED);

@@ -37,6 +37,9 @@ public class UI_Title : MonoBehaviour
         startButton.gameObject.AddEvent(GameStart);
         optionButton.gameObject.AddEvent(OptionUIOpen);
         exitButton.gameObject.AddEvent(ExitUIOpen);
+
+        quitYesButton.gameObject.AddEvent(QuitGame);
+        quitNoButton.gameObject.AddEvent(ExitCloseUI);
     }
 
     private void GameStart(PointerEventData eventData)
@@ -75,42 +78,20 @@ public class UI_Title : MonoBehaviour
         windowPinToggle.isOn = OptionManager.Instance.IsWindowPin;
         muteToggle.isOn = OptionManager.Instance.IsMute;
 
-        windowPinToggle.onValueChanged.RemoveListener(OptionWindowPinToggle);
-        windowPinToggle.onValueChanged.AddListener(OptionWindowPinToggle);
-        muteToggle.onValueChanged.RemoveListener(OptionMuteToggle);
-        muteToggle.onValueChanged.AddListener(OptionMuteToggle);
+        windowPinToggle.onValueChanged.RemoveListener(OptionManager.Instance.OptionWindowPinToggle);
+        windowPinToggle.onValueChanged.AddListener(OptionManager.Instance.OptionWindowPinToggle);
+        muteToggle.onValueChanged.RemoveListener(OptionManager.Instance.OptionMuteToggle);
+        muteToggle.onValueChanged.AddListener(OptionManager.Instance.OptionMuteToggle);
 
         bgmSlider.value = OptionManager.Instance.CurBGM / OptionManager.MaxBGM;
         effectSlider.value = OptionManager.Instance.CurEffect / OptionManager.MaxEffect;
 
-        bgmSlider.onValueChanged.RemoveListener(OptionBgmValueSet);
-        bgmSlider.onValueChanged.AddListener(OptionBgmValueSet);
-        effectSlider.onValueChanged.RemoveListener(OptionEffectValueSet);
-        effectSlider.onValueChanged.AddListener(OptionEffectValueSet);
+        bgmSlider.onValueChanged.RemoveListener(OptionManager.Instance.OptionBgmValueSet);
+        bgmSlider.onValueChanged.AddListener(OptionManager.Instance.OptionBgmValueSet);
+        effectSlider.onValueChanged.RemoveListener(OptionManager.Instance.OptionEffectValueSet);
+        effectSlider.onValueChanged.AddListener(OptionManager.Instance.OptionEffectValueSet);
 
         optionExitButton.gameObject.AddEvent(OptionUIClose);
-    }
-
-    private void OptionWindowPinToggle(bool isWindowPin)
-    {
-        OptionManager.Instance.IsWindowPin = isWindowPin;
-        AudioManager.Instance.EffectPlay("Click");
-    }
-
-    private void OptionMuteToggle(bool isMute)
-    {
-        OptionManager.Instance.IsMute = isMute;
-        AudioManager.Instance.EffectPlay("Click");
-    }
-
-    private void OptionBgmValueSet(float value)
-    {
-        OptionManager.Instance.CurBGM = value;
-    }
-
-    private void OptionEffectValueSet(float value)
-    {
-        OptionManager.Instance.CurEffect = value;
     }
 
     private void OptionUIClose(PointerEventData eventData)
@@ -121,6 +102,7 @@ public class UI_Title : MonoBehaviour
 
     private void QuitGame(PointerEventData eventData)
     {
+        AudioManager.Instance.EffectPlay("Click");
         Application.Quit();
     }
 

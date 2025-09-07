@@ -39,12 +39,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     public PlayerCollection Collection => playerInfo.playerCollection;
     public PlayerUnLockData UnLockData => playerInfo.playerFriendUnlock;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            CreateFriend("AngryPig");
-    }
-
     public void LoadData()
     {
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
@@ -103,12 +97,15 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         playerInfo.playerFriendUnlock.UnLockDataInit();
 
         // 처음 있어야 할 건물
-        GameObject home = Instantiate(homePrefab, BuildingManager.Instance.BuildParent);
+        GameObject home = MainManager.Resource.Instantiate("House", BuildingManager.Instance.BuildParent);
         SerializableVector3 housePos = new SerializableVector3(home.transform.position);
         BaseBuilding baseBuilding = home.FindChild<BaseBuilding>();
         baseBuilding.Info = MainManager.Data.BuildDataDict["집"];
         buildList.Add(baseBuilding);
         AddBuild(baseBuilding);
+
+        // 처음 제공하는 친구
+        CreateFriend("Mushroom");
 
         string path = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         StreamWriter streamWriter = new StreamWriter(path);

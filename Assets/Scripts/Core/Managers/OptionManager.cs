@@ -39,7 +39,15 @@ public class OptionManager : Singleton<OptionManager>
             AudioManager.Instance.SetMute(IsMute);
         }
     }
-    public bool IsWindowPin { get => isWindowPin; set => isWindowPin = value; }
+    public bool IsWindowPin
+    {
+        get => isWindowPin;
+        set
+        {
+            isWindowPin = value;
+            WindowManager.Instance.IsPin = isWindowPin;
+        }
+    }
 
     private void Start()
     {
@@ -78,5 +86,27 @@ public class OptionManager : Singleton<OptionManager>
         string jsonData = JsonConvert.SerializeObject(optionData, Formatting.Indented);
         File.WriteAllText(path, jsonData);
         Extension.SuccessLog("OptionData Save Complete");
+    }
+
+    public void OptionWindowPinToggle(bool isWindowPin)
+    {
+        IsWindowPin = isWindowPin;
+        AudioManager.Instance.EffectPlay("Click");
+    }
+
+    public void OptionMuteToggle(bool isMute)
+    {
+        IsMute = isMute;
+        AudioManager.Instance.EffectPlay("Click");
+    }
+
+    public void OptionBgmValueSet(float value)
+    {
+        CurBGM = value;
+    }
+
+    public void OptionEffectValueSet(float value)
+    {
+        CurEffect = value;
     }
 }
