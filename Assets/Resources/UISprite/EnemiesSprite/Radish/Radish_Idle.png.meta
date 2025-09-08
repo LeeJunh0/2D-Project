@@ -1,25 +1,7 @@
 fileFormatVersion: 2
-guid: 1e407d40e4a2c4b40a56cb55823b11fe
+guid: a1622a858d13c74479d779ed9615325b
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -7811735988217470459
-    second: Radish_Idle_0
-  - first:
-      213: -3274174120365121561
-    second: Radish_Idle_1
-  - first:
-      213: 1708031466123555311
-    second: Radish_Idle_2
-  - first:
-      213: 5176364357392284991
-    second: Radish_Idle_3
-  - first:
-      213: -4478995480319277213
-    second: Radish_Idle_4
-  - first:
-      213: 988736686231162032
-    second: Radish_Idle_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,19 +107,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -154,133 +123,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Radish_Idle_0
+      name: Idle 2 (30x38)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d9de1533cf1bb4a81e9225d122e6d4
+      internalID: -2022153212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 2 (30x38)_1
+      rect:
+        serializedVersion: 2
+        x: 30
         y: 0
         width: 29
-        height: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 502a92fc183279390800000000000000
-      internalID: -7811735988217470459
+      spriteID: 47db7828c9e10254bbfe6d69975084d3
+      internalID: 1954582206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Radish_Idle_1
+      name: Idle 2 (30x38)_2
       rect:
         serializedVersion: 2
-        x: 29
-        y: 1
-        width: 31
-        height: 34
+        x: 60
+        y: 0
+        width: 29
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ef1cde1cfbcf82d0800000000000000
-      internalID: -3274174120365121561
+      spriteID: 1481bdbcd80eacb4f8f75b211e62c1e1
+      internalID: 1253504994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Radish_Idle_2
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 1
-        width: 31
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe1fb73a19524b710800000000000000
-      internalID: 1708031466123555311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Radish_Idle_3
+      name: Idle 2 (30x38)_3
       rect:
         serializedVersion: 2
         x: 90
         y: 0
         width: 29
-        height: 36
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f3d3c5e15f326d740800000000000000
-      internalID: 5176364357392284991
+      spriteID: 01fc8c22c924786449e0c573ddbb6f83
+      internalID: -1367938955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Radish_Idle_4
+      name: Idle 2 (30x38)_4
       rect:
         serializedVersion: 2
         x: 121
         y: 0
         width: 27
-        height: 37
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3674df4675967d1c0800000000000000
-      internalID: -4478995480319277213
+      spriteID: d638e2be58e60b340b297b905b53162f
+      internalID: 1751557641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Radish_Idle_5
+      name: Idle 2 (30x38)_5
       rect:
         serializedVersion: 2
         x: 151
         y: 0
         width: 27
-        height: 37
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0bc843f07c2b8bd00800000000000000
-      internalID: 988736686231162032
+      spriteID: dd68e6d2ffe2ba148a985a4a3026ad6b
+      internalID: 1137678317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 2 (30x38)_6
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7076e30db625e47a42746a39a39006
+      internalID: 185637389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 2 (30x38)_7
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65766921e1f00c4c8acc094c25e4e6b
+      internalID: 1404567543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle 2 (30x38)_8
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894803a804f1855459709cb0faef60ca
+      internalID: 36442502
       vertices: []
       indices: 
       edges: []
@@ -289,7 +324,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -299,12 +334,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Radish_Idle_0: -7811735988217470459
-      Radish_Idle_1: -3274174120365121561
-      Radish_Idle_2: 1708031466123555311
-      Radish_Idle_3: 5176364357392284991
-      Radish_Idle_4: -4478995480319277213
-      Radish_Idle_5: 988736686231162032
+      Idle 2 (30x38)_0: -2022153212
+      Idle 2 (30x38)_1: 1954582206
+      Idle 2 (30x38)_2: 1253504994
+      Idle 2 (30x38)_3: -1367938955
+      Idle 2 (30x38)_4: 1751557641
+      Idle 2 (30x38)_5: 1137678317
+      Idle 2 (30x38)_6: 185637389
+      Idle 2 (30x38)_7: 1404567543
+      Idle 2 (30x38)_8: 36442502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

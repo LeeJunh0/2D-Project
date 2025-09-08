@@ -13,7 +13,7 @@ public abstract class BaseObject : MonoBehaviour
 
     private Animator anim;
     protected List<Coroutine> coroutineList;
-    
+
     public virtual EObject_State State
     {
         get { return curState; }
@@ -31,7 +31,13 @@ public abstract class BaseObject : MonoBehaviour
                     anim.CrossFade("Move", 0.1f);
                     break;
                 case EObject_State.Doing:
-                    anim.CrossFade("Doing", 0.1f);
+                    {
+                        int id = Animator.StringToHash("Base Layer.Idle");
+                        if (anim.HasState(0, id) == true)
+                            anim.CrossFade("Doing", 0.1f);
+                        else
+                            State = EObject_State.Idle;
+                    }
                     break;
             }
         }
