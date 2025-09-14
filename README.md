@@ -13,7 +13,10 @@
 
 * **바탕화면 투명화 기능 구현:** 바탕화면 위에 창의 테두리를 제거하고 배경을 투명하게 만들어, 마치 바탕화면의 일부처럼 보이게 하는 신기한 기능을 직접 구현해보고 싶었습니다.
 
-### 핵심 코드
+### 배경 투명화, 창 속성제어
+* P/Invoke기술을 통해 WinAPI의 기능들로 창을 제어하는 방식으로 투명화 및 깔끔한 창을 구현
+<details><summary>코드</summary>
+    
 ```c#
 private void UpdateWindowPos()
 {
@@ -38,4 +41,88 @@ private void ApplyTransparentAndBorderless(IntPtr hWnd)
     DwmExtendFrameIntoClientArea(hWnd, ref margins);
 }
 ```
+</details>
+<br>
 
+### UI 상호작용 및 데이터관리
+- 기존에는 싱글톤 및 인스팩터창을 통한 직접적인 호출로 각 UI 혹은 데이터들의 메서드들 혹은 변수들을 제어하는 방식을 사용
+- 연결되는 팝업창 혹은 데이터가 많아지면서 강한 결합으로 기능추가와 수정에 한계를 느낌
+- 기능을 가지는 클래스에서 기능을 사용하는 클래스의 존재를 몰라도 되도록 이벤트 기반으로 구현
+
+<details>
+    <summary>코드</summary>
+
+ ```c#
+public static Action<string, UnlockActionType> OnFriendBuyHandler;
+public static Action<int, UnlockActionType> OnFriendSellHandler;
+public static Action<string> OnUnLockSlotHandler;
+public static Action OnFriendCountUpdateHandler;
+public static Action<string> OnGachaUpdateHandler;
+
+public static void UnLockActionBuy(string name)
+{
+    OnFriendBuyHandler?.Invoke(name, UnlockActionType.Buy);
+}
+
+public static void UnLockActionSell(int index)
+{
+    OnFriendSellHandler?.Invoke(index, UnlockActionType.Sell);
+}
+
+public static void UnLockSlotUI(string name)
+{
+    OnUnLockSlotHandler?.Invoke(name);
+}
+
+public static void FriendCountUpdate()
+{
+    OnFriendCountUpdateHandler?.Invoke();
+}
+
+public static void GachaUpdate(string name)
+{
+    OnGachaUpdateHandler?.Invoke(name);
+}
+```
+
+</details>
+
+### 부모UI의 이벤트차단 처리
+- 부모UI인 스크롤뷰안에 버튼 오브젝트인 자식UI를 생성 후 문제발생
+- 부모 UI에게 가야할 이벤트를 자식오브젝트에서 차단하는것을 확인
+- 스크롤뷰 부모를 가진 자식UI들에게 차단된 이벤트를 부모에게 재전파하도록 구현
+
+<details>
+    <summary>코드</summary>
+
+```c#
+public abstract class UI_ScrollInButton : MonoBehaviour
+{
+    private ScrollRect parentScroll;
+
+    protected virtual void SetEvent()
+    {
+        parentScroll = gameObject.FindParent<ScrollRect>();
+
+        gameObject.AddEvent(OnBeginDrag,Define.EEvent_Type.BeginDrag);
+        gameObject.AddEvent(OnDrag,Define.EEvent_Type.Drag);
+        gameObject.AddEvent(OnEndDrag,Define.EEvent_Type.EndDrag);
+    }
+
+    protected virtual void OnBeginDrag(PointerEventData eventData)
+    {
+        parentScroll.OnBeginDrag(eventData);
+    }
+
+    protected virtual void OnDrag(PointerEventData eventData)
+    {
+        parentScroll.OnDrag(eventData);
+    }
+
+    protected virtual void OnEndDrag(PointerEventData eventData)
+    {
+        parentScroll.OnEndDrag(eventData);
+    }
+}
+```
+</details>
