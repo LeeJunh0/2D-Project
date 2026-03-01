@@ -6,11 +6,6 @@ using UnityEngine.UI;
 
 public class UI_FriendShopSlot : UI_ScrollInButton
 {
-    public static event Action<UI_FriendShopSlot> UnLockSlotHandler;
-    public static event Func<string, bool> BuyFriendHandler;
-    public static event Action<string> EnterSlotHandler;
-    public static event Action ExitSlotHandler;
-
     [SerializeField] private GameObject filter;
     [SerializeField] private Image slotIcon;
     [SerializeField] private TextMeshProUGUI goldText;
@@ -53,19 +48,19 @@ public class UI_FriendShopSlot : UI_ScrollInButton
 
     public static void BuyFriend(string name)
     {
-        if (BuyFriendHandler?.Invoke(name) == false)
+        if (EventBus.BuyFriend(name) == false)
             return;
 
-        EventManager.GachaUpdate(name);
+        EventBus.GachaUpdate(name);
     }
 
     private void OnEnter(PointerEventData eventData)
     {
-        EnterSlotHandler?.Invoke(FriendName);
+        EventBus.ShopSlotEnter(FriendName);
     }
 
     private void OnExit(PointerEventData eventData)
     {
-        ExitSlotHandler?.Invoke();
+        EventBus.ShopSlotExit();
     }
 }

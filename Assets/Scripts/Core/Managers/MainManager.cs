@@ -17,6 +17,9 @@ public class MainManager : MonoBehaviour
 
     static private void Init()
     {
+        if (instance != null)
+            return;
+
         GameObject go = GameObject.Find("MainManager");
         if(go == null)
         {

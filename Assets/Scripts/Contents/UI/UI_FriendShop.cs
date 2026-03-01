@@ -13,8 +13,8 @@ public class UI_FriendShop : MonoBehaviour
     {
         UI_Game.ShopOpenHandler -= SetFriendShop;
         UI_Game.ShopOpenHandler += SetFriendShop;
-        EventManager.OnUnLockSlotHandler -= SlotUnLock;
-        EventManager.OnUnLockSlotHandler += SlotUnLock;
+        EventBus.OnUnLockSlotHandler -= SlotUnLock;
+        EventBus.OnUnLockSlotHandler += SlotUnLock;
 
         dictSlots = new Dictionary<string, UI_FriendShopSlot>();
     }
@@ -35,10 +35,10 @@ public class UI_FriendShop : MonoBehaviour
             dictSlots.Add(info.Key, slot);
         }
 
-        UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
-        UI_FriendShopSlot.EnterSlotHandler += OnUnLockTip;
-        UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
-        UI_FriendShopSlot.ExitSlotHandler += OffUnLockTip;
+        EventBus.OnEnterSlotHandler -= OnUnLockTip;
+        EventBus.OnEnterSlotHandler += OnUnLockTip;
+        EventBus.OnExitSlotHandler -= OffUnLockTip;
+        EventBus.OnExitSlotHandler += OffUnLockTip;
     }
 
     private void SlotUnLock(string name)
@@ -87,13 +87,5 @@ public class UI_FriendShop : MonoBehaviour
     private void HandlerClear()
     {
         UI_Game.ShopOpenHandler -= SetFriendShop;
-        UI_FriendShopSlot.EnterSlotHandler -= OnUnLockTip;
-        UI_FriendShopSlot.ExitSlotHandler -= OffUnLockTip;
-        EventManager.OnUnLockSlotHandler -= SlotUnLock;
-    }
-
-    private void OnApplicationQuit()
-    {
-        HandlerClear();
     }
 }

@@ -14,12 +14,13 @@ public class UI_BuildSlot : UI_ScrollInButton
     [SerializeField] private TextMeshProUGUI priceText;
 
     public BuildInfo InfoData { get; set; }
+
     public void Init(BuildInfo buildData)
     {
         InfoData = buildData;
         SetEvent();
         icon.sprite = MainManager.Resource.LoadAtlas(buildData.buildIcon);
-        priceText.text = buildData.price.ToString("N0");
+        priceText.SetText(buildData.price.ToString("N0"));
 
         gameObject.AddEvent(OnClick);
         gameObject.AddEvent(OnEnter, Define.EEvent_Type.Enter);

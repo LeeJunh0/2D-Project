@@ -22,6 +22,6 @@ public class UI_UnLockToolTip : MonoBehaviour
                 break;
         }
 
-        descriptionText.text = string.Format($"{targetName}(을)를 {unlockData.curCount}/{unlockData.actionCount}회 {actionName}");
+        descriptionText.SetText($"{targetName}(을)를 {unlockData.curCount}/{unlockData.actionCount}회 {actionName}");
     }
 }

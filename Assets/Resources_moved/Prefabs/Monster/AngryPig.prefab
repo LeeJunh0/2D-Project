@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4a3a92c8d6b579f4e8a47dc7058db9c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
       coinDefault: 317
       coinCoefficient: 1
       coinPerSec: 3
+    curCoinTime: 0
   stateChangeSec: 3
 --- !u!1001 &7678980940582987044
 PrefabInstance:

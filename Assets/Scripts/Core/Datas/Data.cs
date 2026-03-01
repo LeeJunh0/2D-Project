@@ -164,7 +164,7 @@ public class UnLockData
             if (curCount >= actionCount)
             {
                 isUnLock = true;
-                EventManager.UnLockSlotUI(targetName);
+                EventBus.UnLockSlotUI(targetName);
             }
         }
     }

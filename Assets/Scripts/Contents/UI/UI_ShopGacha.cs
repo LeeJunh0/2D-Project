@@ -26,8 +26,8 @@ public class UI_ShopGacha : MonoBehaviour
         leaveButton.gameObject.AddEvent(FriendLeave);
         retryButton.gameObject.AddEvent(GachaRetry);
 
-        EventManager.OnGachaUpdateHandler -= FriendUpdate;
-        EventManager.OnGachaUpdateHandler += FriendUpdate;
+        EventBus.OnGachaUpdateHandler -= FriendUpdate;
+        EventBus.OnGachaUpdateHandler += FriendUpdate;
     }
 
     private void FriendUpdate(string name)
@@ -39,7 +39,7 @@ public class UI_ShopGacha : MonoBehaviour
         friend = MainManager.Data.FriendDataDict[name];
         renderTexture.runtimeAnimatorController = MainManager.Addressable.Load<RuntimeAnimatorController>($"Anim_{friend.objectName}");
         effectAnim.CrossFade("Effect", 0.1f);
-        getText.text = string.Format($"새로운 친구! {RarityToString(friend.name, rarity)}이 합류를 원합니다!");
+        getText.SetText($"새로운 친구! {RarityToString(friend.name, rarity)}이 합류를 원합니다!");
     }
 
     private string RarityToString(string name, Define.EFriend_Rarity rarity)
@@ -82,7 +82,7 @@ public class UI_ShopGacha : MonoBehaviour
     {
         getButton.gameObject.RemoveEvent(FriendGet);
         leaveButton.gameObject.RemoveEvent(FriendLeave);
-        EventManager.OnGachaUpdateHandler -= FriendUpdate;
+        EventBus.OnGachaUpdateHandler -= FriendUpdate;
     }
 
     private void OnApplicationQuit()

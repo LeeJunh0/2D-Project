@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class FriendUnLockManager : MonoBehaviour
+public class FriendUnLockController
 {
-    private void Awake()
+    public FriendUnLockController()
     {
-        EventManager.OnFriendBuyHandler -= BuyCheckUnLockData;
-        EventManager.OnFriendSellHandler -= SellCheckUnLockData;
-        EventManager.OnFriendBuyHandler += BuyCheckUnLockData;
-        EventManager.OnFriendSellHandler += SellCheckUnLockData;
+        EventBus.OnFriendBuyHandler -= BuyCheckUnLockData;
+        EventBus.OnFriendSellHandler -= SellCheckUnLockData;
+        EventBus.OnFriendBuyHandler += BuyCheckUnLockData;
+        EventBus.OnFriendSellHandler += SellCheckUnLockData;
     }
 
     private void BuyCheckUnLockData(string name, UnlockActionType curAction)
@@ -18,7 +18,7 @@ public class FriendUnLockManager : MonoBehaviour
             if (MainManager.Data.NumberDataDict[data.objectNum].name_desc == name && data.actionType == curAction)
             {
                 data.CurCount++;
-                EventManager.UnLockSlotUI(name);
+                EventBus.UnLockSlotUI(name);
             }
         }
     }
@@ -32,19 +32,8 @@ public class FriendUnLockManager : MonoBehaviour
             if (MainManager.Data.NumberDataDict[data.objectNum].name_desc == friend.Stat.info.name && data.actionType == curAction)
             {
                 data.CurCount++;
-                EventManager.UnLockSlotUI(name);
+                EventBus.UnLockSlotUI(friend.Stat.info.name);
             }
         }
-    }
-
-    private void HandlerClear()
-    {
-        EventManager.OnFriendBuyHandler -= BuyCheckUnLockData;
-        EventManager.OnFriendSellHandler -= SellCheckUnLockData;
-    }
-
-    private void OnApplicationQuit()
-    {
-        HandlerClear();
     }
 }

@@ -30,7 +30,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         set
         {
             playerInfo.curFriendCount = Mathf.Clamp(value, 0, playerInfo.maxFriendCount);
-            EventManager.FriendCountUpdate();
+            EventBus.FriendCountUpdate();
         }
     }
     public int MaxFriendCount { get => playerInfo.maxFriendCount; }
@@ -83,8 +83,8 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         UI_FriendStatus.FriendWalkOrRestHandler += FriendWalkOrRest;
         UI_FriendStatus.FriendSellHandler -= SellFriend;
         UI_FriendStatus.FriendSellHandler += SellFriend;
-        UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
-        UI_FriendShopSlot.BuyFriendHandler += BuyFriendGoldCheck;
+        EventBus.OnBuyFriendHandler -= BuyFriendGoldCheck;
+        EventBus.OnBuyFriendHandler += BuyFriendGoldCheck;
         UI_ShopGacha.OnFriendGetHandler -= FriendComeHome;
         UI_ShopGacha.OnFriendGetHandler += FriendComeHome;
     }
@@ -174,7 +174,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     private void FriendComeHome(string name, Define.EFriend_Rarity rarity)
     {
-        EventManager.UnLockActionBuy(name);
+        EventBus.UnLockActionBuy(name);
         CreateFriend(name, rarity);
     }
 
@@ -193,7 +193,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         }
 
         Gold += MainManager.Data.FriendDataDict[friendList[index].Stat.info.name].price / 3;
-        EventManager.UnLockActionSell(index);
+        EventBus.UnLockActionSell(index);
         Destroy(FriendList[index].gameObject);
         FriendList.RemoveAt(index);
         CurFrieldCount--;
@@ -294,7 +294,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     private void HandlerClear()
     {
         UI_FriendStatus.FriendWalkOrRestHandler -= FriendWalkOrRest;
-        UI_FriendShopSlot.BuyFriendHandler -= BuyFriendGoldCheck;
         UI_FriendStatus.FriendSellHandler -= SellFriend;
     }
 

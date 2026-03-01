@@ -38,8 +38,8 @@ public class UI_FriendStatus : MonoBehaviour
 
         UI_Game.StatusOpenHandler -= SetFrieldStatus;
         UI_Game.StatusOpenHandler += SetFrieldStatus;
-        EventManager.OnFriendCountUpdateHandler -= FriendCountUpdate;
-        EventManager.OnFriendCountUpdateHandler += FriendCountUpdate;
+        EventBus.OnFriendCountUpdateHandler -= FriendCountUpdate;
+        EventBus.OnFriendCountUpdateHandler += FriendCountUpdate;
 
         sellButton.gameObject.AddEvent(SellUIOpen);
         reallySellButton.gameObject.AddEvent(ReallySell);
@@ -119,9 +119,9 @@ public class UI_FriendStatus : MonoBehaviour
         portrailBackGround.SetActive(true);
         FriendStat curFriendStat = PlayerDataManager.Instance.FriendList[curFriend.Index].Stat;
         renderTexture.runtimeAnimatorController = MainManager.Addressable.Load<RuntimeAnimatorController>($"Anim_{curFriendStat.info.name}");
-        friendRankText.text = string.Format($"희귀도: {RarityToString(curFriendStat.rarity)}");
+        friendRankText.SetText($"희귀도: {RarityToString(curFriendStat.rarity)}");
         portrailNameText.text = MainManager.Data.FriendDataDict[curFriendStat.info.name].name;
-        createCoinText.text = string.Format($"생산량: {curFriendStat.info.coinPerSec}초당 {curFriendStat.info.Coin}원");
+        createCoinText.SetText($"생산량: {curFriendStat.info.coinPerSec}초당 {curFriendStat.info.Coin}원");
         friendDesriptionText.text = MainManager.Data.FriendDataDict[curFriendStat.info.name].description;
     }
 
@@ -192,7 +192,7 @@ public class UI_FriendStatus : MonoBehaviour
         UI_FriendListSlot.SelectFrinedCheckHandler -= SelectFriendListSlot;
         UI_FriendListSlot.WalkOrRestCheckHandler -= FriendWalkOrRest;
         UI_Game.StatusOpenHandler -= SetFrieldStatus;
-        EventManager.OnFriendCountUpdateHandler -= FriendCountUpdate;
+        EventBus.OnFriendCountUpdateHandler -= FriendCountUpdate;
     }
 
     private void OnDestroy()
