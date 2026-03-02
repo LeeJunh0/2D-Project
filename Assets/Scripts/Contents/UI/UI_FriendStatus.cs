@@ -103,7 +103,7 @@ public class UI_FriendStatus : MonoBehaviour
 
     private void FriendCountUpdate()
     {
-        friendCountText.text = string.Format($"{PlayerDataManager.Instance.CurFrieldCount} / {PlayerDataManager.Instance.MaxFriendCount}");
+        friendCountText.SetText($"{PlayerDataManager.Instance.CurFrieldCount} / {PlayerDataManager.Instance.MaxFriendCount}");
     }
 
     private void FriendStatusUpdate()
@@ -192,7 +192,6 @@ public class UI_FriendStatus : MonoBehaviour
         UI_FriendListSlot.SelectFrinedCheckHandler -= SelectFriendListSlot;
         UI_FriendListSlot.WalkOrRestCheckHandler -= FriendWalkOrRest;
         UI_Game.StatusOpenHandler -= SetFrieldStatus;
-        EventBus.OnFriendCountUpdateHandler -= FriendCountUpdate;
     }
 
     private void OnDestroy()

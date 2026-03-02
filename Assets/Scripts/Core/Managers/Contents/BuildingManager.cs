@@ -20,7 +20,7 @@ public class BuildingManager : Singleton<BuildingManager>
 
     private void Start()
     {
-        UI_Game.BuildingOpenHandler -= SetBuilding; // TODO 건물창 이벤트 
+        UI_Game.BuildingOpenHandler -= SetBuilding; 
         UI_Game.BuildingOpenHandler += SetBuilding;
 
         UI_BuildSlot.OnToolTipHandler -= tooltip.Init;

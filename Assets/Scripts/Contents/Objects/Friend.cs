@@ -26,7 +26,6 @@ public class Friend : BaseObject
         revenue = gameObject.FindChild<RevenueObject>();
 
         type = EWorldObject_Type.Friend;
-        State = EObject_State.Idle;
         RarityOutLine();
 
         coroutineList = new List<Coroutine>
@@ -66,13 +65,10 @@ public class Friend : BaseObject
                 continue;
             }
 
-            List<EObject_State> animList = new List<EObject_State>() { EObject_State.Idle, EObject_State.Move, EObject_State.Doing };
-            animList.Remove(State);
+            List<EFriend_State> animList = new List<EFriend_State>() { EFriend_State.Idle, EFriend_State.Move, EFriend_State.Doing };
 
             yield return new WaitForSeconds(stateChangeSec);
-
             int rand = Random.Range(0, animList.Count);
-            State = animList[rand];
         }
     }
 
@@ -113,16 +109,16 @@ public class Friend : BaseObject
         }
     }
 
-    protected override void UpdateIdle()
-    {
+    //protected override void UpdateIdle()
+    //{
 
-    }
+    //}
 
-    protected override void UpdateMove()
-    {
-        float clampX = Mathf.Clamp(transform.position.x + (Front * Time.deltaTime * 2f), -21.5f, 23.5f);
-        transform.position = new Vector3(clampX, transform.position.y, 0);
-    }
+    //protected override void UpdateMove()
+    //{
+    //    float clampX = Mathf.Clamp(transform.position.x + (Front * Time.deltaTime * 2f), -21.5f, 23.5f);
+    //    transform.position = new Vector3(clampX, transform.position.y, 0);
+    //}
 
     private void OnDisable()
     {

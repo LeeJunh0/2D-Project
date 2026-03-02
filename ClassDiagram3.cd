@@ -1,35 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BaseBackGround" Collapsed="true">
-    <Position X="16.5" Y="0.5" Width="1.5" />
+    <Position X="18.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAIAAAICAEAAAAAAAAAAAAAAAAAAAAACAAAAEA=</HashCode>
       <FileName>Assets\Scripts\Contents\BaseBackGround.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BaseBuilding" Collapsed="true">
-    <Position X="18.25" Y="0.5" Width="1.5" />
+    <Position X="20.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAACAEQAAEA=</HashCode>
       <FileName>Assets\Scripts\Contents\Building\BaseBuilding.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Preview" Collapsed="true">
-    <Position X="23.5" Y="3.5" Width="1.5" />
+    <Position X="24" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAACAJABAACQAAAAAAAAAAAAEABAIAQAAAAAACAA=</HashCode>
       <FileName>Assets\Scripts\Contents\Building\Preview.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CameraController" Collapsed="true">
-    <Position X="23.5" Y="0.5" Width="1.5" />
+    <Position X="25.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\CameraController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FriendGacha" Collapsed="true">
-    <Position X="21.75" Y="1.5" Width="1.5" />
+    <Position X="24" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\FriendGacha.cs</FileName>
@@ -50,21 +50,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RevenueObject" Collapsed="true">
-    <Position X="14.75" Y="4.5" Width="1.5" />
+    <Position X="27.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAABABQAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\RevenueObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_Arrow" Collapsed="true">
-    <Position X="18.25" Y="4.5" Width="1.5" />
+    <Position X="18.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAEA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_Arrow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_BuildingToolTip" Collapsed="true">
-    <Position X="20" Y="4.5" Width="1.5" />
+    <Position X="20.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_BuildingToolTip.cs</FileName>
@@ -78,14 +78,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="UI_CollectionSlot" Collapsed="true">
-    <Position X="21.75" Y="4.5" Width="1.5" />
+    <Position X="22.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAACAAAAQAAAAAAAAAAAACAAAAAAI=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_CollectionSlot.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_EventHandler" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="23.5" Y="4.5" Width="1.5" />
+    <Position X="24" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAgBIAEAQAIBAEBAAIAAiACIAAAAAAQCAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_EventHandler.cs</FileName>
@@ -93,7 +93,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="UI_FriendCollection" Collapsed="true">
-    <Position X="25.25" Y="4.5" Width="1.5" />
+    <Position X="25.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACABAIACABAAAQAAAAQAAAAAAAAEAAAAAFAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_FriendCollection.cs</FileName>
@@ -107,9 +107,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="UI_FriendShop" Collapsed="true">
-    <Position X="14.75" Y="5.5" Width="1.5" />
+    <Position X="27.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACABAAACJAAAAAAABAAAAAAAAAAAAAAIADEEAAAAA=</HashCode>
+      <HashCode>AAACAAAAACJAAAAAAABAAAAAAAAAAAAAAIADEEAAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_FriendShop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -121,21 +121,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="UI_FriendStatus" Collapsed="true">
-    <Position X="16.5" Y="5.5" Width="1.5" />
+    <Position X="17" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAABABAQASIASQgAJCgIABYCAAAAEECIAIAFUQJABoA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_FriendStatus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_Game" Collapsed="true">
-    <Position X="18.25" Y="5.5" Width="1.5" />
+    <Position X="18.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IgACAAAQAAOAAAASAEAABACAAAAIAHAgAAAARCQAEGA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_LoadingText" Collapsed="true">
-    <Position X="20" Y="5.5" Width="1.5" />
+    <Position X="20.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAMA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_LoadingText.cs</FileName>
@@ -149,63 +149,63 @@
     </TypeIdentifier>
   </Class>
   <Class Name="UI_ShopGacha" Collapsed="true">
-    <Position X="21.75" Y="5.5" Width="1.5" />
+    <Position X="22.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQBAABAAACAAEAACAAAACAIIAAAIAAQAAEAJQCgAAgA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_ShopGacha.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_Spinner" Collapsed="true">
-    <Position X="23.5" Y="5.5" Width="1.5" />
+    <Position X="24" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAABAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_Spinner.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_Title" Collapsed="true">
-    <Position X="25.25" Y="5.5" Width="1.5" />
+    <Position X="25.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BgAABAAAAAAiAAACoAAgEIAwAAAQACAIABQACAQIAEA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_Title.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UI_UnLockToolTip" Collapsed="true">
-    <Position X="14.75" Y="6.5" Width="1.5" />
+    <Position X="27.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_UnLockToolTip.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UIUpgrade" Collapsed="true">
-    <Position X="16.5" Y="6.5" Width="1.5" />
+    <Position X="17" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Assets\Scripts\Contents\UI\UI_Upgrade.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerInfo" Collapsed="true">
-    <Position X="18.25" Y="3.5" Width="1.5" />
+    <Position X="18.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgEASAAAAAAAAAAAAAAAAAAAAAgAAAQAoAABAAABAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerOptionData" Collapsed="true">
-    <Position X="20" Y="3.5" Width="1.5" />
+    <Position X="20.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAAACAAAgAAAAAAAAABAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StatInfo" Collapsed="true">
-    <Position X="16.5" Y="4.5" Width="1.5" />
+    <Position X="17" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAAAAAAABAAAgAAEACAAAAAAAAAAAAQ=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FriendStatSet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="16.5" Y="2.5" Width="1.5" />
+    <Position X="18.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
@@ -213,14 +213,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="NumberData" Collapsed="true">
-    <Position X="25.25" Y="2.5" Width="1.5" />
+    <Position X="25.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NumberDataSet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="14.75" Y="3.5" Width="1.5" />
+    <Position X="27.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
@@ -228,14 +228,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="UnLockData" Collapsed="true">
-    <Position X="18.25" Y="6.5" Width="1.5" />
+    <Position X="18.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAIACAAAAAAEAAAAQABAAAAAAEAAAABAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FriendUnLockDataSet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="20" Y="2.5" Width="1.5" />
+    <Position X="22.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
@@ -243,49 +243,49 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="FriendInfo" Collapsed="true">
-    <Position X="23.5" Y="1.5" Width="1.5" />
+    <Position X="25.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAQAAAIAAAAAAAAAAEAAAAAAAAIAAAACA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FriendStat" Collapsed="true">
-    <Position X="14.75" Y="2.5" Width="1.5" />
+    <Position X="17" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEBAAAAAAAAAAAAAAAAAAQAAAQEAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerCollection" Collapsed="true">
-    <Position X="16.5" Y="3.5" Width="1.5" />
+    <Position X="17" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAACAAEAAAEAACAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerUnLockData" Collapsed="true">
-    <Position X="21.75" Y="3.5" Width="1.5" />
+    <Position X="22.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FriendCollectionInfo" Collapsed="true">
-    <Position X="20" Y="1.5" Width="1.5" />
+    <Position X="22.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAIABAAIAAAAAAAAQAAAEAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BuildInfo" Collapsed="true">
-    <Position X="20" Y="0.5" Width="1.5" />
+    <Position X="22.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAACAAAAAAAAAIAAAAAAAAAEEAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BuildSet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="21.75" Y="0.5" Width="1.5" />
+    <Position X="24" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
@@ -293,7 +293,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="FriendSet" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="25.25" Y="1.5" Width="1.5" />
+    <Position X="27.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
@@ -301,7 +301,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AddressableManager" Collapsed="true">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+    <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAgAAAAAAAAAAAAAAAAAAAAAABAAIAAAARAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\AddressableManager.cs</FileName>
@@ -315,21 +315,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BuildingManager" Collapsed="true">
-    <Position X="10" Y="2" Width="1.5" />
+    <Position X="12.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACABAAATAAAAAAAAAAAAAIAAEABAhAMAALAAAAADA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\Contents\BuildingManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EventBus" Collapsed="true">
-    <Position X="16.5" Y="1.5" Width="1.5" />
+    <Position X="18.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABFAAQgABAAAAAAAAAACAQgAAAAAEAAAAAAAAAgBEA=</HashCode>
+      <HashCode>AQBFAAQgABAAAAAAAAAACAQgAAAAAEAAAQAgAAAgBEA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\Contents\EventBus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FriendUnLockController" Collapsed="true">
-    <Position X="18.25" Y="2.5" Width="1.5" />
+    <Position X="20.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\Contents\FriendUnLockController.cs</FileName>
@@ -343,28 +343,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LoadingManager" Collapsed="true">
-    <Position X="21.75" Y="2.5" Width="1.5" />
+    <Position X="24" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAQAAAAAAAAAAAAAQAAEAAAAAAAAAAAgAAAAEA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\Contents\LoadingManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataManager" Collapsed="true">
-    <Position X="25.25" Y="0.5" Width="1.5" />
+    <Position X="27.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAQAQAAAAAAAQAAAAAAAAAgAAACAAAACAI=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\DataManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MainManager" Collapsed="true">
-    <Position X="23.5" Y="2.5" Width="1.5" />
+  <Class Name="MainManager">
+    <Position X="10" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIABAAAIAAAAAAAAAAAAAAAABBAIBAAQAACAAAAAEA=</HashCode>
+      <HashCode>AAIABAAAIAAAAAAAAAAAAAAAABAAIBAAAAAAAAAAAEA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\MainManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OptionManager" Collapsed="true">
-    <Position X="12.25" Y="2" Width="1.5" />
+    <Position X="14.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAIAAACAAAAAAAAAqgAACAyAAAgggAAEBAAABAAE=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\OptionManager.cs</FileName>
@@ -378,7 +378,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ResourceManager" Collapsed="true">
-    <Position X="25.25" Y="3.5" Width="1.5" />
+    <Position X="25.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\ResourceManager.cs</FileName>
@@ -392,49 +392,49 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Define" Collapsed="true">
-    <Position X="14.75" Y="1.5" Width="1.5" />
+    <Position X="17" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Util\Define.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Extension" Collapsed="true">
-    <Position X="18.25" Y="1.5" Width="1.5" />
+    <Position X="20.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAEgBAAAAAAAQAAEAAAQAAAA0AAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Util\Extension.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Singleton&lt;T&gt;" Collapsed="true">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAEA=</HashCode>
       <FileName>Assets\Scripts\Util\Singleton.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="SerializableVector3" Collapsed="true">
-    <Position X="14.75" Y="7.75" Width="1.5" />
+    <Position X="17" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAABgAQAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="ILoader&lt;Key, Value&gt;" Collapsed="true">
-    <Position X="14.75" Y="9" Width="1.5" />
+    <Position X="17" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Managers\DataManager.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="UnlockObjectType" Collapsed="true">
-    <Position X="16.5" Y="10" Width="1.5" />
+    <Position X="18.75" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAgAAACAAAAAEAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="UnlockActionType" Collapsed="true">
-    <Position X="14.75" Y="10" Width="1.5" />
+    <Position X="17" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Assets\Scripts\Core\Datas\Data.cs</FileName>

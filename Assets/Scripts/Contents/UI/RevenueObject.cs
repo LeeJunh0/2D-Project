@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 수익 월드 UI 오브젝트
+/// </summary>
 public class RevenueObject : MonoBehaviour
 {
     [SerializeField] private Vector3 initPos;

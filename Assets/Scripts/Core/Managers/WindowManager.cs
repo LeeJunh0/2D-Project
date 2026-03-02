@@ -119,6 +119,7 @@ public class WindowManager : Singleton<WindowManager>
 
     private void UpdateWindowPos()
     {
+        // 현재 실행중인 윈도우 번호
         IntPtr hwnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
 
         ApplyTransparentAndBorderless(hwnd);
@@ -127,6 +128,7 @@ public class WindowManager : Singleton<WindowManager>
         SetWindowPos(hwnd, curPin, screenX, screenY, gameSizeX, gameSizeY, showWindow);
     }
 
+    // 창 스타일 제어
     private void ApplyTransparentAndBorderless(IntPtr hWnd)
     {
         SetWindowLong(hWnd, GWL_EXSTYLE, (int)WS_EX_LAYERED);

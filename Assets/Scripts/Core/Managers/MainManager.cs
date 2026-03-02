@@ -1,11 +1,7 @@
 using UnityEngine;
 
-public class MainManager : MonoBehaviour
+public class MainManager : Singleton<MainManager>
 {
-    private static MainManager instance = null;
-
-    private static MainManager Instance { get { Init(); return instance; } }
-
     // Not MonoBehaviour
     private DataManager dataManager = new DataManager();
     private ResourceManager resourceManager = new ResourceManager();
@@ -15,25 +11,9 @@ public class MainManager : MonoBehaviour
     public static ResourceManager Resource { get => Instance.resourceManager; }
     public static AddressableManager Addressable { get => Instance.addressableManager; }
 
-    static private void Init()
+    protected override void Awake()
     {
-        if (instance != null)
-            return;
-
-        GameObject go = GameObject.Find("MainManager");
-        if(go == null)
-        {
-            go = new GameObject(name: "MainManager");
-            go.AddComponent<MainManager>();
-        }
-
-        instance = go.GetComponent<MainManager>();
-        DontDestroyOnLoad(go);
-    }
-
-    private void Awake()
-    {
-        Init();
+        base.Awake();
 
         Addressable.LoadAsyncAll<Object>("Game", (key, cur, total) =>
         {

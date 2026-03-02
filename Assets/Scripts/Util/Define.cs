@@ -6,7 +6,7 @@ public static class Define
         Friend,
     }
 
-    public enum EObject_State
+    public enum EFriend_State
     {
         Idle,
         Move,

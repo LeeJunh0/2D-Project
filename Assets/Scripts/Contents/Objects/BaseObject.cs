@@ -6,7 +6,7 @@ using static Define;
 public abstract class BaseObject : MonoBehaviour
 {
     [Header("현재 상태")]
-    [SerializeField] private EObject_State curState;
+    [SerializeField] private EFriend_State curState;
 
     [Header("오브젝트 타입")]
     [SerializeField] protected EWorldObject_Type type = EWorldObject_Type.None;
@@ -14,29 +14,29 @@ public abstract class BaseObject : MonoBehaviour
     private Animator anim;
     protected List<Coroutine> coroutineList;
 
-    public virtual EObject_State State
+    public virtual EFriend_State State
     {
         get { return curState; }
         set
         {
-            anim = gameObject.FindChild<Animator>();
+     
             curState = value;
 
             switch (curState)
             {
-                case EObject_State.Idle:
+                case EFriend_State.Idle:
                     anim.CrossFade("Idle", 0.1f);
                     break;
-                case EObject_State.Move:
+                case EFriend_State.Move:
                     anim.CrossFade("Move", 0.1f);
                     break;
-                case EObject_State.Doing:
+                case EFriend_State.Doing:
                     {
                         int id = Animator.StringToHash("Base Layer.Idle");
                         if (anim.HasState(0, id) == true)
                             anim.CrossFade("Doing", 0.1f);
                         else
-                            State = EObject_State.Idle;
+                            State = EFriend_State.Idle;
                     }
                     break;
             }
@@ -46,6 +46,7 @@ public abstract class BaseObject : MonoBehaviour
 
     private void OnEnable()
     {
+        anim = GetComponentInChildren<Animator>();
         Init();
     }
 
@@ -58,13 +59,13 @@ public abstract class BaseObject : MonoBehaviour
     {
         switch (State)
         {
-            case EObject_State.Idle:
+            case EFriend_State.Idle:
                 UpdateIdle();
                 break;
-            case EObject_State.Move:
+            case EFriend_State.Move:
                 UpdateMove();
                 break;
-            case EObject_State.Doing:
+            case EFriend_State.Doing:
                 UpdateDoing();
                 break;
         }

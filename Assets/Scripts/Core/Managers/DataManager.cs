@@ -9,11 +9,16 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
-    public Dictionary<string, StatInfo> FriendStatDict { get; private set; } = new Dictionary<string, StatInfo>();
-    public Dictionary<string, FriendInfo> FriendDataDict { get; private set; } = new Dictionary<string, FriendInfo>();
-    public Dictionary<string, UnLockData> FriendUnLockDataDict { get; private set; } = new Dictionary<string, UnLockData>();
-    public Dictionary<int, NumberData> NumberDataDict { get; private set; } = new Dictionary<int, NumberData>();
-    public Dictionary<string, BuildInfo> BuildDataDict { get; private set; } = new Dictionary<string, BuildInfo>();
+    public Dictionary<string, StatInfo> FriendStatDict { get; private set; }
+        = new Dictionary<string, StatInfo>();
+    public Dictionary<string, FriendInfo> FriendDataDict { get; private set; }
+        = new Dictionary<string, FriendInfo>();
+    public Dictionary<string, UnLockData> FriendUnLockDataDict { get; private set; }
+        = new Dictionary<string, UnLockData>();
+    public Dictionary<int, NumberData> NumberDataDict { get; private set; }
+        = new Dictionary<int, NumberData>();
+    public Dictionary<string, BuildInfo> BuildDataDict { get; private set; }
+        = new Dictionary<string, BuildInfo>();
 
     public void Init()
     {
