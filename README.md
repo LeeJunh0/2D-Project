@@ -22,7 +22,7 @@
     * TextMeshProUGUI.SetText를 통한 string 최적화
     * SpriteAtlas를 통한 Batch연산 감소, 드로우 콜 감소
   <br>
-* **UI:** 중재자패턴을 통한 의존성 감소 와 확장성 증진
+* **UI:** 이벤트버스와 WeakReference를 통한 의존성 감소 와 확장성 증진 휴먼에러 차단
 
 
 ---
